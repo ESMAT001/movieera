@@ -24,8 +24,8 @@ export default function Home({ movies, error }) {
           crossOrigin="anonymous"
         />
       </Head>
-      {movies && movies.map(movie => {
-        return (<h1 className="font-semibold text-purple-700">{movie.original_title}</h1>)
+      {movies && movies.map((movie, i) => {
+        return (<h1 className="font-semibold text-purple-700" key={i}>{movie.original_title}</h1>)
       })}
 
       {error && <h1 className="text-red-400">{error}</h1>}
@@ -37,9 +37,14 @@ export default function Home({ movies, error }) {
 }
 
 export async function getStaticProps() {
-  const [movies, error] = await callApi("https://localhost:3000/api/trending")
-  return {
-    props: { movies, error }
-  }
 
+  const revalidate = parseInt(86400 / 4)
+
+  const [movies, error] = await callApi("http://localhost:3000/api/trending")
+
+
+  return {
+    props: { movies, error },
+    revalidate
+  }
 }

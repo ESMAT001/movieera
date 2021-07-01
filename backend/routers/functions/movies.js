@@ -15,7 +15,7 @@ async function fetchMoviesRouteData(db, page, limit = 12) {
 
     const totalPages = Math.ceil(totalResult / limit)
 
-    return { page, totalResult, totalPages, data }
+    return { page, totalResult, totalPages, results: data }
 }
 
 module.exports = fetchMoviesRouteData

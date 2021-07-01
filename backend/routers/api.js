@@ -19,13 +19,14 @@ router.get('/trending', async function (req, res) {
 
 router.get('/movies', async (req, res) => {
     let { page = 1 } = req.query
+    if (!page || /[a-zA-Z./()$-]/g.test(page)) return res.status(400).send("Bad request!");
     page = parseInt(page)
-    if (page < 1) return res.status(400).send("Bad request!")
+    if (page < 1) return res.status(400).send("bad request")
 
     const db = await connectToDb(dbName)
     const data = await fetchMoviesRouteData(db, page)
 
-    res.send({ data })
+    res.send(data)
 })
 
 router.get('/movie', async (req, res) => {
