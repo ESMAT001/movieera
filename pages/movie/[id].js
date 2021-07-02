@@ -1,14 +1,16 @@
 import React from 'react'
 import { callApi } from '../../functions/functions'
+import { useRouter } from 'next/router'
+import Movie from '../../components/movie'
+import Loading from '../../components/utils/Loading'
 
-function index({ movie, error }) {
-    console.log(movie)
-    return (
-        <div>
-            movie <br /> 
-            {movie.title} {movie.id}
-        </div>
-    )
+
+function index(props) {
+    const router = useRouter()
+    if (router.isFallback) {
+        return <Loading/>
+    }
+    return (<Movie {...props} />)
 }
 
 export default index
