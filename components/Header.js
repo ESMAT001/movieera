@@ -1,9 +1,9 @@
 import React from 'react'
-
-
+import Rating from './utils/Rating'
+import Humbrger from './utils/humberger-icon/Humbrger'
 
 function Header({ movies }) {
-    const movie = movies[15]
+    const movie = movies[6]
     console.log(movie)
     return (
         <header className="text-white relative flex flex-col overflow-hidden" >
@@ -12,18 +12,21 @@ function Header({ movies }) {
                 <span className="w-full h-full absolute bg-black bg-opacity-25"></span>
             </div>
             <div className="z-10 flex flex-col items-center">
-                <div className="flex justify-between w-full py-5 px-8">
-                    <h1 className="text-white text-lg font-movieNameFont leading-normal antialiased rounded-md shadow-xl px-2 py-1">MOVIE<span className="text-nice-red">E</span>RA</h1>
-                    <span>E</span>
-                </div>
-                <div className=" w-4/6 my-10 grid grid-cols-3 justify-items-center">
-                    <div className="col-span-2 justify-self-start flex flex-col justify-evenly">
-                        <h2 className="text-3xl font-movieNameFont capitalize">
+                {/* <div className="flex justify-between items-center w-full py-5 px-8">
+                    <h1 className="text-white text-lg font-movieNameFont leading-normal antialiased">MOVIE<span className="text-nice-red">E</span>RA</h1>
+                    <span>
+                        <Humbrger />
+                    </span>
+                </div> */}
+                <div className="w-3/6 sm:w-3/6 xl:w-2/5 mb-10 mt-32 grid grid-cols-3 gap-y-4 sm:gap-0 justify-items-center">
+                    <div className="col-span-3 sm:col-span-2 order-2 sm:order-1 sm:justify-self-start flex flex-col justify-evenly items-center sm:items-start space-y-2 sm:space-y-0">
+                        <h2 className="text-2xl sm:text-3xl font-movieNameFont capitalize">
                             {movie.original_title}
                         </h2>
                         <p className="text-sm text-opacity-90 text-gray-200">Rating: {movie.vote_average}</p>
+                        <Rating rating={movie.vote_average} />
                         <p className="font-subMovieFont text-sm text-opacity-90 text-gray-200">Original language : {movie.original_language}</p>
-                        <ul className="flex space-x-2 text-sm text-opacity-90 text-gray-200">
+                        <ul className="flex flex-row flex-wrap space-x-2 text-sm text-opacity-90 text-gray-200">
                             {
                                 movie.genres.map((genre) => (
                                     <li key={genre.id} className="">
@@ -34,23 +37,18 @@ function Header({ movies }) {
                         </ul>
                         <div className="flex space-x-2">
                             <button
-                                className="font-semibold rounded antialiased bg-nice-red  focus:outline-none 
-                            flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white  hover: focus: active: shadow-md-red hover:shadow-lg-red 
-                            "
-                            >Download</button>
+                                className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none 
+                            flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white"
+                            ><i className="fas fa-download"></i> Download</button>
                             <button
-                                className="font-semibold rounded antialiased bg-green-400  focus:outline-none 
-                            flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white  hover: focus: active: shadow-md-red hover:shadow-lg-red 
-                            "
-                            >Play</button>
+                                className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600  focus:outline-none 
+                            flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white  "
+                            > <i className="fas fa-play"></i> Play</button>
                         </div>
-                        <p className="text-sm text-opacity-90 text-gray-200">
-                            Overview: {movie.overview}
-                        </p>
                     </div>
-                    <div className=" col-span-1">
+                    <div className=" col-span-3 sm:col-span-1 order-1 sm:order-2">
                         <img
-                            className="w-4/5 ml-auto shadow-xl hover:shadow-md transform duration-300 hover:scale-105"
+                            className="w-full ml-auto shadow-xl hover:shadow-md transform duration-300 hover:scale-105"
                             src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
                     </div>
                 </div>
