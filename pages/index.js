@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link' 
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 
@@ -24,6 +25,10 @@ export default function Home({ movies, error }) {
           crossOrigin="anonymous"
         />
       </Head>
+      <Link href="/movies">
+      <a>Movies</a>
+      </Link>
+
       {movies && movies.map((movie, i) => {
         return (<h1 className="font-semibold text-purple-700" key={i}>{movie.original_title}</h1>)
       })}
