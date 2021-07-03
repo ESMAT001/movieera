@@ -1,3 +1,6 @@
+.hide-scroll-bar::-webkit-scrollbar{
+  display: none;
+}
 
 .burgermenu {
   border: none;

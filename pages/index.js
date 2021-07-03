@@ -7,7 +7,7 @@ import Header from '../components/Header'
 import { callApi } from '../functions/functions'
 
 export default function Home({ movies, error }) {
-  console.log(movies)
+  // console.log(movies)
   return (
     <>
       <CustomHead title="cool"/>
