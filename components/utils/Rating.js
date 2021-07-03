@@ -5,9 +5,9 @@ function Rating({ rating }) {
     let jsx = [];
     for (let index = 1; index <= 5; index++) {
         if (index <= fillStarsCount) {
-            jsx.push(<span class="fas fa-star text-yellow-400" key={index}></span>)
+            jsx.push(<span className="fas fa-star text-yellow-400" key={index}></span>)
         } else {
-            jsx.push(<span class="fas fa-star " key={index}></span>)
+            jsx.push(<span className="fas fa-star " key={index}></span>)
         }
     }
     return (

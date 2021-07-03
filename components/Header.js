@@ -1,6 +1,6 @@
 import React from 'react'
 import Rating from './utils/Rating'
-import Humbrger from './utils/humberger-icon/Humbrger'
+import MovieMoreInfo from './MovieMoreInfo'
 
 function Header({ movies }) {
     const movie = movies[6]
@@ -12,12 +12,6 @@ function Header({ movies }) {
                 <span className="w-full h-full absolute bg-black bg-opacity-25"></span>
             </div>
             <div className="z-10 flex flex-col items-center">
-                {/* <div className="flex justify-between items-center w-full py-5 px-8">
-                    <h1 className="text-white text-lg font-movieNameFont leading-normal antialiased">MOVIE<span className="text-nice-red">E</span>RA</h1>
-                    <span>
-                        <Humbrger />
-                    </span>
-                </div> */}
                 <div className="w-3/6 sm:w-3/6 xl:w-2/5 mb-10 mt-32 grid grid-cols-3 gap-y-4 sm:gap-0 justify-items-center">
                     <div className="col-span-3 sm:col-span-2 order-2 sm:order-1 sm:justify-self-start flex flex-col justify-evenly items-center sm:items-start space-y-2 sm:space-y-0">
                         <h2 className="text-2xl sm:text-3xl font-movieNameFont capitalize">
@@ -47,9 +41,7 @@ function Header({ movies }) {
                         </div>
                     </div>
                     <div className=" col-span-3 sm:col-span-1 order-1 sm:order-2">
-                        <img
-                            className="w-full ml-auto shadow-xl hover:shadow-md transform duration-300 hover:scale-105"
-                            src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
+                        <MovieMoreInfo imagePath={movie.poster_path} />
                     </div>
                 </div>
                 <div>
