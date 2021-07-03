@@ -2,26 +2,41 @@ import React, { useState, useEffect } from 'react'
 import Rating from './utils/Rating'
 import MovieMoreInfo from './MovieMoreInfo'
 
+let movieRefs = []
+
 function Header({ movies }) {
     const [movieIndex, setMovieIndex] = useState(0)
     const [movie, setMovie] = useState(movies[movieIndex])
 
-    function changeMovie() {
+    if (movieRefs.length === 0) {
+        for (let index = 0; index < movies.length; index++) {
+            movieRefs.push(React.createRef())
+        }
+    }
+
+
+    function changeMovie(i = -1) {
+
         setMovieIndex(prev => {
+            movieRefs[prev].current.classList.remove("scale-125")
+            if (i > -1) return i;
             if (prev + 1 > (movies.length - 1)) return 0;
             return prev + 1
         })
+
+
     }
 
     useEffect(() => {
-        // const fnId = setInterval(changeMovie, 3000);
-        // return () => {
-        //     clearInterval(fnId)
-        // }
+        const fnId = setInterval(changeMovie, 3000);
+        return () => {
+            clearInterval(fnId)
+        }
     }, [])
 
     useEffect(() => {
         setMovie(movies[movieIndex])
+        movieRefs[movieIndex].current.classList.add("scale-125")
     }, [movieIndex])
 
     return (
@@ -39,7 +54,7 @@ function Header({ movies }) {
                         <p className="text-sm text-opacity-90 text-gray-200">Rating: {movie.vote_average}</p>
                         <Rating rating={movie.vote_average} />
                         <p className="font-subMovieFont text-sm text-opacity-90 text-gray-200">Original language : {movie.original_language}</p>
-                        <ul className="flex flex-row flex-wrap space-x-2 text-sm text-opacity-90 text-gray-200">
+                        <ul className="flex flex-row flex-wrap justify-center space-x-2 text-sm text-opacity-90 text-gray-200">
                             {
                                 movie.genres.map((genre) => (
                                     <li key={genre.id} className="">
@@ -71,8 +86,9 @@ function Header({ movies }) {
                                 <img
                                     src={"https://image.tmdb.org/t/p/w500/" + subMovie.poster_path}
                                     className="transform transition-all duration-300 hover:scale-105 w-full h-4/5 cursor-pointer"
-                                    onClick={() => setMovieIndex(i)}
-                                    key={i + "movieX"} />
+                                    ref={movieRefs[i]}
+                                    onClick={() => changeMovie(i)}
+                                    key={i + "movieXkey"} />
 
                             )
                         })
