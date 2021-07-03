@@ -4,6 +4,13 @@ const connectToDb = require('../db')
 const fetchData = require('./functions/trending')
 const fetchMoviesRouteData = require('./functions/movies')
 const fetchSingleMovieData = require('./functions/movie')
+//test
+
+const movieDataScraper = require('./scrapy/index')
+
+//test
+
+
 
 const dbName = "media"
 
@@ -38,6 +45,12 @@ router.get('/movie', async (req, res) => {
     const data = await fetchSingleMovieData(db, id)
     if (!data) return res.status(404).send("Movie not found!")
     res.send(data)
+})
+
+router.get('/test', async (req, res) => {
+    const db = await connectToDb(dbName)
+
+    res.send(await movieDataScraper(db, ""))
 })
 
 

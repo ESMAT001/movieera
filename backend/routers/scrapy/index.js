@@ -53,7 +53,7 @@ module.exports = async function movieDataScraper(db, info) {
         console.log(id, data.movie_name, 'inserted')
     }
 
-    let tempData = await spider.search("3 529203 City of Lies 2018")
+    return await spider.search("3 522931 Hitman's Wife's Bodyguard 2021")
 }
 
 

@@ -10,6 +10,9 @@ const scrapyJS = function (baseURL = {}, firstPage = 1, lastPage = 1, options = 
     let threads = 0
     const maxThreads = options.maxThreads || 8
    
+    const retryLimit = 8
+    const timeOutLimit = 120000
+
     const englishLangRegx = /[a-zA-Z 0-9]/g
 
     const getPage = (function* nextPage() {
