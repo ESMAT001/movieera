@@ -75,7 +75,7 @@ function Header({ movies }) {
                         </div>
                     </div>
                     <div className=" col-span-3 sm:col-span-1 order-1 sm:order-2">
-                        <MovieMoreInfo imagePath={movie.poster_path} />
+                        <MovieMoreInfo imagePath={movie.poster_path} movieId={movie.id} />
                     </div>
                 </div>
                 <div className="flex flex-row flex-nowrap h-48 xl:h-56 2xl:h-72 w-screen items-center space-x-6  overflow-x-scroll  hide-scroll-bar mt-4 sm:mt-6 mb-10 px-10">

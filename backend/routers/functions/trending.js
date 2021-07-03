@@ -15,7 +15,22 @@ async function apiCallForIds(movieCount, db) {
         const results = data.results
         for (let index = 0; index < results.length; index++) {
             const id = results[index].id
-            let movieDbData = await db.collection('movie').findOne({ id })
+            let movieDbData = await db.collection('movie').findOne(
+                {
+                    $and: [
+                        { id },
+                        {
+                            $or: [
+                                { $and: [{ "download_links.original_lang": { $exists: true } }, { "download_links.original_lang": { $not: { $size: 0 } } }] },
+                                { $and: [{ "download_links.persian_sub": { $exists: true } }, { "download_links.persian_sub": { $not: { $size: 0 } } }] },
+                                { $and: [{ "download_links.dual_lang": { $exists: true } }, { "download_links.dual_lang": { $not: { $size: 0 } } }] },
+                                { $and: [{ "download_links.persian_lang": { $exists: true } }, { "download_links.persian_lang": { $not: { $size: 0 } } }] },
+                            ]
+                        }
+
+                    ]
+                }
+            )
             if (movieDbData) movieIds.push(id)
 
             if (movieIds.length >= movieCount) return movieIds;
