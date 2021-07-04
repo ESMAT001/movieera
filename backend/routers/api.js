@@ -6,7 +6,7 @@ const fetchMoviesRouteData = require('./functions/movies')
 const fetchSingleMovieData = require('./functions/movie')
 //test
 
-const movieDataScraper = require('./scrapy/index')
+const scrapeDataInBackground = require('./scrapy/index')
 
 //test
 
@@ -50,7 +50,7 @@ router.get('/movie', async (req, res) => {
 router.get('/test', async (req, res) => {
     const db = await connectToDb(dbName)
 
-    res.send(await movieDataScraper(db, ""))
+    res.send(await scrapeDataInBackground(db))
 })
 
 

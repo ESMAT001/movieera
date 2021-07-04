@@ -6,7 +6,7 @@ const baseURL = ''
 const firstPage = 819
 const lastPage = 1395
 
-module.exports = async function movieDataScraper(db, info) {
+async function movieDataScraper(db, moviesToBeCrawled) {
     const spider = scrapyJS(baseURL, firstPage, lastPage, {
         nameSelector: 'div.content > div > p',
         downloadLinkSelector: "div.content > *",
@@ -34,37 +34,77 @@ module.exports = async function movieDataScraper(db, info) {
     })
 
 
-    async function insert({ id, data, fromSite }) {
-        id = parseInt(id)
-        console.log(id, data.movie_name, fromSite)
-        fs.appendFileSync('./foundData.txt', id + " " + data.movie_name + " " + fromSite + "\n")
-        if (fromSite) db.collection("movies").insertOne(data);
-        if (await db.collection("movie").findOne({ id })) return;
-        let movieData = await db.collection("tmdb").findOne({ id })
 
 
-        if (!movieData) return;
+    return await spider.search("3 522931 Hitman's never ending Wife's Bodyguard 2021")
+}
 
-        movieData.download_links = data.download_links
-        const imgPath = 'https://image.tmdb.org/t/p/w500'
-        movieData.backdrop_path = imgPath + movieData.backdrop_path
-        movieData.poster_path = imgPath + movieData.poster_path
-        await db.collection("movie").insertOne(movieData)
-        console.log(id, data.movie_name, 'inserted')
+async function scrapeDataInBackground(db, movie = null) {
+
+    if (movie) {
+        return movie
     }
 
-    return await spider.search("3 522931 Hitman's Wife's Bodyguard 2021")
+    const dbData = await db.collection("meta_data").findOne({ name: "scrapy" })
+    let shouldScrapeData = false;
+    if (dbData) {
+
+        const lastUpdated = new Date(dbData.last_updated)
+        lastUpdated.setDate(lastUpdated.getDate() + 1)
+        if (lastUpdated < new Date()) shouldScrapeData = true;
+
+    } else {
+
+        let date = new Date()
+        date.setDate(date.getDate() + 1)
+        date = date.toUTCString()
+        await db.collection("meta_data").insertOne({
+            name: 'scrapy',
+            last_updated: date
+        })
+        shouldScrapeData = true
+    }
+
+
+    if (shouldScrapeData) {
+
+    }
+
+
+
 }
 
 
 
 
+module.exports = scrapeDataInBackground
 
 
 
 
 
 
+
+
+
+// async function insert({ id, data, fromSite }) {
+    //     id = parseInt(id)
+    //     console.log(id, data.movie_name, fromSite)
+    //     fs.appendFileSync('./foundData.txt', id + " " + data.movie_name + " " + fromSite + "\n")
+    //     if (fromSite) db.collection("movies").insertOne(data);
+    //     if (await db.collection("movie").findOne({ id })) return;
+    //     let movieData = await db.collection("tmdb").findOne({ id })
+
+
+    //     if (!movieData) return;
+
+    //     movieData.download_links = data.download_links
+    //     const imgPath = 'https://image.tmdb.org/t/p/w500'
+    //     movieData.backdrop_path = imgPath + movieData.backdrop_path
+    //     movieData.poster_path = imgPath + movieData.poster_path
+    //     await db.collection("movie").insertOne(movieData)
+    //     console.log(id, data.movie_name, 'inserted')
+    // }
 
 
 

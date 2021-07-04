@@ -527,12 +527,10 @@ const scrapyJS = function (baseURL = {}, firstPage = 1, lastPage = 1, options = 
 
         let data = await searchFirstSite(name + " " + movieDate, true)
         if (!data) {
-            // console.log('not found in first going to second site')
+            console.log('not found in first going to second site')
             data = await searchSecondSite(name + " " + movieDate, true)
         };
         return { id, data, fromSite: true };
-
-
 
     }
 
