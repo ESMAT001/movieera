@@ -9,7 +9,7 @@ const { JSDOM } = require("jsdom");
 const scrapyJS = function (baseURL = {}, firstPage = 1, lastPage = 1, options = {}) {
     let threads = 0
     const maxThreads = options.maxThreads || 8
-   
+
     const retryLimit = 8
     const timeOutLimit = 120000
 
@@ -251,8 +251,37 @@ const scrapyJS = function (baseURL = {}, firstPage = 1, lastPage = 1, options = 
     }
 
 
+
+    function createMoiveNameForUrl(name) {
+        const regx = /[():'`]/g
+        name = name.split("")
+        for (let index = 0; index < name.length; index++) {
+            if (regx.test(name[index])) {
+                switch (name[index]) {
+                    case "'":
+                        name[index] = "%27"
+                        break;
+                    case "(":
+                        name[index] = "%28"
+                        break;
+                    case ")":
+                        name[index] = "%29"
+                        break;
+                    default:
+                        name[index] = encodeURIComponent(name[index])
+                        break;
+                }
+            }
+        }
+        name = name.join("").replaceAll(" ", "+")
+        return name
+    }
+
+
+
     async function searchFirstSite(name, shouldReturn = false) {
-        const url = 'https://www.film2movie.asia/search/' + encodeURI(name)
+        const url = 'https://www.film2movie.asia/search/' + createMoiveNameForUrl(name)
+        console.log(url)
         try {
             var html = await got(url, {
                 retry: { limit: retryLimit },
@@ -415,27 +444,8 @@ const scrapyJS = function (baseURL = {}, firstPage = 1, lastPage = 1, options = 
     async function searchSecondSite(name, shouldReturn = false) {
         const originl_name = name
         const url = "https://www.film2serial.ir/?s="
-        const regx = /[():'`]/g
-        name = name.split("")
-        for (let index = 0; index < name.length; index++) {
-            if (regx.test(name[index])) {
-                switch (name[index]) {
-                    case "'":
-                        name[index] = "%27"
-                        break;
-                    case "(":
-                        name[index] = "%28"
-                        break;
-                    case ")":
-                        name[index] = "%29"
-                        break;
-                    default:
-                        name[index] = encodeURIComponent(name[index])
-                        break;
-                }
-            }
-        }
-        name = name.join("").replaceAll(" ", "+")
+
+        name = createMoiveNameForUrl(name)
 
         try {
             var html = await got(url + name, {
@@ -493,8 +503,14 @@ const scrapyJS = function (baseURL = {}, firstPage = 1, lastPage = 1, options = 
         const movieDate = name.pop()
 
         let temp = name.join(" ").replaceAll(/[.*']/g, '').replaceAll(/[-]/g, " ").replaceAll(/[&]/g, 'and')
-        name = name.join(" ").replaceAll(/[.()*']/g, '').replaceAll(/[-]/g, " ").replaceAll(/[&]/g, 'and')
-
+        name = name
+            .join(" ")
+            .replaceAll(/[.()*']/g, '')
+            .replaceAll(/[-]/g, " ")
+            .replaceAll(/[&]/g, 'and')
+            .replaceAll(/II/g, '2')
+            .replaceAll(/III/g, '3')
+        console.log(name, movieDate)
         if (db) {
             let dbData
             let tempName = name

@@ -8,6 +8,19 @@ function Header({ movies }) {
     const [movieIndex, setMovieIndex] = useState(0)
     const [movie, setMovie] = useState(movies[movieIndex])
 
+    const interval = {
+        id: null,
+        create() {
+            this.id = setInterval(() => changeMovie(), 3000)
+            // console.log('new interval created', this.id)
+        },
+        destroy() {
+            clearInterval(this.id)
+            this.id = false
+        }
+    }
+
+
     if (movieRefs.length === 0) {
         for (let index = 0; index < movies.length; index++) {
             movieRefs.push(React.createRef())
@@ -15,10 +28,18 @@ function Header({ movies }) {
     }
 
 
-    function changeMovie(i = -1) {
+    function destroyAndChange(i = -2) {
+        // console.log(window.interval)
+        window.interval.destroy()
+        // console.log(window.interval)
+        changeMovie(i)
+    }
+
+    function changeMovie(i = -2) {
 
         setMovieIndex(prev => {
             movieRefs[prev].current.classList.remove("scale-125")
+            if (i === -1) return movies.length - 1;
             if (i > -1) return i;
             if (prev + 1 > (movies.length - 1)) return 0;
             return prev + 1
@@ -28,13 +49,19 @@ function Header({ movies }) {
     }
 
     useEffect(() => {
-        const fnId = setInterval(changeMovie, 3000);
+        interval.create()
+        window.interval = interval
         return () => {
-            clearInterval(fnId)
+            interval.destroy()
         }
     }, [])
 
     useEffect(() => {
+
+        if (window.interval.id === false) {
+            setTimeout(() => window.interval.create(), 3000);
+        }
+
         setMovie(movies[movieIndex])
         movieRefs[movieIndex].current.classList.add("scale-125")
     }, [movieIndex])
@@ -46,7 +73,24 @@ function Header({ movies }) {
                 <span className="w-full h-full absolute bg-black bg-opacity-25"></span>
             </div>
             <div className="z-10 flex flex-col items-center">
-                <div className="w-6/12  2xl:w-6/12 mb-10 mt-32 grid grid-cols-3 gap-y-4 gap-x-4 sm:gap-y-0 justify-items-center">
+                <div className="w-6/12  2xl:w-6/12 mb-10 mt-32 grid grid-cols-3 gap-y-4 gap-x-4 sm:gap-y-0 justify-items-center relative ">
+
+                    <button
+                        className="absolute -left-16 sm:-left-28 z-40 top-1/4 hover:bg-white hover:bg-opacity-20  px-3 pt-12 pb-10 rounded-sm transition-all duration-300"
+                        onClick={() => destroyAndChange(movieIndex - 1)}
+                    >
+                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform -rotate-45 -mt-2 rounded" >'</div>
+                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform rotate-45 mt-2 rounded" >'</div>
+                    </button>
+
+                    <button
+                        className="absolute -right-16 sm:-right-28 z-40 top-1/4 hover:bg-white hover:bg-opacity-20  px-3 pt-12 pb-10 rounded-sm transition-all duration-300"
+                        onClick={destroyAndChange}
+                    >
+                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform rotate-45 -mt-2 rounded" >'</div>
+                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform -rotate-45 mt-2 rounded" >'</div>
+                    </button>
+
                     <div className="col-span-3 sm:col-span-2 order-2 sm:order-1 sm:justify-self-start flex flex-col justify-evenly items-center sm:items-start space-y-2 sm:space-y-0">
                         <h2 className="text-2xl sm:text-3xl text-center sm:text-left font-movieNameFont capitalize">
                             {movie.original_title}
@@ -87,7 +131,7 @@ function Header({ movies }) {
                                     src={"https://image.tmdb.org/t/p/w500/" + subMovie.poster_path}
                                     className="transform transition-all duration-300 hover:scale-105 w-full h-4/5 cursor-pointer"
                                     ref={movieRefs[i]}
-                                    onClick={() => changeMovie(i)}
+                                    onClick={() => destroyAndChange(i)}
                                     key={i + "movieXkey"} />
 
                             )

@@ -1,12 +1,14 @@
 const scrapyJS = require('./scrapy')
+const got = require("got")
 const fs = require('fs')
+const metaData = require('../../utils')
 
 
 const baseURL = ''
 const firstPage = 819
 const lastPage = 1395
 
-async function movieDataScraper(db, moviesToBeCrawled) {
+ function movieDataScraper(db) {
     const spider = scrapyJS(baseURL, firstPage, lastPage, {
         nameSelector: 'div.content > div > p',
         downloadLinkSelector: "div.content > *",
@@ -33,10 +35,11 @@ async function movieDataScraper(db, moviesToBeCrawled) {
         //     .catch(error => console.log('error on insertion :', error))
     })
 
+    async function insertDataToDb() { }
 
 
 
-    return await spider.search("3 522931 Hitman's never ending Wife's Bodyguard 2021")
+    return { search: spider.search, insertDataToDb }
 }
 
 async function scrapeDataInBackground(db, movie = null) {
@@ -46,7 +49,7 @@ async function scrapeDataInBackground(db, movie = null) {
     }
 
     const dbData = await db.collection("meta_data").findOne({ name: "scrapy" })
-    let shouldScrapeData = false;
+    let shouldScrapeData = true;
     if (dbData) {
 
         const lastUpdated = new Date(dbData.last_updated)
@@ -67,7 +70,28 @@ async function scrapeDataInBackground(db, movie = null) {
 
 
     if (shouldScrapeData) {
+        const totalPgesToScrape = 3
+        console.log('pre passed')
+        const { search } = movieDataScraper(db)
+        console.log('passed')
+        let foundData = []
+        for (let page = 1; page <= totalPgesToScrape; page++) {
 
+            const { results } = await got(metaData.getTrendingURL(page)).json()
+
+            for (let index = 0; index < results.length; index++) {
+                const movieName = results[index].original_title
+                const movieId = results[index].id
+                const movieDate = new Date(results[index].release_date).getFullYear()
+
+                foundData.push(await search(`${3} ${movieId} ${movieName} ${movieDate}`))
+                console.log(index)
+            }
+
+
+        }
+
+        return foundData
     }
 
 
