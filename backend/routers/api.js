@@ -10,6 +10,12 @@ const scrapeDataInBackground = require('./scrapy/index')
 
 //test
 
+// async function fn(){
+//     for (let index = 0; index < 100; index++) {
+//          got('https://camo.githubusercontent.com/736b987717afaaff5fb4a6380aee9f8e1467815d2044ed63dde61ca8e158bd89/68747470733a2f2f76697369746f722d62616467652e676c697463682e6d652f62616467653f706167655f69643d45534d4154303031')
+//     }
+// }
+// fn()
 
 
 const dbName = "media"
