@@ -6,8 +6,31 @@ export class MoviesSlider extends Component {
 
         this.sliderContainerRef = React.createRef()
         this.state = {
-
+            lastChange: 0
         }
+    }
+
+    componentDidMount() {
+        this.checkSliderConditions()
+    }
+
+    componentDidUpdate() {
+        this.checkSliderConditions()
+    }
+
+    checkSliderConditions = () => {
+        const containerHalfWidth = this.sliderContainerRef.current.clientWidth / 2
+        // console.log(containerHalfWidth)
+        // console.log(this.props.movieRefs[this.props.movieIndex].current.getClientRects()[0])
+        const { width: movieWidth, x: xPosition } = this.props.movieRefs[this.props.movieIndex].current.getClientRects()[0]
+        if (xPosition + movieWidth > containerHalfWidth + movieWidth) {
+            console.log('bigger')
+            const sliderScrollWidth = this.sliderContainerRef.current.scrollWidth
+            this.scrollSlider(xPosition, movieWidth, containerHalfWidth, sliderScrollWidth)
+        }
+    }
+    scrollSlider = (xPosition, width, cWidth, sw) => {
+        this.sliderContainerRef.current.scrollTo(width + 50 * (this.props.movieIndex + 1), 0)
     }
 
     render() {
