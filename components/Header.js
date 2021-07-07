@@ -124,6 +124,7 @@ function Header({ movies }) {
                     movies={movies}
                     movieRefs={movieRefs}
                     destroyAndChange={destroyAndChange}
+                    movieIndex={movieIndex}
                 />
             </div>
         </header>
