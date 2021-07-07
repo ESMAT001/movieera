@@ -6,7 +6,8 @@ module.exports = {
       colors:{
         'nice-red': '#ff003c',
         'black-dark':'#090a0e',
-        'black-light':"#0f1014"
+        'black-light':"#0f1014",
+        'faded-white':"#bababaab",
       },
       fontFamily:{
         'movieNameFont':['Krona One', 'sans-serif'],

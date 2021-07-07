@@ -1,13 +1,14 @@
 import React from 'react'
+import { FaStar, FaRegStar } from "react-icons/fa";
 
 function Rating({ rating }) {
     const fillStarsCount = parseInt((rating * 5) / 10)
     let jsx = [];
     for (let index = 1; index <= 5; index++) {
         if (index <= fillStarsCount) {
-            jsx.push(<span className="fas fa-star text-yellow-400" key={index}></span>)
+            jsx.push(<FaStar key={index} color="yellow" />)
         } else {
-            jsx.push(<span className="fas fa-star " key={index}></span>)
+            jsx.push(<FaRegStar key={index} />)
         }
     }
     return (

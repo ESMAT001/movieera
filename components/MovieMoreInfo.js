@@ -3,10 +3,24 @@ import Link from 'next/link'
 
 function MovieMoreInfo({ imagePath, movieId }) {
     const [isMouseOver, setIsMouseOver] = useState(false)
+    const handleMouseEnter = () => {
+        if (window.interval && window.interval.id) {
+            window.interval.destroy()
+        }
+        setIsMouseOver(true)
+    }
+
+    const handleMouseLeave = () => {
+        if (window.interval && !window.interval.id) {
+            window.interval.create()
+        }
+        setIsMouseOver(false)
+    }
+
     return (
         <div className="relative transform transition-all duration-300 hover:scale-105 overflow-hidden"
-            onMouseEnter={() => setIsMouseOver(true)}
-            onMouseLeave={() => setIsMouseOver(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             <span className={"w-full h-full bg-black-dark bg-opacity-50 absolute top-0 left-0 z-10 flex items-center justify-center transition-all duration-300 transform " + (isMouseOver ? "" : "translate-x-full")} >
                 <Link href={"/movie/" + movieId}>
