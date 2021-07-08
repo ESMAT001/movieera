@@ -5,7 +5,7 @@ import Movie from '../../components/movie'
 import Loading from '../../components/utils/Loading'
 
 
-function index(props) {
+function Index(props) {
     const router = useRouter()
     if (router.isFallback) {
         return <Loading/>
@@ -13,7 +13,7 @@ function index(props) {
     return (<Movie {...props} />)
 }
 
-export default index
+export default Index
 
 export async function getStaticProps(context) {
     const { id } = context.params

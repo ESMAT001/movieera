@@ -3,6 +3,7 @@ const next = require('next')
 const mainRouter = require('./backend/index')
 
 const dev = process.env.NODE_ENV !== 'production'
+// const dev = false
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const port = 3000

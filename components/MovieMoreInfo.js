@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+
+import { imageUrl } from "../utils";
+
 
 function MovieMoreInfo({ imagePath, movieId }) {
+
     const [isMouseOver, setIsMouseOver] = useState(false)
     const handleMouseEnter = () => {
         if (window.interval && window.interval.id) {
@@ -30,8 +35,11 @@ function MovieMoreInfo({ imagePath, movieId }) {
                 </Link>
             </span>
             <img
+                src={imageUrl + imagePath}
+                alt={"movie image"}
+                // loading='lazy'
                 className={"w-full ml-auto shadow-xl hover:shadow-md transition-all duration-300 filter " + (isMouseOver ? "blur-sm" : "")}
-                src={"https://image.tmdb.org/t/p/w500/" + imagePath} />
+            />
         </div>
     )
 }

@@ -1,10 +1,19 @@
+
+
 import 'tailwindcss/tailwind.css'
 import '../styles/style.css'
+
+
+import "swiper/swiper.min.css"
+import "swiper/components/navigation/navigation.min.css"
+import "swiper/components/thumbs/thumbs.min.css"
+
 
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-import 'swiper/swiper.scss';
+
+
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -79,15 +79,15 @@ function Header({ movies }) {
                         className="absolute -left-16 sm:-left-28 z-40 top-1/4 hover:bg-white hover:bg-opacity-20  px-3 pt-12 pb-10 rounded-sm transition-all duration-300"
                         onClick={() => destroyAndChange(movieIndex - 1)}
                     >
-                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform -rotate-45 -mt-2 rounded">'</div>
-                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform rotate-45 mt-2 rounded">'</div>
+                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform -rotate-45 -mt-2 rounded">&apos;</div>
+                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform rotate-45 mt-2 rounded">&apos;</div>
                     </button>
                     <button
                         className="absolute -right-16 sm:-right-28 z-40 top-1/4 hover:bg-white hover:bg-opacity-20  px-3 pt-12 pb-10 rounded-sm transition-all duration-300"
                         onClick={destroyAndChange}
                     >
-                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform rotate-45 -mt-2 rounded">'</div>
-                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform -rotate-45 mt-2 rounded">'</div>
+                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform rotate-45 -mt-2 rounded">&apos;</div>
+                        <div className="w-5 bg-white bg-opacity-75 h-1 overflow-hidden transform -rotate-45 mt-2 rounded">&apos;</div>
                     </button>
                     <div className="col-span-3 sm:col-span-2 order-2 sm:order-1 sm:justify-self-start flex flex-col justify-evenly items-center sm:items-start space-y-2 sm:space-y-0">
                         <h2 className="text-2xl sm:text-3xl text-center sm:text-left font-movieNameFont capitalize">
