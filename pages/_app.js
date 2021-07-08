@@ -4,6 +4,8 @@ import '../styles/style.css'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
+import 'swiper/swiper.scss';
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
