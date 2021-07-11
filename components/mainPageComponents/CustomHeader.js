@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 
 import Rating from "../utils/Rating";
@@ -21,6 +21,34 @@ SwiperCore.use([Autoplay, Navigation, Thumbs]);
 function CustomHeader({ movies }) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [bgImage, setBgImage] = useState(movies[0].backdrop_path);
+    const [slidesPerView, setSlidesPerView] = useState(3);
+    
+    useEffect(() => {
+        function configureMoviesCountBasedOnViewWidth() {
+            const screenWidth = window.innerWidth
+            let count = 1
+            if (screenWidth <= 345) {
+                count = 2
+            } else if (screenWidth > 345 && screenWidth <= 500) {
+                count = 3
+            } else if (screenWidth > 500 && screenWidth <= 600) {
+                count = 4
+            } else if (screenWidth > 600 && screenWidth <= 768) {
+                count = 5
+            } else if (screenWidth > 768 && screenWidth <= 1024) {
+                count = 6
+            } else if (screenWidth > 1024 && screenWidth <= 1366) {
+                count = 7
+            } else if (screenWidth > 1366 && screenWidth <= 1566) {
+                count = 8
+            } else if (screenWidth > 1566) {
+                count = 9
+            }
+            setSlidesPerView(count)
+        }
+        window.addEventListener("load", configureMoviesCountBasedOnViewWidth)
+        window.addEventListener("resize", configureMoviesCountBasedOnViewWidth)
+    }, []);
     return (
         <>
             <div className="relative w-full h-full">
@@ -43,10 +71,7 @@ function CustomHeader({ movies }) {
                     }}
                     spaceBetween={30}
                     centeredSlides={true}
-                    autoplay={{
-                        "delay": 3000,
-                        "disableOnInteraction": true
-                    }}
+                    autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
                     loop={true}
                     navigation={true}
                     thumbs={{ swiper: thumbsSwiper }}
@@ -98,30 +123,30 @@ function CustomHeader({ movies }) {
                             </SwiperSlide>)
                     })}
                 </Swiper>
-
-                <Swiper
-                    onSwiper={setThumbsSwiper}
-                    // spaceBetween={2}
-                    slidesPerView={2}
-                    freeMode={true}
-                    watchSlidesVisibility={true}
-                    watchSlidesProgress={true}
-                    className="h-48 xl:h-60 2xl:h-72 w-full"
-                >
-                    {movies.map((movie, i) => {
-                        return (<SwiperSlide
-                            key={i}
-                        >
-                            <div className="w-full h-full flex items-center justify-center" >
-                                <img
-                                    alt={movie.title + "image"}
-                                    src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
-                                    className="transform transition-all duration-300 hover:scale-105  h-4/5 cursor-pointer"
-                                />
-                            </div>
-                        </SwiperSlide>)
-                    })}
-                </Swiper>
+                <div className="px-10">
+                    <Swiper
+                        onSwiper={setThumbsSwiper}
+                        watchSlidesVisibility={true}
+                        watchSlidesProgress={true}
+                        className="h-48 xl:h-60 2xl:h-72 w-full"
+                        spaceBetween={5}
+                        slidesPerView={slidesPerView}
+                    >
+                        {movies.map((movie, i) => {
+                            return (<SwiperSlide
+                                key={i}
+                            >
+                                <div className="w-full h-full flex items-center justify-center" >
+                                    <img
+                                        alt={movie.title + "image"}
+                                        src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
+                                        className="transform transition-all duration-300 hover:scale-105  h-4/5 cursor-pointer"
+                                    />
+                                </div>
+                            </SwiperSlide>)
+                        })}
+                    </Swiper>
+                </div>
             </div>
         </>
     )
