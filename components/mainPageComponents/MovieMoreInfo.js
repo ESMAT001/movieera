@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { imageUrl } from "../utils";
+import { imageUrl } from "../../utils";
 
 
 function MovieMoreInfo({ imagePath, movieId }) {

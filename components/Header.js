@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Rating from "./utils/Rating";
-import MovieMoreInfo from "./MovieMoreInfo";
+import MovieMoreInfo from "./mainPageComponents/MovieMoreInfo";
 import MoviesSlider from "./MoviesSlider";
 
 import { FaDownload } from "react-icons/fa";

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 
-import Rating from "./utils/Rating";
+import Rating from "../utils/Rating";
 import MovieMoreInfo from "./MovieMoreInfo";
 
 
 import { FaDownload } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";
-import { imageUrl } from "../utils";
+import { imageUrl } from "../../utils";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 
