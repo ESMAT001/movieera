@@ -15,14 +15,22 @@ import SwiperCore, {
     Autoplay, Navigation, Thumbs
 } from 'swiper/core';
 
-// install Swiper modules
 SwiperCore.use([Autoplay, Navigation, Thumbs]);
+
+const subMoviesRefs = []
 
 function CustomHeader({ movies }) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [bgImage, setBgImage] = useState(movies[0].backdrop_path);
     const [slidesPerView, setSlidesPerView] = useState(3);
-    
+
+    useEffect(() => {
+        for (let index = 0; index < movies.length; index++) {
+            subMoviesRefs.push(React.createRef())
+        }
+    }, [])
+
+
     useEffect(() => {
         function configureMoviesCountBasedOnViewWidth() {
             const screenWidth = window.innerWidth
@@ -61,13 +69,25 @@ function CustomHeader({ movies }) {
                 </div>
                 <Swiper
                     onSlideChange={(swiper) => {
-                        if (swiper.activeIndex - 1 >= movies.length) {
-                            return setBgImage(movies[0].backdrop_path)
+                        function genrateIndex(index, len) {
+                            let val = null
+                            if (index - 1 >= len) {
+                                val = 0
+                            }
+                            else if (index - 1 < 0) {
+                                val = len - 1
+                            } else {
+                                val = index - 1
+                            }
+                            return val
                         }
-                        else if (swiper.activeIndex - 1 < 0) {
-                            return setBgImage(movies[movies.length - 1].backdrop_path)
+                        setBgImage(movies[genrateIndex(swiper.activeIndex, movies.length)].backdrop_path);
+                        if (subMoviesRefs.length > 0) {
+                            subMoviesRefs[genrateIndex(swiper.activeIndex, movies.length)].current.classList.add("scale-110");
+                            subMoviesRefs[genrateIndex(swiper.activeIndex - 1, movies.length)].current.classList.remove("scale-110");
                         }
-                        return setBgImage(movies[swiper.activeIndex - 1].backdrop_path);
+
+
                     }}
                     spaceBetween={30}
                     centeredSlides={true}
@@ -82,7 +102,7 @@ function CustomHeader({ movies }) {
                         return (
                             <SwiperSlide key={i}>
                                 {({ isActive }) => {
-                                    // if (isActive) setBgImage(movie.backdrop_path);
+                                    // if (isActive) console.log('active', movie.title);
                                     return (
                                         <div className="text-white flex flex-col overflow-hidden w-full h-full">
                                             <div className="w-6/12  2xl:w-6/12 grid grid-cols-3 gap-y-4 gap-x-4 sm:gap-y-0 justify-items-center relative mx-auto py-28">
@@ -133,17 +153,17 @@ function CustomHeader({ movies }) {
                         slidesPerView={slidesPerView}
                     >
                         {movies.map((movie, i) => {
-                            return (<SwiperSlide
-                                key={i}
-                            >
-                                <div className="w-full h-full flex items-center justify-center" >
-                                    <img
-                                        alt={movie.title + "image"}
-                                        src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
-                                        className="transform transition-all duration-300 hover:scale-105  h-4/5 cursor-pointer"
-                                    />
-                                </div>
-                            </SwiperSlide>)
+                            return (
+                                <SwiperSlide key={i}>
+                                    <div className="w-full h-full flex items-center justify-center">
+                                        <img
+                                            alt={movie.title + "image"}
+                                            ref={subMoviesRefs[i]}
+                                            src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
+                                            className={`transform transition-all duration-300 hover:scale-105 h-4/5 cursor-pointer`}
+                                        />
+                                    </div>
+                                </SwiperSlide>)
                         })}
                     </Swiper>
                 </div>
