@@ -18,6 +18,9 @@ const metaData = {
         vote_count: false,
         videos: false,
         download_links: false
+    },
+    getMovieDetailsURL(id) {
+        return `https://api.themoviedb.org/3/movie/${id}?api_key=${this.apiKey}&language=en-US&append_to_response=videos,images`
     }
 }
 
