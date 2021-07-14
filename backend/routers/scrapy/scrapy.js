@@ -295,6 +295,7 @@ const scrapyJS = function (baseURL = {}, firstPage = 1, lastPage = 1, options = 
         }
         const dom = new JSDOM(html.body);
         let links = dom.window.document.querySelectorAll(options.mainPageLinkSelector)
+        let movietitlesFromSite = dom.window.document.querySelectorAll(".box > .titlehaver > .title")
         if (links.length === 0) {
             const notFoundRegx = /مورد درخواستی در این سایت وجود ندارد/
             links = dom.window.document.querySelectorAll(options.notFoundSelector)
@@ -302,9 +303,17 @@ const scrapyJS = function (baseURL = {}, firstPage = 1, lastPage = 1, options = 
                 fs.appendFileSync('./notFound.txt', name + "\n")
             }
         } else {
+            console.log(name, 'name from search part')
             const movieNameRegx = new RegExp(name, 'i')
             for (let index = 0; index < links.length; index++) {
-                if (movieNameRegx.test(decodeURI(links[index].href).replaceAll("-", ' '))) {
+                if (
+                    movieNameRegx.test(decodeURI(links[index].href).replaceAll("-", ' ')) ||
+                    (
+                        movieNameRegx.test(movietitlesFromSite[index].textContent)
+                        &&
+                        new RegExp("دانلود", i).test(movietitlesFromSite[index].textContent)
+                    )
+                ) {
                     console.log('found', decodeURI(links[index].href))
                     return await crawlSinglePage(links[index].href, shouldReturn)
                 }

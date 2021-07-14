@@ -8,7 +8,8 @@ const baseURL = ''
 const firstPage = 819
 const lastPage = 1395
 
- function movieDataScraper(db) {
+
+function movieDataScraper(db) {
     const spider = scrapyJS(baseURL, firstPage, lastPage, {
         nameSelector: 'div.content > div > p',
         downloadLinkSelector: "div.content > *",
@@ -54,7 +55,17 @@ async function scrapeDataInBackground(db, movie = null) {
 
         const lastUpdated = new Date(dbData.last_updated)
         lastUpdated.setDate(lastUpdated.getDate() + 1)
-        if (lastUpdated < new Date()) shouldScrapeData = true;
+        if (lastUpdated < new Date()) {
+            shouldScrapeData = true
+            let date = new Date()
+            date.setDate(date.getDate() + 1)
+            date = date.toUTCString()
+            await db.collection("meta_data").updateOne({
+                name: 'scrapy',
+            }, {
+                last_updated: date
+            })
+        };
 
     } else {
 
