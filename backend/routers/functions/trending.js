@@ -42,7 +42,7 @@ async function apiCallForIds(movieCount, db) {
 async function getIds(movieCount, db) {
 
     const dbData = await db.collection("meta_data").findOne({ name: "trending" })
-    let shouldUpdateData = true;
+    let shouldUpdateData = false;
     if (dbData) {
         const lastUpdated = new Date(dbData.last_updated)
         lastUpdated.setDate(lastUpdated.getDate() + 1)
@@ -76,11 +76,13 @@ async function getIds(movieCount, db) {
         return movieIds;
 
     } else {
+        console.log('using cached data for trending data')
         const { movieIds } = await db.collection("meta_data").findOne({ name: "trending" })
         return movieIds
     }
 }
-module.exports = async function fetchData(db) {
+
+async function fetchData(db) {
     const movieCount = 18;
     const movieIds = await getIds(movieCount, db)
     const movieData = await db.collection("movie").find({
@@ -96,6 +98,6 @@ module.exports = async function fetchData(db) {
     })
     .sort({ release_date: -1 })
     .toArray()
-    
     return movieData
 }
+module.exports = fetchData

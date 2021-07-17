@@ -98,28 +98,32 @@ function movieDataScraper(db) {
         responseData.download_links = download_links
         //insert response data to db
         await db.collection("movie").insertOne(responseData)
+        console.log('inserted')
         console.log(responseData)
     }
 
     async function search(searchText) {
         const response = await spider.search(searchText)
         if (!response.data) {
-            response.data = 'not found!'
+            response.data = null
             return response
         }
         const movieId = parseInt(response.id)
         const dataFromDb = await db.collection("movie").findOne({ id: movieId });
         if (dataFromDb) {
-            console.log(dataFromDb)
+
             const { download_links: downloadLinksFromDbData } = dataFromDb
             const { download_links: downloadLinksFromSpiderData } = response.data
-            console.log(`movie already exists in db`, checkIfTwoMediaIsSame(downloadLinksFromDbData, downloadLinksFromSpiderData))
+            //insert dataFromDb to db if download_links are different
+            if (!checkIfTwoMediaIsSame(downloadLinksFromDbData, downloadLinksFromSpiderData)) {
+                console.log('download links are different')
+                await insertDataToDb(response, movieId)
+            }
+
         } else {
             console.log('not found in db')
             await insertDataToDb(response.data, movieId)
         }
-
-
 
         return response
     }
@@ -127,14 +131,10 @@ function movieDataScraper(db) {
     return { search, insertDataToDb }
 }
 
-async function scrapeDataInBackground(db, movie = null) {
-
-    if (movie) {
-        return movie
-    }
+async function scrapeDataInBackground(db, shouldReturn=false) {
 
     const dbData = await db.collection("meta_data").findOne({ name: "scrapy" })
-    let shouldScrapeData = true;
+    let shouldScrapeData = false;
     if (dbData) {
         console.log('updating old db data')
         const lastUpdated = new Date(dbData.last_updated)
@@ -165,10 +165,9 @@ async function scrapeDataInBackground(db, movie = null) {
 
 
     if (shouldScrapeData) {
+        console.log('scrapping data started')
         const totalPgesToScrape = 3
-        console.log('pre passed')
         const { search } = movieDataScraper(db)
-        console.log('passed')
         let foundData = []
         for (let page = 1; page <= totalPgesToScrape; page++) {
 
@@ -178,13 +177,20 @@ async function scrapeDataInBackground(db, movie = null) {
                 const movieName = results[index].original_title
                 const movieId = results[index].id
                 const movieDate = new Date(results[index].release_date).getFullYear()
-                foundData.push(await search(`${3} ${movieId} ${movieName} ${movieDate}`))
+                const returnData = await search(`${3} ${movieId} ${movieName} ${movieDate}`)
+                if (returnData.data && shouldReturn) {
+                    foundData.push(returnData.data)
+                }
             }
 
 
         }
-
-        return foundData
+        console.log('scrapping data finished')
+        if (shouldReturn) {
+            return foundData
+        }
+    }else{
+        console.log('waiting for perfect time to scrape using data from db')
     }
 
 
