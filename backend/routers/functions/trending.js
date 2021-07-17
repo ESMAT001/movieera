@@ -42,7 +42,7 @@ async function apiCallForIds(movieCount, db) {
 async function getIds(movieCount, db) {
 
     const dbData = await db.collection("meta_data").findOne({ name: "trending" })
-    let shouldUpdateData = false;
+    let shouldUpdateData = true;
     if (dbData) {
         const lastUpdated = new Date(dbData.last_updated)
         lastUpdated.setDate(lastUpdated.getDate() + 1)
@@ -93,6 +93,9 @@ module.exports = async function fetchData(db) {
         }]
     }, {
         projection: projectionFields
-    }).toArray()
+    })
+    .sort({ release_date: -1 })
+    .toArray()
+    
     return movieData
 }
