@@ -4,6 +4,8 @@ import Main from '../components/Main'
 import CustomHead from '../components/utils/CustomHead'
 import Header from '../components/Header'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
+import {baseUrl} from '../utils'
+
 
 import { callApi } from '../functions/functions'
 
@@ -31,7 +33,7 @@ export async function getStaticProps() {
 
   const revalidate = parseInt(86400 / 4)
 
-  const [movies, error] = await callApi("http://localhost:3000/api/trending")
+  const [movies, error] = await callApi(baseUrl+"/api/trending")
 
 
   return {
