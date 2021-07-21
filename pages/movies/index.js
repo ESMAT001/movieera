@@ -12,7 +12,7 @@ export default index
 
 
 export async function getStaticProps() {
-    const [data, error] = await callApi(apiUrl+"/api/movies")
+    const [data, error] = await callApi(apiUrl+"/movies")
     const revalidate = parseInt(86400 * 2)
     return {
         props: { data, error },

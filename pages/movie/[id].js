@@ -17,7 +17,7 @@ export default Index
 
 export async function getStaticProps(context) {
     const { id } = context.params
-    const [movie, error] = await callApi(apiUrl + "/api/movie?id=" + id)
+    const [movie, error] = await callApi(apiUrl + "/movie?id=" + id)
 
     return {
         props: { movie, error }
@@ -25,7 +25,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-    const [data, error] = await callApi(apiUrl + "/api/movies")
+    const [data, error] = await callApi(apiUrl + "/movies")
     const { results: movies } = data;
     let paths = []
 

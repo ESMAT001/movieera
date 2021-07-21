@@ -33,7 +33,7 @@ export async function getStaticProps() {
 
   const revalidate = parseInt(86400 / 4)
 
-  const [movies, error] = await callApi(apiUrl+"/api/trending")
+  const [movies, error] = await callApi(apiUrl+"/trending")
 
 
   return {

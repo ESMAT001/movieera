@@ -1,4 +1,4 @@
 module.exports={
-    apiUrl:"http://localhost:3001",
-    imageUrl:'/api/image/'
+    apiUrl:"https://api-movieera.herokuapp.com/v1",
+    imageUrl:'https://api-movieera.herokuapp.com/v1/image/'
 }

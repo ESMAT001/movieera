@@ -63,7 +63,7 @@ function CustomHeader({ movies }) {
                 <div
                     className="h-full w-full absolute top-0 left-0 filter blur-sm bg-cover bg-center bg-no-repeat brightness-90 contrast-125 transform scale-105 transition-all duration-500"
                     style={{
-                        backgroundImage: `url("http://localhost:3000${imageUrl}${bgImage}")`,
+                        backgroundImage: `url("${imageUrl}${bgImage}")`,
                         OBackgroundSize: 'cover',
                         MozBackgroundSize: 'cover',
                         WebkitBackgroundSize: 'cover'
@@ -162,7 +162,7 @@ function CustomHeader({ movies }) {
                                         <img
                                             alt={movie.title + "image"}
                                             ref={subMoviesRefs[i]}
-                                            src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
+                                            src={imageUrl + movie.poster_path}
                                             className={`transform transition-all duration-300 hover:scale-105 h-4/5 cursor-pointer`}
                                         />
                                     </div>
