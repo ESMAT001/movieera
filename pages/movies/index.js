@@ -1,6 +1,6 @@
 import React from 'react'
 import { callApi } from '../../functions/functions'
-import Movies from '../../components/movies'
+import Movies from '../../components/Movies'
 import {apiUrl} from '../../utils'
 
 
