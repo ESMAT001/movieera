@@ -1,7 +1,7 @@
 import React from 'react'
 import { callApi } from '../../functions/functions'
 import Movies from '../../components/movies'
-import {baseUrl} from '../../utils'
+import {apiUrl} from '../../utils'
 
 
 function index({ data, error }) {
@@ -12,7 +12,7 @@ export default index
 
 
 export async function getStaticProps() {
-    const [data, error] = await callApi(baseUrl+"/api/movies")
+    const [data, error] = await callApi(apiUrl+"/api/movies")
     const revalidate = parseInt(86400 * 2)
     return {
         props: { data, error },

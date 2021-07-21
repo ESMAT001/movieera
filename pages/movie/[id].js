@@ -3,7 +3,7 @@ import { callApi } from '../../functions/functions'
 import { useRouter } from 'next/router'
 import Movie from '../../components/movie'
 import Loading from '../../components/utils/Loading'
-import { baseUrl } from '../../utils'
+import { apiUrl } from '../../utils'
 
 function Index(props) {
     const router = useRouter()
@@ -17,7 +17,7 @@ export default Index
 
 export async function getStaticProps(context) {
     const { id } = context.params
-    const [movie, error] = await callApi(baseUrl + "/api/movie?id=" + id)
+    const [movie, error] = await callApi(apiUrl + "/api/movie?id=" + id)
 
     return {
         props: { movie, error }
@@ -25,7 +25,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-    const [data, error] = await callApi(baseUrl + "/api/movies")
+    const [data, error] = await callApi(apiUrl + "/api/movies")
     const { results: movies } = data;
     let paths = []
 
