@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Humbrger from './utils/humberger-icon/Humbrger'
 
 function Nav() {
@@ -8,7 +9,12 @@ function Nav() {
     return (
         <nav className="fixed w-full  top-0 text-white z-20">
             <div className="flex justify-between items-center w-full py-4 px-8">
-                <h1 className=" text-white text-lg font-movieNameFont leading-normal antialiased">MOVIE<span className="text-nice-red">E</span>RA</h1>
+                {/* <h1 className=" text-white text-lg font-movieNameFont leading-normal antialiased">MOVIE<span className="text-nice-red">E</span>RA</h1> */}
+                <Link href="/">
+                    <a className="relative w-32 h-8 lg:w-36 lg:h-9">
+                        <Image src="/static/img/logo.png" alt="logo" layout="fill" />
+                    </a>
+                </Link>
                 <span className="z-40">
                     <Humbrger handler={setIsOpen} />
                 </span>

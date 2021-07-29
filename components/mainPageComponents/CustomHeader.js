@@ -17,43 +17,52 @@ import SwiperCore, {
 
 SwiperCore.use([Autoplay, Navigation, Thumbs]);
 
-const subMoviesRefs = []
+let subMoviesRefs = []
+
+
+function useForceUpdate() {
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update the state to force render
+}
 
 function CustomHeader({ movies }) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [bgImage, setBgImage] = useState(movies[0].backdrop_path);
     const [slidesPerView, setSlidesPerView] = useState(3);
 
+    const forceUpdate = useForceUpdate();
+
     useEffect(() => {
+        subMoviesRefs = []
         for (let index = 0; index < movies.length; index++) {
             subMoviesRefs.push(React.createRef())
         }
     }, [])
 
+    function configureMoviesCountBasedOnViewWidth() {
+        const screenWidth = window.innerWidth
+        let count = 1
+        if (screenWidth <= 345) {
+            count = 2
+        } else if (screenWidth > 345 && screenWidth <= 500) {
+            count = 3
+        } else if (screenWidth > 500 && screenWidth <= 600) {
+            count = 4
+        } else if (screenWidth > 600 && screenWidth <= 768) {
+            count = 5
+        } else if (screenWidth > 768 && screenWidth <= 1024) {
+            count = 6
+        } else if (screenWidth > 1024 && screenWidth <= 1366) {
+            count = 7
+        } else if (screenWidth > 1366 && screenWidth <= 1566) {
+            count = 8
+        } else if (screenWidth > 1566) {
+            count = 9
+        }
+        setSlidesPerView(count)
+    }
 
     useEffect(() => {
-        function configureMoviesCountBasedOnViewWidth() {
-            const screenWidth = window.innerWidth
-            let count = 1
-            if (screenWidth <= 345) {
-                count = 2
-            } else if (screenWidth > 345 && screenWidth <= 500) {
-                count = 3
-            } else if (screenWidth > 500 && screenWidth <= 600) {
-                count = 4
-            } else if (screenWidth > 600 && screenWidth <= 768) {
-                count = 5
-            } else if (screenWidth > 768 && screenWidth <= 1024) {
-                count = 6
-            } else if (screenWidth > 1024 && screenWidth <= 1366) {
-                count = 7
-            } else if (screenWidth > 1366 && screenWidth <= 1566) {
-                count = 8
-            } else if (screenWidth > 1566) {
-                count = 9
-            }
-            setSlidesPerView(count)
-        }
         window.addEventListener("load", configureMoviesCountBasedOnViewWidth)
         window.addEventListener("resize", configureMoviesCountBasedOnViewWidth)
     }, []);
@@ -85,10 +94,18 @@ function CustomHeader({ movies }) {
                             return val
                         }
                         setBgImage(movies[genrateIndex(swiper.activeIndex, movies.length)].backdrop_path);
+                        configureMoviesCountBasedOnViewWidth()
                         if (subMoviesRefs.length > 0) {
-                            subMoviesRefs[genrateIndex(swiper.activeIndex, movies.length)].current.classList.add("scale-110");
-                            subMoviesRefs[genrateIndex(swiper.activeIndex - 1, movies.length)].current.classList.remove("scale-110");
+                            console.log(subMoviesRefs, swiper.activeIndex, movies.length)
+                            if (subMoviesRefs[genrateIndex(swiper.activeIndex, movies.length)].current !== null) {
+                                subMoviesRefs[genrateIndex(swiper.activeIndex, movies.length)].current.classList.add("scale-110");
+                                subMoviesRefs[genrateIndex(swiper.activeIndex - 1, movies.length)].current.classList.remove("scale-110");
+                            } else {
+                                console.log('force update')
+                                forceUpdate()
+                            }
                         }
+
 
 
                     }}
