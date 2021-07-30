@@ -96,7 +96,6 @@ function CustomHeader({ movies }) {
                         setBgImage(movies[genrateIndex(swiper.activeIndex, movies.length)].backdrop_path);
                         configureMoviesCountBasedOnViewWidth()
                         if (subMoviesRefs.length > 0) {
-                            console.log(subMoviesRefs, swiper.activeIndex, movies.length)
                             if (subMoviesRefs[genrateIndex(swiper.activeIndex, movies.length)].current !== null) {
                                 subMoviesRefs[genrateIndex(swiper.activeIndex, movies.length)].current.classList.add("scale-110");
                                 subMoviesRefs[genrateIndex(swiper.activeIndex - 1, movies.length)].current.classList.remove("scale-110");
