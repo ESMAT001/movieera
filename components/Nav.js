@@ -18,7 +18,7 @@ function Nav() {
         <nav className={"fixed w-full top-0 text-white z-20 transition-all duration-500 bg-opacity-90 " + navBg}>
             <div className="flex justify-between items-center w-full py-4 px-6">
                 <Link href="/">
-                    <a className="relative w-32 h-8 lg:w-36 lg:h-9">
+                    <a className="relative w-32 h-8 ">
                         <Image src="/static/img/logo.png" alt="logo" layout="fill" />
                     </a>
                 </Link>

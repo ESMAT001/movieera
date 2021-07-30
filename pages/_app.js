@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
     <>
 
       <div className="bg-black-dark min-w-full h-full font-subMovieFont">
-        <div className="bg-black-light rounded shadow-xl overflow-hidden">
+        <div className="bg-black-light rounded shadow-xl overflow-hidden flex flex-col">
           <Nav />
           <Component {...pageProps} />
           <Footer />

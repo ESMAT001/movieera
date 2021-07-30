@@ -4,26 +4,17 @@ import Main from '../components/Main'
 import CustomHead from '../components/utils/CustomHead'
 import Header from '../components/Header'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
-import {apiUrl} from '../utils'
+import { apiUrl } from '../utils'
 
 
 import { callApi } from '../functions/functions'
 
 export default function Home({ movies, error }) {
-  // console.log(movies)
   return (
     <>
       <CustomHead />
-      <CustomHeader movies={movies} />
-      {/* <Header movies={movies} /> */}
-      <div >
-        {movies && movies.map((movie, i) => {
-          return (<h1 className="font-semibold text-purple-700" key={i}>{movie.original_title + " " + movie.backdrop_path}</h1>)
-        })}
-
-        {error && <h1 className="text-red-400">{error}</h1>}
-        <Main />
-      </div>
+      <CustomHeader movies={movies.slice(0,6)} />
+      <Main movies={movies} error={error}/>
     </>
 
   )
@@ -33,7 +24,7 @@ export async function getStaticProps() {
 
   const revalidate = parseInt(86400 / 4)
 
-  const [movies, error] = await callApi(apiUrl+"/trending")
+  const [movies, error] = await callApi(apiUrl + "/trending")
 
 
   return {

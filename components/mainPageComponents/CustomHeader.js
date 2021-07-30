@@ -43,21 +43,15 @@ function CustomHeader({ movies }) {
         const screenWidth = window.innerWidth
         let count = 1
         if (screenWidth <= 345) {
-            count = 2
+            count = 1
         } else if (screenWidth > 345 && screenWidth <= 500) {
-            count = 3
+            count = 2
         } else if (screenWidth > 500 && screenWidth <= 600) {
-            count = 4
+            count = 3
         } else if (screenWidth > 600 && screenWidth <= 768) {
-            count = 5
-        } else if (screenWidth > 768 && screenWidth <= 1024) {
+            count = 4
+        } else if (screenWidth > 768) {
             count = 6
-        } else if (screenWidth > 1024 && screenWidth <= 1366) {
-            count = 7
-        } else if (screenWidth > 1366 && screenWidth <= 1566) {
-            count = 8
-        } else if (screenWidth > 1566) {
-            count = 9
         }
         setSlidesPerView(count)
     }
@@ -162,7 +156,7 @@ function CustomHeader({ movies }) {
                             </SwiperSlide>)
                     })}
                 </Swiper>
-                <div className="px-10">
+                <div className="px-10 -mt-16 md:-mt-4 pb-10">
                     <Swiper
                         onSwiper={setThumbsSwiper}
                         watchSlidesVisibility={true}
