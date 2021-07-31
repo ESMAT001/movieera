@@ -11,7 +11,6 @@ function MovieBox({ movie }) {
     function handleHeartClick() {
         setHeartBtnClicked(prev => !prev)
     }
-
     return (
         <div className="w-full flex flex-col">
             <div className="w-full ">
