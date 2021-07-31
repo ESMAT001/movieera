@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import MovieBox from './MovieBox'
 
 function Main({ movies, error }) {
     return (
@@ -13,13 +14,16 @@ function Main({ movies, error }) {
                         </a>
                     </Link>
                 </div>
-            {movies && movies.map((movie, i) => {
-                return (<h1 className="font-semibold text-purple-700" key={i}>{movie.original_title + " " + movie.backdrop_path}</h1>)
-            })}
-
-            {error && <h1 className="text-red-400">{error}</h1>}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-content-center gap-4 sm:gap-6 md:gap-8">
+                    {
+                        movies && movies.map((movie, index) => (
+                            <MovieBox key={index} movie={movie} />
+                        ))
+                    }
+                </div>
+                {error && <h1 className="text-red-400">{error}</h1>}
             </div>
-          <div></div>
+            <div></div>
         </main>
     )
 }
