@@ -4,7 +4,7 @@ import { BsHeart, BsFillHeartFill, BsFillPlayFill } from "react-icons/bs";
 import Link from 'next/link'
 import MovieMoreInfo from './utils/MovieMoreInfo';
 
-function MovieBox({ movie }) {
+function MovieInfoBox({ movie }) {
     const [isHeartBtnClicked, setHeartBtnClicked] = useState(false)
     const genre = movie.genres[0].name || "not defined"
     const id = movie.id
@@ -46,4 +46,4 @@ function MovieBox({ movie }) {
     )
 }
 
-export default MovieBox
+export default MovieInfoBox

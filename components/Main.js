@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import MovieBox from './MovieBox'
+import MovieInfoBox from './MovieInfoBox'
 
 function Main({ movies, error }) {
     return (
@@ -17,7 +17,7 @@ function Main({ movies, error }) {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-content-center gap-4 sm:gap-6 md:gap-8">
                     {
                         movies && movies.map((movie, index) => (
-                            <MovieBox key={index} movie={movie} />
+                            <MovieInfoBox key={index} movie={movie} />
                         ))
                     }
                 </div>
