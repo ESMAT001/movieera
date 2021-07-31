@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { imageUrl } from '../utils'
+
 import { BsHeart, BsFillHeartFill, BsFillPlayFill } from "react-icons/bs";
 import Link from 'next/link'
 import MovieMoreInfo from './utils/MovieMoreInfo';
@@ -15,7 +15,6 @@ function MovieBox({ movie }) {
     return (
         <div className="w-full flex flex-col">
             <div className="w-full ">
-                {/* <img src={imageUrl + movie.poster_path} className="object-cover w-full h-full" /> */}
                 <MovieMoreInfo imagePath={movie.poster_path} >
                     <Link href={"/movie/" + id}>
                         <a className="font-semibold rounded-full antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 p-3 text-2xl leading-normal text-white">
