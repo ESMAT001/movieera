@@ -119,7 +119,7 @@ function CustomHeader({ movies }) {
                                 {({ isActive }) => {
                                     // if (isActive) console.log('active', movie.title);
                                     return (
-                                        <div className="text-white flex flex-col overflow-hidden w-full h-full">
+                                        <div className="text-white flex flex-col overflow-hidden w-full h-full max-w-max mx-auto">
                                             <div className="w-6/12  2xl:w-6/12 grid grid-cols-3 gap-y-4 gap-x-4 sm:gap-y-0 justify-items-center relative mx-auto py-28">
                                                 <div className="col-span-3 sm:col-span-2 order-2 sm:order-1 sm:justify-self-start flex flex-col justify-evenly items-center sm:items-start space-y-2 sm:space-y-0">
                                                     <h2 className="text-2xl sm:text-3xl text-center sm:text-left font-movieNameFont capitalize">
@@ -176,7 +176,7 @@ function CustomHeader({ movies }) {
                         {movies.map((movie, i) => {
                             return (
                                 <SwiperSlide key={i}>
-                                    <div className="w-full h-full flex items-center justify-center">
+                                    <div className="w-full h-full flex items-center justify-center ">
                                         <img
                                             alt={movie.title + "image"}
                                             ref={subMoviesRefs[i]}

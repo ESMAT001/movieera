@@ -14,7 +14,7 @@ export default function Home({ movies, error }) {
     <>
       <CustomHead />
       <CustomHeader movies={movies.slice(0,6)} />
-      <Main movies={movies} error={error}/>
+      <Main movies={movies.slice(6)} error={error}/>
     </>
 
   )

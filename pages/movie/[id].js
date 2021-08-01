@@ -18,9 +18,10 @@ export default Index
 export async function getStaticProps(context) {
     const { id } = context.params
     const [movie, error] = await callApi(apiUrl + "/movie?id=" + id)
-
+    const revalidate = parseInt(86400 * 2)
     return {
-        props: { movie, error }
+        props: { movie, error },
+        revalidate
     }
 }
 
