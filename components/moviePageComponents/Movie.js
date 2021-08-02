@@ -33,12 +33,12 @@ function Movie({ movie, error }) {
                                 <span className="sm:font-semibold text-nice-red" >Overview : </span>{movie.overview}
                             </p>
                         </div>
-                        <div className="sm:w-3/6 flex flex-col items-center space-y-4">
+                        {movie.videos.results.length > 0 && <div className="sm:w-3/6 flex flex-col items-center space-y-4">
                             <h2 className="text-center text-xl font-movieNameFont">Trillers</h2>
                             <div className="w-5/6 bg-nice-red" >
                                 <img src={trailerImgUrl(movie.videos.results[0].key)} alt={movie.title + "trailer"} className="object-cover w-full h-full mx-auto" />
                             </div>
-                        </div>
+                        </div>}
                     </div>
                 </div>
 
