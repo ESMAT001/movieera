@@ -126,11 +126,11 @@ function CustomHeader({ movies }) {
                                                         {movie.original_title}
                                                     </h2>
                                                     <p className="text-sm text-opacity-90 text-gray-200">
-                                                        Rating: {movie.vote_average}
+                                                        Rating : {movie.vote_average}
                                                     </p>
                                                     <Rating rating={movie.vote_average} />
                                                     <p className="font-subMovieFont text-sm text-opacity-90 text-gray-200">
-                                                        Original language: {movie.original_language}
+                                                        Original language : {movie.original_language}
                                                     </p>
                                                     <ul className="flex flex-row flex-wrap justify-center space-x-2 text-sm text-opacity-90 text-gray-200">
                                                         {movie.genres.map((genre) => (
