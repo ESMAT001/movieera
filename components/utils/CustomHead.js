@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-function CustomHead({ title = "MOVIEERA", children }) {
+function CustomHead({ title = "Movieera | Your online theater", children }) {
     return (
         <Head>
             <title>{title}</title>
