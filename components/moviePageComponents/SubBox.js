@@ -14,7 +14,7 @@ function SubBox({ movie }) {
                 <img
                     src={imageUrl + posterImage}
                     alt={title + " poster image"}
-                    className="w-4/6 sm:w-2/6 object-cover"
+                    className="w-4/6 sm:w-2/6 object-cover bg-nice-red"
                 />
                 <div className="flex flex-col items-center space-y-3 text-gray-200  ">
                     <h1 className="text-white text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-movieNameFont">{title}</h1>
@@ -32,7 +32,7 @@ function SubBox({ movie }) {
                             <FaDownload className="text-md mr-1" />Download
                         </button>
                         <button className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
-                            <IoIosPlay className="text-xl" /> Play
+                            <IoIosPlay className="text-xl" /> Watch Now
                         </button>
                     </div>
                 </div>

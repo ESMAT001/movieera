@@ -3,6 +3,8 @@ import CustomHead from '../utils/CustomHead'
 import { imageUrl, trailerImgUrl } from '../../utils'
 import Bg from './Bg'
 import SubBox from './SubBox'
+import MoreTrailers from './MoreTrailers'
+import TrailerBox from './TrailerBox';
 
 function Movie({ movie, error }) {
     console.log(movie)
@@ -34,12 +36,17 @@ function Movie({ movie, error }) {
                             </p>
                         </div>
                         {movie.videos.results.length > 0 && <div className="sm:w-3/6 flex flex-col items-center space-y-4">
-                            <h2 className="text-center text-xl font-movieNameFont">Trillers</h2>
-                            <div className="w-5/6 bg-nice-red" >
-                                <img src={trailerImgUrl(movie.videos.results[0].key)} alt={movie.title + "trailer"} className="object-cover w-full h-full mx-auto" />
-                            </div>
+                            <h2 className="text-center text-xl font-movieNameFont">Trailers</h2>
+                            <TrailerBox
+                                videoKey={movie.videos.results[0].key}
+                                title={movie.title}
+                            />
                         </div>}
                     </div>
+                    {movie.videos.results.length > 1 && <MoreTrailers
+                        videos={movie.videos.results}
+                        title={movie.title}
+                    />}
                 </div>
 
             </main>
