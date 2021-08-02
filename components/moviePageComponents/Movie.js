@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CustomHead from '../utils/CustomHead'
 import { imageUrl, trailerImgUrl } from '../../utils'
 import Bg from './Bg'
 import SubBox from './SubBox'
 import MoreTrailers from './MoreTrailers'
 import TrailerBox from './TrailerBox';
+import Modal from '../utils/Modal'
 
 function Movie({ movie, error }) {
+
+    const [isTrailerModalOpen, setTrailerModalOpen] = useState(false)
+    const [TrailerModalVideoKey, setTrailerModalVideoKey] = useState(null)
+
+    const openTrailerModal = (key) => {
+        setTrailerModalVideoKey(key)
+        setTrailerModalOpen(true)
+    }
+    const closeTrailerModal = () => {
+        setTrailerModalOpen(false)
+        setTrailerModalVideoKey(null)
+    }
+
+
     console.log(movie)
     const bgImage = movie.backdrop_path
     const posterImage = movie.poster_path
@@ -17,6 +32,7 @@ function Movie({ movie, error }) {
     return (
         <>
             <CustomHead title={title} />
+            {isTrailerModalOpen && <Modal close={closeTrailerModal} videoKey={TrailerModalVideoKey} />}
             <main>
                 <div className="relative overflow-hidden px-10 sm:px-20 md:px-32 lg:px-44 xl:px-60 2xl:px-72 pt-32 pb-10 sm:py-32">
                     <Bg bgImage={bgImage} />
@@ -40,12 +56,14 @@ function Movie({ movie, error }) {
                             <TrailerBox
                                 videoKey={movie.videos.results[0].key}
                                 title={movie.title}
+                                fn={openTrailerModal}
                             />
                         </div>}
                     </div>
                     {movie.videos.results.length > 1 && <MoreTrailers
                         videos={movie.videos.results}
                         title={movie.title}
+                        fn={openTrailerModal}
                     />}
                 </div>
 

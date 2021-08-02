@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { BsArrowDown } from "react-icons/bs";
 import TrailerBox from './TrailerBox';
-function MoreTrailers({ videos, title }) {
+function MoreTrailers({ videos, title, fn }) {
     const [showTrailers, setShowTrailers] = useState(false)
     return (
         <div>
@@ -18,6 +18,7 @@ function MoreTrailers({ videos, title }) {
                         key={video.id}
                         videoKey={video.key}
                         title={title}
+                        fn={fn}
                     />
                 ))}
             </div>}
