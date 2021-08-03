@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Main from '../components/Main'
+import Main from '../components/mainPageComponents/Main'
 import CustomHead from '../components/utils/CustomHead'
 import Header from '../components/Header'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'

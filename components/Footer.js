@@ -70,14 +70,14 @@ function footer() {
                 </div>
             </div>
             <div className="flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 ">
-                <p className='text-xs text-gray-500 text-center text-opacity-90 flex flex-col sm:flex-row sm:space-x-1'>
+                <div className='text-xs text-gray-500 text-center text-opacity-90 flex flex-col sm:flex-row sm:space-x-1'>
                     <p> Copyright © {new Date().getFullYear()} <Link href="/">
                         <a >
                             MOVIEERA.
                         </a>
                     </Link></p>
                     <p>All rights reserved.</p>
-                </p>
+                </div>
                 <div className="flex text-gray-500 text-2xl justify-center space-x-6">
                     <Link href="/">
                         <a >

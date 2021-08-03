@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { BsHeart, BsFillHeartFill, BsFillPlayFill } from "react-icons/bs";
 import Link from 'next/link'
-import MovieMoreInfo from './utils/MovieMoreInfo';
+import MovieMoreInfo from './MovieMoreInfo';
 
 function MovieInfoBox({ movie }) {
     const [isHeartBtnClicked, setHeartBtnClicked] = useState(false)
