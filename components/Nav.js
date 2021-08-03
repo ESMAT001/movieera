@@ -23,7 +23,7 @@ function Nav() {
                     </a>
                 </Link>
                 <span className="z-40">
-                    <Humbrger handler={setIsOpen} />
+                    <Humbrger isOpen={isOpen} setIsOpen={setIsOpen} />
                 </span>
             </div>
             <span className={"z-20 filter blur-sm transform transition-all duration-300 w-full h-screen absolute right-0 top-0 bg-black bg-opacity-25 " + (isOpen ? "" : "translate-x-full")}>
