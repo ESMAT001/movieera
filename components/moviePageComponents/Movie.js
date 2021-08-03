@@ -7,6 +7,8 @@ import MoreTrailers from './MoreTrailers'
 import TrailerBox from './TrailerBox';
 import Modal from '../utils/Modal'
 import MovieInfo from './MovieInfo'
+import ProductionCompanies from './ProductionCompanies'
+import Link from 'next/link'
 
 function Movie({ movie, error }) {
 
@@ -51,8 +53,21 @@ function Movie({ movie, error }) {
                             />
                         </div>}
                     </div>
+                    <p className="mt-6">
+                        <span className="text-nice-red text-sm">
+                            Home Page : &nbsp;
+                        </span>
+                        <Link href={movie.homepage}>
+                            <a className="text-blue-500 text-sm" target="_blank">
+                                {movie.homepage}
+                            </a>
+                        </Link>
+                    </p>
+                    {
+                        movie.production_companies.length > 0 && <ProductionCompanies companies={movie.production_companies} />
+                    }
                     {movie.videos.results.length > 1 && <MoreTrailers
-                        videos={movie.videos.results}
+                        videos={movie.videos.results.slice(1)}
                         title={movie.title}
                         fn={openTrailerModal}
                     />}
