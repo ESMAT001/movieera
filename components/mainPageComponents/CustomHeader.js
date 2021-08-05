@@ -148,8 +148,8 @@ function CustomHeader({ movies }) {
                                                         </button>
                                                     </div>
                                                 </div>
-                                                <div className=" col-span-3 sm:col-span-1 order-1 sm:order-2">
-                                                    <MovieMoreInfo imagePath={movie.poster_path} >
+                                                <div className="col-span-3 sm:col-span-1 order-1 sm:order-2">
+                                                    <MovieMoreInfo imagePath={movie.poster_path} layout="fill" >
                                                         <Link href={"/movie/" + movieId}>
                                                             <a className={"font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 py-2 px-4 text-xs leading-normal text-white"}>
                                                                 More info
