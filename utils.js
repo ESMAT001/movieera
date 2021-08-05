@@ -1,7 +1,7 @@
 module.exports = {
     apiUrl: "https://api-movieera.herokuapp.com/v1",
     imageUrl: (imgPath) => {
-        if(!imagePath) return "";
+        if(!imgPath) return "";
 
         if (imgPath[0] !== "/") {
             imgPath = "/" + imgPath;
@@ -9,7 +9,7 @@ module.exports = {
         return 'https://api-movieera.herokuapp.com/v1/image/original' + imgPath;
     },
     placeholderImgUrl: (imgPath) => {
-        if(!imagePath) return "";
+        if(!imgPath) return "";
 
         if (imgPath[0] !== "/") {
             imgPath = "/" + imgPath;
