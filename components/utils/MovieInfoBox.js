@@ -14,7 +14,7 @@ function MovieInfoBox({ movie }) {
     return (
         <div className="w-full flex flex-col">
             <div className="w-full ">
-                <MovieMoreInfo imagePath={movie.poster_path} >
+                <MovieMoreInfo alt={movie.title + " movie poster image"} imagePath={movie.poster_path} >
                     <Link href={"/movie/" + id}>
                         <a className="font-semibold rounded-full antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 p-3 text-2xl leading-normal text-white">
                             <BsFillPlayFill />

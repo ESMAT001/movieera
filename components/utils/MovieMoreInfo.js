@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { imageUrl } from "../../utils";
+import { imageUrl, placeholderImgUrl } from "../../utils";
 import Image from 'next/image'
 
-function MovieMoreInfo({ imagePath, layout = 'responsive', children }) {
+function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layout = 'responsive', children }) {
 
     const [isMouseOver, setIsMouseOver] = useState(false)
     const handleMouseEnter = () => setIsMouseOver(true)
@@ -23,18 +23,26 @@ function MovieMoreInfo({ imagePath, layout = 'responsive', children }) {
             </span>
             {
                 layout === 'responsive' && <Image
+                    loading={loading}
+                    alt={alt}
                     src={imageUrl + imagePath}
                     width={500}
                     height={750}
                     layout={layout}
+                    placeholder="blur"
+                    blurDataURL={placeholderImgUrl + imagePath}
                 />
             }
 
             {
                 layout === 'fill' && <Image
+                    alt={alt}
                     src={imageUrl + imagePath}
                     width={500}
                     height={750}
+                    loading={loading}
+                    placeholder="blur"
+                    blurDataURL={placeholderImgUrl + imagePath}
                 />
             }
 

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Rating from "../utils/Rating";
 import MovieMoreInfo from "../utils/MovieMoreInfo";
 import Link from 'next/link'
-
+import Image from 'next/image'
 
 import { FaDownload } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";
@@ -149,7 +149,11 @@ function CustomHeader({ movies }) {
                                                     </div>
                                                 </div>
                                                 <div className="col-span-3 sm:col-span-1 order-1 sm:order-2">
-                                                    <MovieMoreInfo imagePath={movie.poster_path} layout="fill" >
+                                                    <MovieMoreInfo
+                                                        alt={movie.title + " movie poster image"}
+                                                        loading='eager'
+                                                        imagePath={movie.poster_path}
+                                                        layout="fill" >
                                                         <Link href={"/movie/" + movieId}>
                                                             <a className={"font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 py-2 px-4 text-xs leading-normal text-white"}>
                                                                 More info
@@ -177,12 +181,23 @@ function CustomHeader({ movies }) {
                             return (
                                 <SwiperSlide key={i}>
                                     <div className="w-full h-full flex items-center justify-center ">
-                                        <img
+                                        {/* <img
                                             alt={movie.title + "image"}
                                             ref={subMoviesRefs[i]}
                                             src={imageUrl + movie.poster_path}
                                             className={`transform transition-all duration-300 hover:scale-105 h-4/5 cursor-pointer`}
-                                        />
+                                        /> */}
+                                        <div
+                                            ref={subMoviesRefs[i]}
+                                            className={`transform transition-all duration-300 hover:scale-105 h-4/6 w-4/6 flex justify-center items-center cursor-pointer`}>
+                                            <Image
+                                                alt={movie.title + "image"}
+                                                src={imageUrl + movie.poster_path}
+                                                width={500}
+                                                height={750}
+                                                loading='eager'
+                                            />
+                                        </div>
                                     </div>
                                 </SwiperSlide>)
                         })}
