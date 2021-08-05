@@ -67,7 +67,7 @@ function CustomHeader({ movies }) {
                 <div
                     className="h-full w-full absolute top-0 left-0 filter blur-sm bg-cover bg-center bg-no-repeat brightness-90 contrast-125 transform scale-105 transition-all duration-500"
                     style={{
-                        backgroundImage: `url("${imageUrl}${bgImage}")`,
+                        backgroundImage: `url("${imageUrl(bgImage)}")`,
                         OBackgroundSize: 'cover',
                         MozBackgroundSize: 'cover',
                         WebkitBackgroundSize: 'cover'
@@ -181,23 +181,23 @@ function CustomHeader({ movies }) {
                             return (
                                 <SwiperSlide key={i}>
                                     <div className="w-full h-full flex items-center justify-center ">
-                                        {/* <img
+                                        <img
                                             alt={movie.title + "image"}
                                             ref={subMoviesRefs[i]}
-                                            src={imageUrl + movie.poster_path}
+                                            src={imageUrl(movie.poster_path)}
                                             className={`transform transition-all duration-300 hover:scale-105 h-4/5 cursor-pointer`}
-                                        /> */}
-                                        <div
+                                        />
+                                        {/* <div
                                             ref={subMoviesRefs[i]}
                                             className={`transform transition-all duration-300 hover:scale-105 h-4/6 w-4/6 flex justify-center items-center cursor-pointer`}>
                                             <Image
                                                 alt={movie.title + "image"}
-                                                src={imageUrl + movie.poster_path}
+                                                src={imageUrl(movie.poster_path)}
                                                 width={500}
                                                 height={750}
                                                 loading='eager'
                                             />
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </SwiperSlide>)
                         })}

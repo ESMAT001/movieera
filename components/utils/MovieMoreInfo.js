@@ -25,7 +25,7 @@ function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layou
                 layout === 'responsive' && <Image
                     loading={loading}
                     alt={alt}
-                    src={imageUrl + imagePath}
+                    src={imageUrl(imagePath)}
                     width={500}
                     height={750}
                     layout={layout}
@@ -37,7 +37,7 @@ function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layou
             {
                 layout === 'fill' && <Image
                     alt={alt}
-                    src={imageUrl + imagePath}
+                    src={imageUrl(imagePath)}
                     width={500}
                     height={750}
                     loading={loading}

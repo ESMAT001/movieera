@@ -12,7 +12,7 @@ function ProductionCompanies({ companies }) {
                             return (
                                 <div key={index + "logo"} className="h-24">
                                     <img
-                                        src={imageUrl + company.logo_path}
+                                        src={imageUrl(company.logo_path)}
                                         alt={company.name + " logo"}
                                         className="w-full h-full"
                                     />

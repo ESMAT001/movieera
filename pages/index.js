@@ -10,6 +10,7 @@ import { apiUrl } from '../utils'
 import { callApi } from '../functions/functions'
 
 export default function Home({ movies, error }) {
+  console.log(movies)
   return (
     <>
       <CustomHead />
