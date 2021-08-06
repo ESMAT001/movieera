@@ -140,12 +140,17 @@ function CustomHeader({ movies }) {
                                                         ))}
                                                     </ul>
                                                     <div className="flex space-x-2">
-                                                        <button className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
-                                                            <FaDownload className="text-md mr-1" />Download
-                                                        </button>
-                                                        <button className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
-                                                            <IoIosPlay className="text-xl" /> Play
-                                                        </button>
+                                                        <Link href={"/movie/" + movieId + "#downloadLinks"}>
+                                                            <a className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
+                                                                <FaDownload className="text-md mr-1" />Download
+                                                            </a>
+                                                        </Link>
+                                                        <Link href={"/movie/" + movieId + "#downloadLinks"}>
+                                                            <a className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
+                                                                <IoIosPlay className="text-xl" /> Play
+                                                            </a>
+                                                        </Link>
+
                                                     </div>
                                                 </div>
                                                 <div className="col-span-3 sm:col-span-1 order-1 sm:order-2">

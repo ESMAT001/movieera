@@ -12,7 +12,7 @@ function MediaLinks({ movie }) {
     }
     console.log(movieMediaLangTypes)
     return (
-        <section className="mt-6 flex flex-col space-y-4">
+        <section className="mt-6 flex flex-col space-y-4" id="downloadLinks">
             <h3 className="text-base">Download Links :</h3>
             {
                 movieMediaLangTypes.map((mediaLangType, index) => {

@@ -2,7 +2,7 @@
 
 import 'tailwindcss/tailwind.css'
 import '../styles/style.css'
-
+import 'plyr-react/dist/plyr.css'
 
 import "swiper/swiper.min.css"
 import "swiper/components/navigation/navigation.min.css"

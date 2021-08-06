@@ -15,7 +15,9 @@ function Nav() {
         return () => window.removeEventListener('scroll', changeNavBg)
     }, [])
     return (
-        <nav className={"fixed w-full top-0 text-white z-20 transition-all duration-500 bg-opacity-90 " + navBg}>
+        <nav className={"fixed w-full top-0 text-white z-20 transition-all duration-500 bg-opacity-50 " + navBg}>
+            <span className={"absolute flex top-0 left-0 w-full h-full z-0  transition-all duration-500 backdrop-filter " + (navBg !== "" ? "backdrop-blur-sm" : "")}>
+            </span>
             <div className="flex justify-between items-center w-full py-4 px-6">
                 <Link href="/">
                     <a className="relative w-32 h-8 ">
@@ -26,7 +28,7 @@ function Nav() {
                     <Humbrger isOpen={isOpen} setIsOpen={setIsOpen} />
                 </span>
             </div>
-            <span className={"z-20 filter blur-sm transform transition-all duration-300 w-full h-screen absolute right-0 top-0 bg-black bg-opacity-25 " + (isOpen ? "" : "translate-x-full")}>
+            <span className={"z-20 backdrop-filter backdrop-blur transform transition-all duration-300 w-full h-screen absolute right-0 top-0 bg-black bg-opacity-25 " + (isOpen ? "" : "translate-x-full")}>
             </span>
             <div className={"z-30 flex flex-col items-center  justify-start space-y-4 pt-14 shadow-xl transform transition-all duration-500 w-full sm:w-1/2 h-screen absolute right-0 top-0 bg-black-dark bg-opacity-95 " + (isOpen ? "" : "translate-x-full")}>
                 <Link href="/">

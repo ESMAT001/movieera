@@ -18,7 +18,7 @@ function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layou
                 style={{
                     height: layout === 'fill' ? '98.225%' : '100%',
                 }}
-                className={"w-full bg-black-dark bg-opacity-50 absolute top-0 left-0 z-10 flex items-center justify-center transition-all duration-300 transform " + (isMouseOver ? "" : "translate-x-full")} >
+                className={"w-full backdrop-filter backdrop-blur md:backdrop-filter-none bg-black-dark bg-opacity-50 absolute top-0 left-0 z-10 flex items-center justify-center transition-all duration-500 transform " + (isMouseOver ? "" : "translate-x-full")} >
                 {children}
             </span>
             {

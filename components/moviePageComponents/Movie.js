@@ -10,11 +10,25 @@ import MovieInfo from './MovieInfo'
 import ProductionCompanies from './ProductionCompanies'
 import Link from 'next/link'
 import MediaLinks from './MediaLinks'
+import Plyr from 'plyr-react'
 
 function Movie({ movie, error }) {
 
     const [isTrailerModalOpen, setTrailerModalOpen] = useState(false)
     const [TrailerModalVideoKey, setTrailerModalVideoKey] = useState(null)
+
+    const [isMoviePlayerModalOpen, setMoviePlayerModalOpen] = useState(false)
+    const [moviePlayerUrls, setMoviePlayerUrls] = useState(null)
+
+    const openMoviePlayerModal = (urls) => {
+        setMoviePlayerUrls(urls)
+        setMoviePlayerModalOpen(true)
+    }
+
+    const closeMoviePlayerModal = () => {
+        setMoviePlayerUrls(null)
+        setMoviePlayerModalOpen(false)
+    }
 
     const openTrailerModal = (key) => {
         setTrailerModalVideoKey(key)
@@ -37,10 +51,42 @@ function Movie({ movie, error }) {
                     <iframe type="text/html" className="h-full w-full" src={`//www.youtube.com/embed/${TrailerModalVideoKey}?autoplay=1`} frameBorder="0"></iframe>
                 </Modal>
             }
+
+            {
+                isMoviePlayerModalOpen && <Modal close={closeMoviePlayerModal} >
+                    <Plyr
+                        source={
+                            {
+                                type: "video",
+                                title: 'Example title',
+                                sources: moviePlayerUrls
+                            }
+                        }
+                    />
+                </Modal>
+            }
+
+
             <main>
                 <div className="relative overflow-hidden px-10 sm:px-20 md:px-32 lg:px-44 xl:px-60 2xl:px-72 pt-32 pb-10 sm:py-32">
                     <Bg bgImage={bgImage} />
-                    <SubBox movie={movie} />
+                    <SubBox callback={() => openMoviePlayerModal([
+                        {
+                            src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
+                            type: 'video/mkv',
+                            size: 720,
+                        },
+                        {
+                            src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
+                            type: 'video/mkv',
+                            size: 720,
+                        },
+                        {
+                            src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
+                            type: 'video/mkv',
+                            size: 720,
+                        }
+                    ])} movie={movie} />
                 </div>
                 <div className="text-gray-400 px-14 sm:px-16 md:px-20 lg:px-32 xl:px-36 2xl:px-44 py-10 md:py-20 xl:py-26" >
                     <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-10 sm:space-y-0">
@@ -72,7 +118,7 @@ function Movie({ movie, error }) {
                     {
                         movie.production_companies.length > 0 && <ProductionCompanies companies={movie.production_companies} />
                     }
-                    <MediaLinks movie={movie}/>
+                    <MediaLinks movie={movie} />
                 </div>
 
             </main>
