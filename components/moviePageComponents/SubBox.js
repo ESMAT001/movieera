@@ -1,8 +1,9 @@
 import React from 'react'
-import { imageUrl } from '../../utils'
+import { imageUrl, placeholderImgUrl } from '../../utils'
 import Rating from '../utils/Rating'
 import { FaDownload } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";
+import Image from 'next/image'
 
 function SubBox({ movie }) {
     const posterImage = movie.poster_path
@@ -11,11 +12,17 @@ function SubBox({ movie }) {
     return (
         <div className="relative flex flex-col">
             <div className="w-full flex flex-col justify-center sm:flex-row items-center sm:space-x-10 space-y-6 sm:space-y-0">
-                <img
+                <div className="w-4/6 sm:w-2/6 object-cover bg-nice-red">
+                <Image
+                    alt={title + " movie poster image"}
                     src={imageUrl(posterImage)}
-                    alt={title + " poster image"}
-                    className="w-4/6 sm:w-2/6 object-cover bg-nice-red"
+                    width={500}
+                    height={750}
+                    placeholder="blur"
+                    layout="responsive"
+                    blurDataURL={placeholderImgUrl(posterImage)}
                 />
+                </div>
                 <div className="flex flex-col items-center space-y-3 text-gray-200  ">
                     <h1 className="text-white text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-movieNameFont">{title}</h1>
                     {originalTitle !== title && <h2 className="text-white text-xs font-movieNameFont">{originalTitle}</h2>}

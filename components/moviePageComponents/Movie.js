@@ -9,6 +9,7 @@ import Modal from '../utils/Modal'
 import MovieInfo from './MovieInfo'
 import ProductionCompanies from './ProductionCompanies'
 import Link from 'next/link'
+import MediaLinks from './MediaLinks'
 
 function Movie({ movie, error }) {
 
@@ -53,24 +54,25 @@ function Movie({ movie, error }) {
                             />
                         </div>}
                     </div>
+                    {movie.videos.results.length > 1 && <MoreTrailers
+                        videos={movie.videos.results.slice(1)}
+                        title={movie.title}
+                        fn={openTrailerModal}
+                    />}
                     <p className="mt-6">
                         <span className="text-nice-red text-sm">
                             Home Page : &nbsp;
                         </span>
                         <Link href={movie.homepage}>
-                            <a className="text-blue-500 text-sm" target="_blank">
-                                {movie.homepage}
+                            <a className="text-blue-500 text-xs" target="_blank">
+                                <p className="p"> {movie.homepage}</p>
                             </a>
                         </Link>
                     </p>
                     {
                         movie.production_companies.length > 0 && <ProductionCompanies companies={movie.production_companies} />
                     }
-                    {movie.videos.results.length > 1 && <MoreTrailers
-                        videos={movie.videos.results.slice(1)}
-                        title={movie.title}
-                        fn={openTrailerModal}
-                    />}
+                    <MediaLinks movie={movie}/>
                 </div>
 
             </main>

@@ -30,7 +30,7 @@ function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layou
                     height={750}
                     layout={layout}
                     placeholder="blur"
-                    blurDataURL={placeholderImgUrl + imagePath}
+                    blurDataURL={placeholderImgUrl(imagePath)}
                 />
             }
 
@@ -42,7 +42,7 @@ function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layou
                     height={750}
                     loading={loading}
                     placeholder="blur"
-                    blurDataURL={placeholderImgUrl + imagePath}
+                    blurDataURL={placeholderImgUrl(imagePath)}
                 />
             }
 
