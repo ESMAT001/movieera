@@ -2,7 +2,7 @@ import React from 'react'
 import MediaLinksContainer from './MediaLinksContainer'
 
 function MediaLinks({ movie }) {
-    console.log('MediaLinks', movie)
+    // console.log('MediaLinks', movie)
     const movieMediaLangTypes = []
     const { download_links } = movie
     for (const key in download_links) {
@@ -10,7 +10,7 @@ function MediaLinks({ movie }) {
             movieMediaLangTypes.push([key, download_links[key]])
         }
     }
-    console.log(movieMediaLangTypes)
+    // console.log(movieMediaLangTypes)
     return (
         <section className="mt-6 flex flex-col space-y-4" id="downloadLinks">
             <h3 className="text-base">Download Links :</h3>

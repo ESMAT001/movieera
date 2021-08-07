@@ -12,7 +12,7 @@ function SubBox({ movie, callback }) {
     return (
         <div className="relative flex flex-col">
             <div className="w-full flex flex-col justify-center sm:flex-row items-center sm:space-x-10 space-y-6 sm:space-y-0">
-                <div className="w-4/6 sm:w-2/6 object-cover bg-nice-red">
+                <div className="w-4/6 sm:w-2/6 object-cover">
                     <Image
                         alt={title + " movie poster image"}
                         src={imageUrl(posterImage)}

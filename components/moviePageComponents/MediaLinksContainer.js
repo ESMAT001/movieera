@@ -65,9 +65,6 @@ function MediaLinksContainer({ mediaLangType }) {
                                         className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2 px-4 text-xs leading-normal text-white cursor-pointer">
                                         <FaDownload className="text-md mr-1" />Download
                                     </a>
-                                    <button className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600  focus:outline-none flex items-center justify-center gap-1 outline-none tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2 px-4 text-xs leading-normal text-white ">
-                                        <IoIosPlay className="text-xl" /> Play
-                                    </button>
                                 </div>
                             </li>)
                     })

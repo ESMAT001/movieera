@@ -1,6 +1,9 @@
 :root {
   --plyr-color-main: #ff003c;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 html {
   background-color: #090a0e;
   scroll-behavior: smooth;

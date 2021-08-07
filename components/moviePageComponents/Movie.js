@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CustomHead from '../utils/CustomHead'
 import { imageUrl, trailerImgUrl } from '../../utils'
 import Bg from './Bg'
@@ -11,25 +11,31 @@ import ProductionCompanies from './ProductionCompanies'
 import Link from 'next/link'
 import MediaLinks from './MediaLinks'
 import Plyr from 'plyr-react'
+import { createMovieSourceObjects } from '../../functions/functions'
 
-
-import VideoJS from '../utils/VideoJs'
 
 function Movie({ movie, error }) {
-
+    const movieMediaSources = createMovieSourceObjects(movie.download_links);
+    
+    console.log(movieMediaSources)
     const [isTrailerModalOpen, setTrailerModalOpen] = useState(false)
     const [TrailerModalVideoKey, setTrailerModalVideoKey] = useState(null)
 
     const [isMoviePlayerModalOpen, setMoviePlayerModalOpen] = useState(false)
-    const [moviePlayerUrls, setMoviePlayerUrls] = useState(null)
+
+    const [isLanguageOptionsModalOpen, setLanguageOptionsModalOpen] = useState(false)
+
+    const [movieLanguage, setMovieLanguage] = useState(null)
+
+    const openLangOptionsModal = () => setLanguageOptionsModalOpen(true)
+    const closeLangOptionsModal = () => setLanguageOptionsModalOpen(false)
 
     const openMoviePlayerModal = (urls) => {
-        setMoviePlayerUrls(urls)
         setMoviePlayerModalOpen(true)
     }
 
     const closeMoviePlayerModal = () => {
-        setMoviePlayerUrls(null)
+        setMovieLanguage(null)
         setMoviePlayerModalOpen(false)
     }
 
@@ -43,66 +49,93 @@ function Movie({ movie, error }) {
     }
 
 
-    console.log(movie)
-    const bgImage = movie.backdrop_path
-    const title = movie.title
+    useEffect(() => {
+        if (movieLanguage !== null) {
+            openMoviePlayerModal()
+        }
+    }, [movieLanguage])
 
-    const videoJsOptions = { // lookup the options in the docs for more options
-        autoplay: true,
-        controls: true,
-        responsive: true,
-        fluid: true,
-        poster: imageUrl(movie.backdrop_path),
-        sources: [{
-            src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
-            type: 'video/mp4'
-        },
-        {
-            src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
-            type: 'video/mp4'
-        }]
+    const showLanguageOptions = () => {
+        const jsx = []
+        for (const key in movieMediaSources) {
+            if (Object.hasOwnProperty.call(movieMediaSources, key)) {
+                jsx.push(
+                    <button
+                        key={"movieLang"+key}
+                        onClick={() => {
+                            closeLangOptionsModal()
+                            setMovieLanguage(key)
+                        }}
+                        className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white "
+                    >
+                        {key}
+                    </button>
+                )
+            }
+        }
+        return jsx
     }
 
 
+
+    const playerOptions = {
+        preload: 'auto',
+        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
+    }
+
+    // console.log(movie)
+    const bgImage = movie.backdrop_path
+    const title = movie.title
     return (
         <>
             <CustomHead title={title} />
+
+            {
+
+                isLanguageOptionsModalOpen && <Modal close={closeLangOptionsModal} >
+
+                    <div className="flex flex-col justify-center items-center space-y-4">
+                        <h2>Choose Language :</h2>
+                        {
+                            showLanguageOptions()
+                        }
+                    </div>
+                </Modal>
+
+            }
+
+
             {
                 isTrailerModalOpen && <Modal close={closeTrailerModal} >
-                    <iframe type="text/html" className="h-full w-full" src={`//www.youtube.com/embed/${TrailerModalVideoKey}?autoplay=1`} frameBorder="0"></iframe>
+                    {/* <iframe type="text/html" className="h-full w-full" src={`//www.youtube.com/embed/${TrailerModalVideoKey}?autoplay=1`} frameBorder="0"></iframe> */}
+                    <Plyr
+                        source={{
+                            type: 'video',
+                            poster: trailerImgUrl(TrailerModalVideoKey),
+                            sources: [
+                                {
+                                    src: TrailerModalVideoKey,
+                                    provider: 'youtube',
+                                },
+                            ],
+                        }}
+                        options={playerOptions}
+                    />
                 </Modal>
             }
 
             {
                 isMoviePlayerModalOpen && <Modal close={closeMoviePlayerModal} >
-                    {/* <VideoJS options={videoJsOptions} /> */}
                     <Plyr
                         source={{
                             type: 'video',
                             title: 'Example title',
-                            poster: imageUrl(movie.backdrop_path),
-                            sources: [
-                                {
-                                    src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
-                                    type: 'video/mp4',
-                                    size: 720,
-                                },
-                                {
-                                    src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
-                                    type: 'video/mp4',
-                                    size: 720,
-                                },
-                                {
-                                    src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
-                                    type: 'video/mp4',
-                                    size: 720,
-                                }
-                            ],
+                            poster:"/static/img/player_poster.png",
+                            sources: movieMediaSources[movieLanguage],
                         }}
-                        options={{
-                            preload: 'auto',
-                        }}
-                    /> 
+
+                        options={playerOptions}
+                    />
                 </Modal>
             }
 
@@ -110,23 +143,7 @@ function Movie({ movie, error }) {
             <main>
                 <div className="relative overflow-hidden px-10 sm:px-20 md:px-32 lg:px-44 xl:px-60 2xl:px-72 pt-32 pb-10 sm:py-32">
                     <Bg bgImage={bgImage} />
-                    <SubBox callback={() => openMoviePlayerModal([
-                        {
-                            src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
-                            type: 'video/mkv',
-                            size: 720,
-                        },
-                        {
-                            src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
-                            type: 'video/mkv',
-                            size: 720,
-                        },
-                        {
-                            src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
-                            type: 'video/mkv',
-                            size: 720,
-                        }
-                    ])} movie={movie} />
+                    <SubBox callback={openLangOptionsModal} movie={movie} />
                 </div>
                 <div className="text-gray-400 px-14 sm:px-16 md:px-20 lg:px-32 xl:px-36 2xl:px-44 py-10 md:py-20 xl:py-26" >
                     <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-10 sm:space-y-0">
@@ -145,7 +162,7 @@ function Movie({ movie, error }) {
                         title={movie.title}
                         fn={openTrailerModal}
                     />}
-                    <p className="mt-6">
+                    <div className="mt-6">
                         <span className="text-nice-red text-sm">
                             Home Page : &nbsp;
                         </span>
@@ -154,7 +171,7 @@ function Movie({ movie, error }) {
                                 <p className="p"> {movie.homepage}</p>
                             </a>
                         </Link>
-                    </p>
+                    </div>
                     {
                         movie.production_companies.length > 0 && <ProductionCompanies companies={movie.production_companies} />
                     }
