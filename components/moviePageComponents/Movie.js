@@ -12,6 +12,9 @@ import Link from 'next/link'
 import MediaLinks from './MediaLinks'
 import Plyr from 'plyr-react'
 
+
+import VideoJS from '../utils/VideoJs'
+
 function Movie({ movie, error }) {
 
     const [isTrailerModalOpen, setTrailerModalOpen] = useState(false)
@@ -43,6 +46,24 @@ function Movie({ movie, error }) {
     console.log(movie)
     const bgImage = movie.backdrop_path
     const title = movie.title
+
+    const videoJsOptions = { // lookup the options in the docs for more options
+        autoplay: true,
+        controls: true,
+        responsive: true,
+        fluid: true,
+        poster: imageUrl(movie.backdrop_path),
+        sources: [{
+            src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
+            type: 'video/mp4'
+        },
+        {
+            src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
+            type: 'video/mp4'
+        }]
+    }
+
+
     return (
         <>
             <CustomHead title={title} />
@@ -54,15 +75,34 @@ function Movie({ movie, error }) {
 
             {
                 isMoviePlayerModalOpen && <Modal close={closeMoviePlayerModal} >
+                    {/* <VideoJS options={videoJsOptions} /> */}
                     <Plyr
-                        source={
-                            {
-                                type: "video",
-                                title: 'Example title',
-                                sources: moviePlayerUrls
-                            }
-                        }
-                    />
+                        source={{
+                            type: 'video',
+                            title: 'Example title',
+                            poster: imageUrl(movie.backdrop_path),
+                            sources: [
+                                {
+                                    src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
+                                    type: 'video/mp4',
+                                    size: 720,
+                                },
+                                {
+                                    src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
+                                    type: 'video/mp4',
+                                    size: 720,
+                                },
+                                {
+                                    src: "https://dl18.ftk.pw/user/shahab4/film/The.Suicide.Squad.2021.720p.BluRay.Film2Movie_Asia.mkv",
+                                    type: 'video/mp4',
+                                    size: 720,
+                                }
+                            ],
+                        }}
+                        options={{
+                            preload: 'auto',
+                        }}
+                    /> 
                 </Modal>
             }
 
