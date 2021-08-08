@@ -11,12 +11,12 @@ import ProductionCompanies from './ProductionCompanies'
 import Link from 'next/link'
 import MediaLinks from './MediaLinks'
 import Plyr from 'plyr-react'
-import { createMovieSourceObjects } from '../../functions/functions'
+import { createMovieSourceObjects ,getMediaLangTypeName} from '../../functions/functions'
 
 
 function Movie({ movie, error }) {
     const movieMediaSources = createMovieSourceObjects(movie.download_links);
-    
+
     console.log(movieMediaSources)
     const [isTrailerModalOpen, setTrailerModalOpen] = useState(false)
     const [TrailerModalVideoKey, setTrailerModalVideoKey] = useState(null)
@@ -61,14 +61,14 @@ function Movie({ movie, error }) {
             if (Object.hasOwnProperty.call(movieMediaSources, key)) {
                 jsx.push(
                     <button
-                        key={"movieLang"+key}
+                        key={"movieLang" + key}
                         onClick={() => {
                             closeLangOptionsModal()
                             setMovieLanguage(key)
                         }}
                         className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white "
                     >
-                        {key}
+                        {getMediaLangTypeName(key)}
                     </button>
                 )
             }
@@ -79,8 +79,10 @@ function Movie({ movie, error }) {
 
 
     const playerOptions = {
+        storage: { enabled: true, key: 'plyr' },
+        captions: { active: true, language: 'auto', update: false },
         preload: 'auto',
-        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
+        controls: ['play-large', 'play', 'progress', 'current-time', 'mute','captions', 'volume', 'settings', 'fullscreen'],
     }
 
     // console.log(movie)
@@ -130,7 +132,7 @@ function Movie({ movie, error }) {
                         source={{
                             type: 'video',
                             title: 'Example title',
-                            poster:"/static/img/player_poster.png",
+                            poster: "/static/img/player_poster.png",
                             sources: movieMediaSources[movieLanguage],
                         }}
 

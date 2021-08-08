@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { BsPlus } from "react-icons/bs";
 import { FaDownload } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";
+import {getMediaLangTypeName} from "../../functions/functions"
 
 function MediaLinksContainer({ mediaLangType }) {
 
@@ -10,23 +11,6 @@ function MediaLinksContainer({ mediaLangType }) {
             return quality.substring(1);
         }
         return quality;
-    }
-
-    function getMediaLangTypeName(mediaType) {
-        switch (mediaType) {
-            case 'original_lang':
-                return 'Original language'
-            case 'persian_sub':
-                return 'Persian subtitled'
-            case 'person':
-                return 'Person'
-            case 'company':
-                return 'Company'
-            case 'character':
-                return 'Character'
-            default:
-                return 'Unknown'
-        }
     }
 
 
