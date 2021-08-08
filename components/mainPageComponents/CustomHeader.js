@@ -145,7 +145,7 @@ function CustomHeader({ movies }) {
                                                                 <FaDownload className="text-md mr-1" />Download
                                                             </a>
                                                         </Link>
-                                                        <Link href={"/movie/" + movieId + "#downloadLinks"}>
+                                                        <Link href={"/movie/" + movieId + "?play=true"}>
                                                             <a className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
                                                                 <IoIosPlay className="text-xl" /> Play
                                                             </a>

@@ -9,15 +9,17 @@ import Modal from '../utils/Modal'
 import MovieInfo from './MovieInfo'
 import ProductionCompanies from './ProductionCompanies'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import MediaLinks from './MediaLinks'
 import Plyr from 'plyr-react'
-import { createMovieSourceObjects ,getMediaLangTypeName} from '../../functions/functions'
+import { createMovieSourceObjects, getMediaLangTypeName } from '../../functions/functions'
 
 
 function Movie({ movie, error }) {
+    const router = useRouter()
+    const { play } = router.query
     const movieMediaSources = createMovieSourceObjects(movie.download_links);
-
-    console.log(movieMediaSources)
+    // console.log(movieMediaSources)
     const [isTrailerModalOpen, setTrailerModalOpen] = useState(false)
     const [TrailerModalVideoKey, setTrailerModalVideoKey] = useState(null)
 
@@ -76,13 +78,17 @@ function Movie({ movie, error }) {
         return jsx
     }
 
-
+    useEffect(() => {
+        if (play === "true") {
+            openLangOptionsModal()
+        }
+    }, [])
 
     const playerOptions = {
         storage: { enabled: true, key: 'plyr' },
         captions: { active: true, language: 'auto', update: false },
         preload: 'auto',
-        controls: ['play-large', 'play', 'progress', 'current-time', 'mute','captions', 'volume', 'settings', 'fullscreen'],
+        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'captions', 'volume', 'settings', 'fullscreen'],
     }
 
     // console.log(movie)
@@ -109,7 +115,6 @@ function Movie({ movie, error }) {
 
             {
                 isTrailerModalOpen && <Modal close={closeTrailerModal} >
-                    {/* <iframe type="text/html" className="h-full w-full" src={`//www.youtube.com/embed/${TrailerModalVideoKey}?autoplay=1`} frameBorder="0"></iframe> */}
                     <Plyr
                         source={{
                             type: 'video',

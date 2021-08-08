@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react'
 
+import SavedMoviesContext from '../components/utils/SavedMoviesContext'
 
 import 'tailwindcss/tailwind.css'
 import '../styles/style.css'
@@ -12,17 +14,26 @@ import "swiper/components/thumbs/thumbs.min.css"
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-
-
-
 function MyApp({ Component, pageProps }) {
+  const [savedMovies, setSavedMovies] = useState([])
+  useEffect(() => {
+    setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')) ? JSON.parse(localStorage.getItem('savedMovies')) : [])
+  }, [])
+  useEffect(() => {
+    if (savedMovies.length > 0) {
+      localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
+    }
+  }, [savedMovies])
+
   return (
     <>
 
       <div className="bg-black-dark min-w-full h-full font-subMovieFont">
         <div className="bg-black-light rounded shadow-xl overflow-hidden flex flex-col">
-          <Nav />
-          <Component {...pageProps} />
+          <SavedMoviesContext.Provider value={{ savedMovies, setSavedMovies }}>
+            <Nav />
+            <Component {...pageProps} />
+          </SavedMoviesContext.Provider>
           <Footer />
         </div>
       </div>

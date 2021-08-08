@@ -1,16 +1,41 @@
-import React, { useState } from 'react'
-
+import React, { useState, useEffect, useContext } from 'react'
+import SavedMoviesContext from './SavedMoviesContext';
 import { BsHeart, BsFillHeartFill, BsFillPlayFill } from "react-icons/bs";
 import Link from 'next/link'
 import MovieMoreInfo from './MovieMoreInfo';
 
 function MovieInfoBox({ movie }) {
+    const { savedMovies, setSavedMovies } = useContext(SavedMoviesContext);
     const [isHeartBtnClicked, setHeartBtnClicked] = useState(false)
     const genre = movie.genres[0].name || "not defined"
     const id = movie.id
     function handleHeartClick() {
         setHeartBtnClicked(prev => !prev)
     }
+    useEffect(() => {
+        let exisitingMovie = savedMovies.find(mo => movie.title === mo.title)
+        if (exisitingMovie) {
+            setHeartBtnClicked(true)
+        } else {
+            if (isHeartBtnClicked) {
+                setHeartBtnClicked(false)
+            }
+        }
+    }, [savedMovies])
+    useEffect(() => {
+        if (isHeartBtnClicked) {
+            let exisitingMovie = savedMovies.find(mo => movie.title === mo.title)
+            if (!exisitingMovie) {
+                setSavedMovies(prev => [...prev, {
+                    title: movie.title,
+                    poster_path: movie.poster_path,
+                }])
+            }
+        } else {
+            setSavedMovies(prev => prev.filter(mo => mo.title !== movie.title))
+        }
+    }, [isHeartBtnClicked])
+
     return (
         <div className="w-full flex flex-col">
             <div className="w-full ">
