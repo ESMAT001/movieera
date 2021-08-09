@@ -17,13 +17,14 @@ import Footer from '../components/Footer'
 function MyApp({ Component, pageProps }) {
   const [savedMovies, setSavedMovies] = useState([])
   useEffect(() => {
-    setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')) ? JSON.parse(localStorage.getItem('savedMovies')) : [])
+    const dataFromLocalStorage = JSON.parse(localStorage.getItem('savedMovies'))
+    if (dataFromLocalStorage) setSavedMovies(dataFromLocalStorage);
   }, [])
+
   useEffect(() => {
-    if (savedMovies.length > 0) {
-      localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
-    }
+    localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
   }, [savedMovies])
+
 
   return (
     <>
