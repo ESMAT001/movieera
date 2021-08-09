@@ -7,8 +7,9 @@ function HeartedMoviesContainer() {
         setHeartBtnClicked(prev => !prev)
     }
     return (
-        <div className="z-40 relative">
+        <div className="z-30 relative">
             <button 
+            onBlur={handleHeartClick}
             onClick={handleHeartClick} className="text-gray-300 text-xl  transition-all duration-300 cursor-pointer flex justify-end items-start">
                 {
                     isHeartBtnClicked ?
