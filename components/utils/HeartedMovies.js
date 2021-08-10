@@ -1,19 +1,17 @@
-import { useContext, forwardRef } from 'react'
+import { useContext} from 'react'
 import SavedMoviesContext from '../utils/SavedMoviesContext'
 import Image from 'next/image'
 import { placeholderImgUrl } from '../../utils'
 import { AiOutlineClose } from "react-icons/ai";
 import Link from 'next/link'
 
-function HeartedMovies({ ...rest }, ref) {
+function HeartedMovies() {
     const { savedMovies, setSavedMovies } = useContext(SavedMoviesContext)
     function removeMovie(movie) {
         setSavedMovies(prev => prev.filter(m => m.title !== movie.title))
     }
     return (
         <div
-            ref={ref}
-            {...rest}
             className="absolute top-10 -right-14 sm:right-0 bg-black-dark w-64 md:w-80 text-gray-300 rounded shadow-xl transition-all duration-300 jelly-shake max-h-96 overflow-scroll">
             <p className="px-4 py-3 bg-black-light text-sm">Saved Movies</p>
             <ul className="px-4 divide-gray-400 divide-y divide-opacity-50">
@@ -53,4 +51,4 @@ function HeartedMovies({ ...rest }, ref) {
     )
 }
 
-export default forwardRef(HeartedMovies)
+export default HeartedMovies
