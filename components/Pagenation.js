@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 
 function Pagenation({ currentPage, endPage }) {
@@ -40,8 +39,6 @@ function Pagenation({ currentPage, endPage }) {
                         </Link>
                     </li>
                 </>}
-
-
         </ul>
     )
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import Pagenation from './Pagenation'
 import Link from 'next/link'
 

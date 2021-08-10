@@ -1,4 +1,3 @@
-import React from 'react'
 import { imageUrl } from '../../utils'
 function Bg({ bgImage }) {
     return (

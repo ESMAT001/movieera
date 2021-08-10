@@ -1,4 +1,3 @@
-import React from 'react'
 import { BsX } from "react-icons/bs";
 function Modal({ close, children }) {
     return (

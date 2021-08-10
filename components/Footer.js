@@ -1,10 +1,9 @@
-import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineTwitter, AiOutlineInstagram } from "react-icons/ai";
 import { FaFacebookSquare } from "react-icons/fa";
 
-function footer() {
+function Footer() {
     return (
         <footer className="bg-black-dark flex flex-col space-y-20 px-10 py-16 sm:px-14 md:px-20 lg:px-32 xl:px-48 2xl:px-72" >
             <div className="flex flex-col items-center sm:items-start sm:justify-between space-y-16 sm:flex-row sm:space-y-0 ">
@@ -100,4 +99,4 @@ function footer() {
     )
 }
 
-export default footer
+export default Footer

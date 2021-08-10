@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { BsArrowDown } from "react-icons/bs";
 import TrailerBox from './TrailerBox';
 function MoreTrailers({ videos, title, fn }) {

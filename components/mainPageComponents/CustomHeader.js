@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { createRef, useState, useEffect } from "react";
 
 
 import Rating from "../utils/Rating";
@@ -36,7 +36,7 @@ function CustomHeader({ movies }) {
     useEffect(() => {
         subMoviesRefs = []
         for (let index = 0; index < movies.length; index++) {
-            subMoviesRefs.push(React.createRef())
+            subMoviesRefs.push(createRef())
         }
     }, [])
 

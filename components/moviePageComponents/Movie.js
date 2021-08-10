@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import CustomHead from '../utils/CustomHead'
 import { imageUrl, trailerImgUrl } from '../../utils'
 import Bg from './Bg'

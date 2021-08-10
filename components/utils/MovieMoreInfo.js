@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { imageUrl, placeholderImgUrl } from "../../utils";
 import Image from 'next/image'
 

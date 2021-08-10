@@ -1,4 +1,3 @@
-import React from 'react'
 import MediaLinksContainer from './MediaLinksContainer'
 
 function MediaLinks({ movie }) {

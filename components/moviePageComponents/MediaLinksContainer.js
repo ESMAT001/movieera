@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { BsPlus } from "react-icons/bs";
 import { FaDownload } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";

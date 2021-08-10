@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import {memo, useState, useEffect, useContext } from 'react'
 import SavedMoviesContext from './SavedMoviesContext';
 import { BsHeart, BsFillHeartFill, BsFillPlayFill } from "react-icons/bs";
 import Link from 'next/link'
@@ -75,4 +75,4 @@ function MovieInfoBox({ movie }) {
     )
 }
 
-export default React.memo(MovieInfoBox)
+export default memo(MovieInfoBox)

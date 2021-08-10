@@ -1,4 +1,3 @@
-import React from 'react'
 import { callApi } from '../../functions/functions'
 import { useRouter } from 'next/router'
 import Movie from '../../components/moviePageComponents/Movie'
