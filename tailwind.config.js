@@ -12,7 +12,7 @@ module.exports = {
       fontFamily:{
         'movieNameFont':['Krona One', 'sans-serif'],
         'subMovieFont':['Poppins', 'sans-serif']
-      }
+      },
     },
   },
   variants: {

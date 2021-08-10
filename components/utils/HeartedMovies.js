@@ -13,7 +13,7 @@ function HeartedMovies({ close }) {
     return (
         <div
             onBlur={() => close()}
-            className="absolute top-10 -right-14 sm:right-0 bg-black-dark w-64 md:w-80 text-gray-300 rounded shadow-xl transition-all duration-300 max-h-96 overflow-scroll">
+            className="absolute top-10 -right-14 sm:right-0 bg-black-dark w-64 md:w-80 text-gray-300 rounded shadow-xl transition-all duration-300 jelly-shake max-h-96 overflow-scroll">
             <p className="px-4 py-3 bg-black-light text-sm">Saved Movies</p>
             <ul className="px-4 divide-gray-400 divide-y divide-opacity-50">
                 {

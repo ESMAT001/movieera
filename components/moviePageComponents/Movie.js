@@ -87,7 +87,8 @@ function Movie({ movie, error }) {
     const playerOptions = {
         storage: { enabled: true, key: 'plyr' },
         captions: { active: true, language: 'auto', update: false },
-        preload: 'auto',
+        autoplay: true,
+        preload: 'metadata',
         controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'captions', 'volume', 'settings', 'fullscreen'],
     }
 
@@ -133,6 +134,9 @@ function Movie({ movie, error }) {
 
             {
                 isMoviePlayerModalOpen && <Modal close={closeMoviePlayerModal} >
+                    {/* <video src="https://dl18.ftk.pw/user/shahab4/film/Pig.2021.720p.BluRay.Film2Movie_Asia.mkv" playsInline={true} autoPlay controls loop preload="metadata" width="500" height="300">
+                    <source src="https://dl18.ftk.pw/user/shahab4/film/Pig.2021.1080p.BluRay.Film2Movie_Asia.mkv" type="text/mkv" />
+                    </video> */}
                     <Plyr
                         source={{
                             type: 'video',

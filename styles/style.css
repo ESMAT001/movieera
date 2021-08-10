@@ -612,3 +612,152 @@ html {
     transform: translateY(9px) rotate(0deg);
   }
 }
+
+.jelly-shake {
+  -webkit-animation: jelly-shake 1s ;
+  -moz-animation: jelly-shake 1s ;
+  -o-animation: jelly-shake 1s ;
+  -ms-animation: jelly-shake 1s ;
+  animation: jelly-shake 1s ;
+}
+
+@keyframes jelly-shake {
+  from {
+      transform: matrix(0.7, 0, 0, 0.7, 0, 0);
+  }
+  10% {
+      transform: matrix(0.95, 0, 0, 1.05, 0, 0);
+  }
+  12% {
+      transform: matrix(1, 0, 0, 1.1, 0, 0);
+  }
+  14% {
+      transform: matrix(1.02, 0, 0, 1.08, 0, 0);
+  }
+  16% {
+      transform: matrix(1.04, 0, 0, 1.08, 0, 0);
+  }
+  18% {
+      transform: matrix(1.05, 0, 0, 1.07, 0, 0);
+  }
+  20% {
+      transform: matrix(1.05, 0, 0, 1.04, 0, 0);
+  }
+  22% {
+      transform: matrix(1.05, 0, 0, 1.02, 0, 0);
+  }
+  25% {
+      transform: matrix(1.05, 0, 0, 1, 0, 0);
+  }
+  27% {
+      transform: matrix(1.03, 0, 0, 0.97, 0, 0);
+  }
+  29% {
+      transform: matrix(1.02, 0, 0, 0.98, 0, 0);
+  }
+  32% {
+      transform: matrix(1.02, 0, 0, 0.975, 0, 0);
+  }
+  34% {
+      transform: matrix(1.01, 0, 0, 0.975, 0, 0);
+  }
+  36% {
+      transform: matrix(1, 0, 0, 0.98, 0, 0);
+  }
+  38% {
+      transform: matrix(1, 0, 0, 0.99, 0, 0);
+  }
+  40% {
+      transform: matrix(0.996, 0, 0, 0.994, 0, 0);
+  }
+  42% {
+      transform: matrix(0.99, 0, 0, 1, 0, 0);
+  }
+  44% {
+      transform: matrix(0.992, 0, 0, 1.004, 0, 0);
+  }
+  46% {
+      transform: matrix(0.992, 0, 0, 1.006, 0, 0);
+  }
+  48% {
+      transform: matrix(0.992, 0, 0, 1.007, 0, 0);
+  }
+  50% {
+      transform: matrix(0.993, 0, 0, 1.006, 0, 0);
+  }
+  52% {
+      transform: matrix(0.994, 0, 0, 1.005, 0, 0);
+  }
+  54% {
+      transform: matrix(0.995, 0, 0, 1.003, 0, 0);
+  }
+  56% {
+      transform: matrix(0.997, 0, 0, 1.001, 0, 0);
+  }
+  58% {
+      transform: matrix(0.998, 0, 0, 1, 0, 0);
+  }
+  60% {
+      transform: matrix(0.999, 0, 0, 0.998, 0, 0);
+  }
+  62% {
+      transform: matrix(1, 0, 0, 0.999, 0, 0);
+  }
+  64% {
+      transform: matrix(1.0005, 0, 0, 0.9975, 0, 0);
+  }
+  66% {
+      transform: matrix(1.0009, 0, 0, 0.9981, 0, 0);
+  }
+  68% {
+      transform: matrix(1.0011, 0, 0, 0.9989, 0, 0);
+  }
+  70% {
+      transform: matrix(1.0012, 0, 0, 0.999, 0, 0);
+  }
+  72% {
+      transform: matrix(1.0015, 0, 0, 0.9995, 0, 0);
+  }
+  74% {
+      transform: matrix(1.001, 0, 0, 1, 0, 0);
+  }
+  75% {
+      transform: matrix(1.0008, 0, 0, 1.0002, 0, 0);
+  }
+  77% {
+      transform: matrix(1.0006, 0, 0, 1.0004, 0, 0);
+  }
+  79% {
+      transform: matrix(1.0004, 0, 0, 1.0006, 0, 0);
+  }
+  82% {
+      transform: matrix(1.0002, 0, 0, 1.0008, 0, 0);
+  }
+  84% {
+      transform: matrix(1.0001, 0, 0, 1.0004, 0, 0);
+  }
+  86% {
+      transform: matrix(1, 0, 0, 1.0002, 0, 0);
+  }
+  88% {
+      transform: matrix(0.9999, 0, 0, 1.0001, 0, 0);
+  }
+  90% {
+      transform: matrix(0.9998, 0, 0, 1, 0, 0);
+  }
+  92% {
+      transform: matrix(0.9998, 0, 0, 0.9999, 0, 0);
+  }
+  94% {
+      transform: matrix(0.99982, 0, 0, 0.99985, 0, 0);
+  }
+  96% {
+      transform: matrix(0.99983, 0, 0, 0.99984, 0, 0);
+  }
+  98% {
+      transform: matrix(0.99984, 0, 0, 0.99985, 0, 0);
+  }
+  to {
+      transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+}
