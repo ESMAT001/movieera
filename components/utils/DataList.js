@@ -7,8 +7,8 @@ function DataList({ suggestions }) {
             {
                 suggestions.map((suggestion, index) => {
                     return (
-                        <Link href={"/movie/" + suggestion.id}>
-                            <a key={suggestion.title + suggestion.id + index + "ss"}
+                        <Link href={"/movie/" + suggestion.id} key={suggestion.title + suggestion.id + index + "ss"}>
+                            <a
                                 className="flex flex-row items-center px-4 text-sm hover:bg-black-dark transition duration-300"
                             >
                                 <img src={imageUrl(suggestion.poster_path)} className="w-10 mr-4" />
