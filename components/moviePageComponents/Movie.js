@@ -102,7 +102,6 @@ function Movie({ movie, error }) {
             {
 
                 isLanguageOptionsModalOpen && <Modal close={closeLangOptionsModal} >
-
                     <div className="flex flex-col justify-center items-center space-y-4">
                         <h2>Choose Language :</h2>
                         {
@@ -134,9 +133,6 @@ function Movie({ movie, error }) {
 
             {
                 isMoviePlayerModalOpen && <Modal close={closeMoviePlayerModal} >
-                    {/* <video src="https://dl18.ftk.pw/user/shahab4/film/Pig.2021.720p.BluRay.Film2Movie_Asia.mkv" playsInline={true} autoPlay controls loop preload="metadata" width="500" height="300">
-                    <source src="https://dl18.ftk.pw/user/shahab4/film/Pig.2021.1080p.BluRay.Film2Movie_Asia.mkv" type="text/mkv" />
-                    </video> */}
                     <Plyr
                         source={{
                             type: 'video',

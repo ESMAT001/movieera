@@ -1,4 +1,4 @@
-import { useContext} from 'react'
+import { useContext } from 'react'
 import SavedMoviesContext from '../utils/SavedMoviesContext'
 import Image from 'next/image'
 import { placeholderImgUrl } from '../../utils'

@@ -12,12 +12,9 @@
     "pwa": "node server.js"
   },
   "dependencies": {
-    "autoprefixer": "^10.2.6",
     "next": "11.0.1",
     "next-pwa": "^5.2.24",
     "plyr-react": "^3.0.8",
-    "postcss": "^8.3.5",
-    "pwa-asset-generator": "^4.3.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
@@ -26,7 +23,10 @@
     "tailwindcss": "^2.2.4"
   },
   "devDependencies": {
+    "autoprefixer": "^10.3.1",
     "eslint": "7.29.0",
-    "eslint-config-next": "11.0.1"
+    "eslint-config-next": "11.0.1",
+    "postcss": "^8.3.6",
+    "pwa-asset-generator": "^4.3.5"
   }
 }
