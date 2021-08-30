@@ -3,9 +3,6 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      outline: {
-        'nice-red': '2px solid #ff003c',
-      },
       colors: {
         'nice-red': '#ff003c',
         'black-dark': '#090a0e',
