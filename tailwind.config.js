@@ -3,15 +3,18 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors:{
-        'nice-red': '#ff003c',
-        'black-dark':'#090a0e',
-        'black-light':"#0f1014",
-        'faded-white':"#bababaab",
+      outline: {
+        'nice-red': '2px solid #ff003c',
       },
-      fontFamily:{
-        'movieNameFont':['Krona One', 'sans-serif'],
-        'subMovieFont':['Poppins', 'sans-serif']
+      colors: {
+        'nice-red': '#ff003c',
+        'black-dark': '#090a0e',
+        'black-light': "#0f1014",
+        'faded-white': "#bababaab",
+      },
+      fontFamily: {
+        'movieNameFont': ['Krona One', 'sans-serif'],
+        'subMovieFont': ['Poppins', 'sans-serif']
       },
     },
   },

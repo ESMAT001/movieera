@@ -24,20 +24,20 @@ function Search() {
         }
     }, [searchVal])
     return (
-        <form onSubmit={e => e.preventDefault()} className="relative flex w-5/6 sm:w-auto ">
+        <form onSubmit={e => e.preventDefault()} className="relative flex w-5/6 sm:w-auto">
             <input
-                className="outline-none text-gray-700 bg-gray-100 px-2 py-2 rounded-l w-full"
+                className="outline-none text-gray-400 bg-transparent px-3 py-1 w-full border-b-2 border-nice-red mr-4"
                 list="suggestions"
                 type="text"
                 value={searchVal}
                 onChange={e => setSearchVal(e.target.value)}
-                placeholder="Name, imdb id" />
+                placeholder="Enter movie name or id" />
             {
                 suggestions.length > 0 && <DataList suggestions={suggestions} />
             }
             <button
                 type="submit"
-                className="py-2 px-3 rounded-r antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none gap-1 outline-none tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-sm leading-normal text-white "
+                className="rounded antialiased bg-nice-red border-2 font-semibold border-nice-red hover:bg-red-600 hover:border-red-600 focus:outline-none gap-1 outline-none tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-1 px-3 text-sm  text-white"
             >Search</button>
         </form>
     )
