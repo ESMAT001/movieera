@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,memo } from 'react'
 import { BsHeart, BsFillHeartFill } from "react-icons/bs";
 import HeartedMovies from './HeartedMovies';
 function HeartedMoviesContainer() {
@@ -20,4 +20,4 @@ function HeartedMoviesContainer() {
     )
 }
 
-export default HeartedMoviesContainer
+export default memo(HeartedMoviesContainer)

@@ -1,6 +1,4 @@
-import Head from 'next/head'
-import React, { useState } from 'react'
-
+import {memo} from 'react'
 
 function Humbrger({ isOpen, setIsOpen }) {
     return (
@@ -12,4 +10,4 @@ function Humbrger({ isOpen, setIsOpen }) {
     )
 }
 
-export default Humbrger
+export default memo(Humbrger)

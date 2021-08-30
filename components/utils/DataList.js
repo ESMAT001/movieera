@@ -1,7 +1,7 @@
+import { memo } from 'react'
 import Link from 'next/link'
 import { imageUrl } from '../../utils'
 function DataList({ suggestions }) {
-    console.log(suggestions)
     return (
         <div className="absolute top-12 bg-black-light  py-2 flex flex-col space-y-3 overflow-y-scroll h-96 jelly-shake w-full">
             {
@@ -23,4 +23,4 @@ function DataList({ suggestions }) {
     )
 }
 
-export default DataList
+export default memo(DataList)

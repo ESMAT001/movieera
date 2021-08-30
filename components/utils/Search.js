@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect,memo } from 'react'
 import { apiUrl } from '../../utils'
 import { callApi } from '../../functions/functions'
 import DataList from './DataList'
@@ -43,4 +43,4 @@ function Search() {
     )
 }
 
-export default Search
+export default memo(Search)
