@@ -1,7 +1,5 @@
 import Pagenation from './Pagenation'
-import Link from 'next/link'
 import Main from './mainPageComponents/Main'
-import { result } from 'lodash'
 
 function Movies({ data, error }) {
     // console.log(data)

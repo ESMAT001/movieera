@@ -1,4 +1,4 @@
-import {memo, useState, useEffect, useContext } from 'react'
+import { memo, useState, useEffect, useContext } from 'react'
 import SavedMoviesContext from './SavedMoviesContext';
 import { BsHeart, BsFillHeartFill, BsFillPlayFill } from "react-icons/bs";
 import Link from 'next/link'
@@ -8,7 +8,11 @@ function MovieInfoBox({ movie }) {
     const { savedMovies, setSavedMovies } = useContext(SavedMoviesContext);
     const [isHeartBtnClicked, setHeartBtnClicked] = useState(false)
     const [controlller, setController] = useState(false)
-    const genre = movie.genres[0].name || "not defined"
+
+    let genre = "not defined"
+    if (movie.genres && movie.genres[0]) {
+        genre = movie.genres[0].name || "not defined"
+    }
     const id = movie.id
 
     function handleHeartClick() {
