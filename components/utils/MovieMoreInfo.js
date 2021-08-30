@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import { imageUrl, placeholderImgUrl } from "../../utils";
 import Image from 'next/image'
 
@@ -56,4 +56,4 @@ function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layou
     )
 }
 
-export default MovieMoreInfo
+export default memo(MovieMoreInfo)

@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import { useState, memo } from 'react'
 import { BsArrowDown } from "react-icons/bs";
 import TrailerBox from './TrailerBox';
 function MoreTrailers({ videos, title, fn }) {
@@ -26,4 +26,4 @@ function MoreTrailers({ videos, title, fn }) {
     )
 }
 
-export default MoreTrailers
+export default memo(MoreTrailers)
