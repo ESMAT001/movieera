@@ -4,7 +4,7 @@ import Main from './mainPageComponents/Main'
 import { result } from 'lodash'
 
 function Movies({ data, error }) {
-    console.log(data)
+    // console.log(data)
     const { results, page, totalPages } = data
     return (
         <div className="flex flex-col">
