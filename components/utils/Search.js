@@ -6,7 +6,7 @@ function Search() {
     const [searchVal, setSearchVal] = useState("")
     const [suggestions, setSuggestions] = useState([])
     async function search() {
-        let [data, error] = await callApi(apiUrl + "/search?type=s&query=" + searchVal)
+        let [data, error] = await callApi(apiUrl + "/search?limit=7&query=" + searchVal)
         if (data && !error && searchVal !== "") {
             console.log(data)
             setSuggestions(data)
