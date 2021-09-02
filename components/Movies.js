@@ -2,7 +2,6 @@ import Pagenation from './Pagenation'
 import Main from './mainPageComponents/Main'
 
 function Movies({ data, error }) {
-    // console.log(data)
     const { results, page, totalPages } = data
     return (
         <div className="flex flex-col">
