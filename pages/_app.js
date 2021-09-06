@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 
+import  NavContext from '../components/context/NavContext'
+
 import SavedMoviesContext from '../components/utils/SavedMoviesContext'
 
 import 'tailwindcss/tailwind.css'
@@ -27,8 +29,7 @@ function MyApp({ Component, pageProps }) {
 
 
   return (
-    <>
-
+    <NavContext>
       <div className="bg-black-dark min-w-full h-full font-subMovieFont">
         <div className="bg-black-light rounded shadow-xl overflow-hidden flex flex-col">
           <SavedMoviesContext.Provider value={{ savedMovies, setSavedMovies }}>
@@ -38,7 +39,7 @@ function MyApp({ Component, pageProps }) {
           <Footer />
         </div>
       </div>
-    </>
+    </NavContext>
   )
 }
 

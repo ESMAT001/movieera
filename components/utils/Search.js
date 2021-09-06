@@ -1,14 +1,17 @@
-import { useState, useEffect,memo } from 'react'
+import { useState, useEffect, memo } from 'react'
 import { apiUrl } from '../../utils'
 import { callApi } from '../../functions/functions'
 import DataList from './DataList'
+import { useRouter } from 'next/router'
+import { useNavContext } from '../context/NavContext'
 function Search() {
+    const router = useRouter()
+    const [isNavOpen, setIsNavOpen] = useNavContext()
     const [searchVal, setSearchVal] = useState("")
     const [suggestions, setSuggestions] = useState([])
     async function search() {
         let [data, error] = await callApi(apiUrl + "/search?limit=7&query=" + searchVal)
         if (data && !error && searchVal !== "") {
-            console.log(data)
             setSuggestions(data)
         }
     }
@@ -35,10 +38,16 @@ function Search() {
             {
                 suggestions.length > 0 && <DataList suggestions={suggestions} />
             }
+
             <button
+                onClick={async () => {
+                    await router.push("/search/" + searchVal)
+                    setIsNavOpen(prev => !prev)
+                }}
                 type="submit"
                 className="rounded antialiased bg-nice-red border-2 font-semibold border-nice-red hover:bg-red-600 hover:border-red-600 focus:outline-none gap-1 outline-none tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-1 px-3 text-sm  text-white"
             >Search</button>
+
         </form>
     )
 }

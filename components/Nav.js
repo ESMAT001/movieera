@@ -4,9 +4,10 @@ import Image from 'next/image'
 import Humbrger from './utils/humberger-icon/Humbrger'
 import HeartedMoviesContainer from './utils/HeartedMoviesContainer'
 import Search from './utils/Search'
+import { useNavContext } from './context/NavContext'
 
 function Nav() {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useNavContext()
     const [navBg, setNavBg] = useState('')
     const handleClick = () => setIsOpen(false)
     function changeNavBg() {
@@ -45,7 +46,7 @@ function Nav() {
                         <Image src="/static/img/logo.png" alt="logo" layout="fill" />
                     </a>
                 </Link>
-                <Search/>
+                <Search />
                 <ul className="flex flex-col space-y-2 items-center text-lg">
                     <li><Link href="/movies" ><a onClick={handleClick}>Movies</a></Link></li>
                     <li><Link href="/movies" ><a onClick={handleClick}>Movies</a></Link></li>
