@@ -12,8 +12,8 @@ export default function Home({ movies, error }) {
   return (
     <>
       <CustomHead />
-      <CustomHeader movies={movies.slice(0,6)} />
-      <Main movies={movies.slice(6)} error={error}/>
+      <CustomHeader movies={movies.trending.slice(0,6)} />
+      <Main movies={movies.trending.slice(6)} error={error}/>
     </>
 
   )
