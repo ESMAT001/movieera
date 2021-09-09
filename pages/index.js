@@ -8,12 +8,22 @@ import { apiUrl } from '../utils'
 import { callApi } from '../functions/functions'
 
 export default function Home({ movies, error }) {
-  // console.log(movies)
+  const { trending,genres } = movies
+  function renderGenres(genre) {
+    const genreName = Object.keys(genre)[0]
+    console.log(genreName,genre)
+    return (
+      <Main movies={genre[genreName]} movieType={genreName} seeAllBtn={true} />
+    )
+  }
   return (
     <>
       <CustomHead />
-      <CustomHeader movies={movies.trending.slice(0,6)} />
-      <Main movies={movies.trending.slice(6)} error={error}/>
+      <CustomHeader movies={trending.slice(0, 6)} />
+        <Main movies={trending.slice(6)} error={error} topPadding={true} />
+        {
+          genres.map(genre => renderGenres(genre))
+        }
     </>
 
   )

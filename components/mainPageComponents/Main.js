@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import MovieInfoBox from '../utils/MovieInfoBox'
 
-function Main({ movies, error, movieType, seeAllBtn }) {
+function Main({ movies, error, movieType, seeAllBtn, topPadding }) {
     return (
-        <main className="bg-black-light py-20 px-10 sm:px-14 md:px-20 lg:px-32 lg:py-32 xl:px-48 xl:py-44 2xl:px-72 w-full mx-auto z-10">
+        <section className={`bg-black-light ${topPadding ? 'py-20 lg:py-32 xl:py-44' : 'py-6'}  px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto z-10`}>
             <div className="">
                 <div className="flex justify-between pb-10">
                     <h1 className="w-4/6 text-gray-200 font-opacity-95 text-xl sm:text-2xl lg:text-3xl font-light font-movieNameFont ">{movieType}</h1>
@@ -23,7 +23,7 @@ function Main({ movies, error, movieType, seeAllBtn }) {
                 {error && <h1 className="text-red-400">{error}</h1>}
             </div>
             <div></div>
-        </main>
+        </section>
     )
 }
 
@@ -33,5 +33,6 @@ Main.defaultProps = {
     movies: [],
     error: null,
     movieType: "Trending Movies",
-    seeAllBtn: false
+    seeAllBtn: false,
+    topPadding: false
 }

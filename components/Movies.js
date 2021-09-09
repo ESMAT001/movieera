@@ -4,13 +4,13 @@ import CustomHead from './utils/CustomHead'
 function Movies({ data, error }) {
     const { results, page, totalPages } = data
     return (
-        <div className="flex flex-col">
+        <main className="flex flex-col">
             <CustomHead title="Movies" />
-            <Main movies={results} />
+            <Main movies={results} movieType="Movies" topPadding={true} />
             {error && <h1 className="text-red-400">{error}</h1>}
             <Pagenation currentPage={page} endPage={totalPages} />
-        </div>
+        </main>
     )
-}
+}   
 
 export default Movies
