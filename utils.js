@@ -1,7 +1,12 @@
 module.exports = {
     apiUrl: "https://api-movieera.herokuapp.com/v1",
     imageUrl: (imgPath) => {
-        if(!imgPath) return "";
+
+        if (/image[.]tmdb[.]org/.test(imgPath)) {
+            return 'https://api-movieera.herokuapp.com/v1/image/original/' + imgPath.split('/').slice(-1)[0]
+        }
+
+        if (!imgPath) return "";
 
         if (imgPath[0] !== "/") {
             imgPath = "/" + imgPath;
@@ -9,7 +14,7 @@ module.exports = {
         return 'https://api-movieera.herokuapp.com/v1/image/original' + imgPath;
     },
     placeholderImgUrl: (imgPath) => {
-        if(!imgPath) return "";
+        if (!imgPath) return "";
 
         if (imgPath[0] !== "/") {
             imgPath = "/" + imgPath;

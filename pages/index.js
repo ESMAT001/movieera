@@ -11,7 +11,6 @@ export default function Home({ movies, error }) {
   const { trending,genres } = movies
   function renderGenres(genre) {
     const genreName = Object.keys(genre)[0]
-    console.log(genreName,genre)
     return (
       <Main movies={genre[genreName]} movieType={genreName} seeAllBtn={true} />
     )
