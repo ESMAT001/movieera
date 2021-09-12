@@ -4,6 +4,7 @@ import { callApi } from '../../functions/functions'
 import DataList from './DataList'
 import { useRouter } from 'next/router'
 import { useNavContext } from '../context/NavContext'
+import { BiSearchAlt } from 'react-icons/bi'
 function Search() {
     const router = useRouter()
     const [isNavOpen, setIsNavOpen] = useNavContext()
@@ -45,8 +46,8 @@ function Search() {
                     setIsNavOpen(prev => !prev)
                 }}
                 type="submit"
-                className="rounded antialiased bg-nice-red border-2 font-semibold border-nice-red hover:bg-red-600 hover:border-red-600 focus:outline-none gap-1 outline-none tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-1 px-3 text-sm  text-white"
-            >Search</button>
+                className="rounded antialiased bg-nice-red border-2 font-semibold border-nice-red hover:bg-red-600 hover:border-red-600 focus:outline-none gap-1 outline-none tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-1 px-3 text-sm  text-white flex items-center"
+            >Search <BiSearchAlt className="text-lg"/> </button>
 
         </form>
     )

@@ -5,11 +5,16 @@ import Humbrger from './utils/humberger-icon/Humbrger'
 import HeartedMoviesContainer from './utils/HeartedMoviesContainer'
 import Search from './utils/Search'
 import { useNavContext } from './context/NavContext'
-
+import GenreList from './utils/GenreList'
+import { useRouter } from 'next/router'
 function Nav() {
+    const router = useRouter()
     const [isOpen, setIsOpen] = useNavContext()
     const [navBg, setNavBg] = useState('')
-    const handleClick = () => setIsOpen(false)
+    const handleClick = async (path) => {
+        await router.push(path)
+        setIsOpen(false)
+    }
     function changeNavBg() {
         setNavBg(window.scrollY > 110 ? 'bg-black-light' : '')
     }
@@ -41,15 +46,15 @@ function Nav() {
             <span className={"z-20 backdrop-filter backdrop-blur transform transition-all duration-300 w-full h-screen absolute right-0 top-0 bg-black bg-opacity-25 " + (isOpen ? "" : "translate-x-full")}>
             </span>
             <div className={"z-30 flex flex-col items-center  justify-start space-y-8 pt-14 shadow-xl transform transition-all duration-500 w-full sm:w-1/2 h-screen absolute right-0 top-0 bg-black-dark bg-opacity-95 " + (isOpen ? "" : "translate-x-full")}>
-                <Link href="/">
-                    <a className="relative w-32 h-8 lg:w-36 lg:h-9">
-                        <Image src="/static/img/logo.png" alt="logo" layout="fill" />
-                    </a>
-                </Link>
+
+                <a className="relative w-32 h-8 lg:w-36 lg:h-9" onClick={() => handleClick("/")}>
+                    <Image src="/static/img/logo.png" alt="logo" layout="fill" />
+                </a>
+
                 <Search />
                 <ul className="flex flex-col space-y-2 items-center text-lg">
-                    <li><Link href="/movies" ><a onClick={handleClick}>Movies</a></Link></li>
-                    <li><Link href="/movies" ><a onClick={handleClick}>Movies</a></Link></li>
+                    <li key="1allmovies"><Link href="/movies" ><a onClick={handleClick}>All Movies</a></Link></li>
+                    <GenreList key="1genreList" handleClick={handleClick} />
                 </ul>
             </div>
         </nav >
