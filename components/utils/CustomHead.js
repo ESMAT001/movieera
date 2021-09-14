@@ -5,6 +5,7 @@ function CustomHead({ title = "Movieera | Your online theater", children }) {
     return (
         <Head>
             <title>{title}</title>
+            <meta name="a.validate.01" content="d5c33a374a0460a972be7f400a02a6968189" />
             <meta name="description" content="Movieera | Your online movie theater" />
             <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
             <link rel="icon" href="/favicon.ico" />
