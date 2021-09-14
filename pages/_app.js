@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import  NavContext from '../components/context/NavContext'
+import NavContext from '../components/context/NavContext'
 
 import SavedMoviesContext from '../components/utils/SavedMoviesContext'
 
