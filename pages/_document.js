@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-
+import Script from 'next/script'
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
@@ -13,8 +13,8 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script type="text/javascript" data-adel="atag" src="//acdcdn.com/script/atg.js" czid="i8h3zebs">
-          </script>
+          <Script type="text/javascript" data-adel="atag" src="//acdcdn.com/script/atg.js" czid="i8h3zebs">
+          </Script>
         </body>
       </Html>
     )
