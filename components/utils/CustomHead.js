@@ -5,6 +5,7 @@ function CustomHead({ title = "Movieera | Your online theater", children }) {
     return (
         <Head>
             <title>{title}</title>
+            <meta name="google-site-verification" content="yqc7NlR0hpMr2BHmz6a8Bz7EF3P0FU2vD7pSMoPUmCc" />
             <meta name="a.validate.01" content="aaeb16d1496dc5a6d2e9b3f1d9ca424c4983" />
             <meta name="description" content="Movieera | Your online movie theater" />
             <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
