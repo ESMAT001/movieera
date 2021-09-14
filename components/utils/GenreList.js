@@ -9,14 +9,14 @@ function GenreList({ handleClick }) {
                 onClick={() => setIsOpen(prev => !prev)}
                 className="flex justify-between w-full items-center rounded bg-nice-red  px-3 py-1 focus:outline-none">
                 <span className="text-base" >Genres</span> <span className={`transition-all duration-300 transform  ${isOpen?"rotate-45":""}`} >+</span></button>
-            {isOpen && <ul className="flex flex-col space-y-1 divide-y divide-nice-red  h-72 jelly-shake border-2 border-nice-red mt-2 px-2 py-1 overflow-scroll">
+            {isOpen && <ul className="flex flex-col space-y-2 h-72 jelly-shake  mt-4 px-2 overflow-scroll">
                 {
                     genresList().map((genre) => {
                         return <li key={genre.id + "genre"} className="w-full flex justify-end py-1 cursor-pointer"
                             onClick={() => handleClick(`/genre/${genre.name.toLowerCase()}/page/1`)}
                         >
                             {/* <Link href={`/genre/${genre.name.toLowerCase()}/page/1`} > */}
-                            <p className="capitalize text-sm px-1">{genre.name}</p>
+                            <p className="capitalize text-base font-semibold px-1 text-gray-400 hover:text-gray-200">{genre.name}</p>
                             {/* </Link> */}
                         </li>
                     })
