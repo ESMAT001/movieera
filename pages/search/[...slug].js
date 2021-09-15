@@ -12,7 +12,7 @@ function Query({ data, error }) {
   return (
     <div className="flex flex-col">
       <CustomHead title={`Search results for "${router.query.slug[0]}"`} />
-      <Main movies={results} movieType={`Search results for "${router.query.slug[0]}"`} />
+      <Main movies={results} movieType={`Search results for "${router.query.slug[0]}"`} topPadding={true} />
 
       {
         results.length === 0 && (

@@ -86,7 +86,7 @@ function CustomHead({ title = "Movieera | Your online theater", children }) {
             <link rel="apple-touch-startup-image" href="/static/icons/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
 
             <script data-ad-client="ca-pub-8407721631737964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <script  type="text/javascript" data-adel="atag" src="//acdcdn.com/script/atg.js" czid="i8h3zebs" defer>
+            <script type="text/javascript" data-adel="atag" src="//acdcdn.com/script/atg.js" czid="i8h3zebs" defer>
             </script>
         </Head>
     )
