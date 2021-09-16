@@ -88,6 +88,7 @@ function CustomHead({ title = "Movieera | Your online theater", children }) {
             <script data-ad-client="ca-pub-8407721631737964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <script type="text/javascript" data-adel="atag" src="//acdcdn.com/script/atg.js" czid="i8h3zebs" defer>
             </script>
+            <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061035"></script>
         </Head>
     )
 }
