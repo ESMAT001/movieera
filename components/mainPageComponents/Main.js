@@ -7,7 +7,7 @@ function Main({ movies, error, movieType, seeAllBtn, topPadding, moviesGenre }) 
             <div className="">
                 <div className="flex justify-between items-center pb-10">
                     <h1 className="w-4/6 text-gray-200 font-opacity-95 text-xl sm:text-2xl lg:text-3xl font-light font-movieNameFont ">{movieType}</h1>
-                    {seeAllBtn && <Link href={`/genre/${movieType.toLowerCase()}/page/1`}>
+                    {seeAllBtn && <Link href={`/genre/${movieType}/page/1`}>
                         <a className="text-red-500 w-2/6 text-sm text-right">
                             See All
                         </a>
