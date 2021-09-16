@@ -22,6 +22,7 @@ export default function Home({ movies, error }) {
       <CustomHead />
       <CustomHeader movies={trending.slice(0, 6)} />
       <Main movies={trending.slice(6)} error={error} topPadding={true} />
+      {/* ad */}
       {
         genres.map(genre => renderGenres(genre))
       }

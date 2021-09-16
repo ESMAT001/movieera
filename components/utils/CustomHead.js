@@ -89,6 +89,7 @@ function CustomHead({ title = "Movieera | Your online theater", children }) {
             <script type="text/javascript" data-adel="atag" src="//acdcdn.com/script/atg.js" czid="i8h3zebs" defer>
             </script>
             <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061035"></script>
+            <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061303"></script>
         </Head>
     )
 }
