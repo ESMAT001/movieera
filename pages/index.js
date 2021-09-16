@@ -14,7 +14,13 @@ export default function Home({ movies, error }) {
     const genreName = Object.keys(genre)[0]
     index++
     return (
-      <Main movies={genre[genreName]} movieType={genreName} seeAllBtn={true} key={index + "sGenreIndex"} />
+      <Main
+        movies={genre[genreName]}
+        movieType={genreName}
+        seeAllBtn={true}
+        key={index + "sGenreIndex"}
+        moviesGenre={genreName}
+      />
     )
   }
   return (

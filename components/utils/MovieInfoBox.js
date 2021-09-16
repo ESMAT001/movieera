@@ -4,15 +4,18 @@ import { BsHeart, BsFillHeartFill, BsFillPlayFill } from "react-icons/bs";
 import Link from 'next/link'
 import MovieMoreInfo from './MovieMoreInfo';
 
-function MovieInfoBox({ movie }) {
+function MovieInfoBox({ movie, movieGenre }) {
     const { savedMovies, setSavedMovies } = useContext(SavedMoviesContext);
     const [isHeartBtnClicked, setHeartBtnClicked] = useState(false)
     const [controlller, setController] = useState(false)
 
     let genre = "not defined"
-    if (movie.genres && movie.genres[0]) {
-        genre = movie.genres[0].name || "not defined"
+    if (movieGenre) {
+        genre = movieGenre
+    } else {
+        genre = movie?.genres?.[0]?.name || "not defined"
     }
+
     const id = movie.id
 
     function handleHeartClick() {

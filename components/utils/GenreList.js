@@ -13,7 +13,7 @@ function GenreList({ handleClick }) {
                 {
                     genresList().map((genre) => {
                         return <li key={genre.id + "genre"} className="w-full flex justify-end py-1 cursor-pointer"
-                            onClick={() => handleClick(`/genre/${genre.name.toLowerCase()}/page/1`)}
+                            onClick={() => handleClick(`/genre/${genre.name}/page/1`)}
                         >
                             {/* <Link href={`/genre/${genre.name.toLowerCase()}/page/1`} > */}
                             <p className="capitalize text-base font-semibold px-1 text-gray-400 hover:text-gray-200">{genre.name}</p>

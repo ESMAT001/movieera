@@ -10,12 +10,17 @@ function Genre({ data, error }) {
         return <div>Loading...</div>
     }
 
-    const { results=[], page, totalPages } = data
+    const { results = [], page, totalPages } = data
     const pathname = router.asPath.split('/').slice(2, 3)[0]
     return (
         <div className="flex flex-col">
             <CustomHead title={pathname} />
-            <Main movies={results} movieType={`${pathname.toUpperCase()}`} topPadding={true} />
+            <Main
+                movies={results}
+                movieType={`${decodeURI(pathname).toUpperCase()}`}
+                topPadding={true}
+                moviesGenre={decodeURI(pathname)}
+            />
 
             {
                 results.length === 0 && (
@@ -40,7 +45,7 @@ export async function getStaticPaths() {
     const { genres } = await res.json()
     // Get the paths we want to pre-render based on posts
     const paths = genres.map((genre) => ({
-        params: { slug: [genre.name.toLowerCase(), 'page', 1 + ""] },
+        params: { slug: [genre.name, 'page', 1 + ""] },
     }))
 
     return { paths, fallback: true }
@@ -49,7 +54,6 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
     let [genreName, _page, pageNumber] = params.slug
-
     if (!pageNumber) {
         return {
             notFound: true,
@@ -65,9 +69,6 @@ export async function getStaticProps({ params }) {
             notFound: true,
         }
     }
-
-
-
 
     const res = await fetch(`${apiUrl}/genre?limit=20&name=${genreName}&page=${pageNumber}`)
     const data = await res.json()

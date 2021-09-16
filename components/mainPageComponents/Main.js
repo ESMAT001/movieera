@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import MovieInfoBox from '../utils/MovieInfoBox'
 
-function Main({ movies, error, movieType, seeAllBtn, topPadding }) {
+function Main({ movies, error, movieType, seeAllBtn, topPadding, moviesGenre }) {
     return (
         <section className={`bg-black-light ${topPadding ? 'py-20 lg:py-32 xl:py-44' : 'py-6'}  px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto z-10`}>
             <div className="">
@@ -16,7 +16,7 @@ function Main({ movies, error, movieType, seeAllBtn, topPadding }) {
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-content-center gap-4 sm:gap-6 md:gap-8">
                     {
                         movies && movies.map((movie, index) => (
-                            <MovieInfoBox key={index} movie={movie} />
+                            <MovieInfoBox key={index} movie={movie} movieGenre={moviesGenre} />
                         ))
                     }
                 </div>
@@ -34,5 +34,6 @@ Main.defaultProps = {
     error: null,
     movieType: "Trending Movies",
     seeAllBtn: false,
-    topPadding: false
+    topPadding: false,
+    moviesGenre: null
 }
