@@ -1,7 +1,6 @@
 import React from 'react'
 import Main from '../mainPageComponents/Main'
 function Recommendations({ recommendations, error }) {
-    console.log(recommendations)
     return (
         <div className="mt-8">
             <Main
