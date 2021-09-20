@@ -2,10 +2,9 @@ import { useState } from 'react'
 import { BsPlus } from "react-icons/bs";
 import { FaDownload } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";
-import {getMediaLangTypeName} from "../../functions/functions"
+import { getMediaLangTypeName } from "../../functions/functions"
 
 function MediaLinksContainer({ mediaLangType }) {
-
     function correctQualityName(quality) {
         if (quality[0] === "k" || quality[0] === "K") {
             return quality.substring(1);
@@ -34,12 +33,19 @@ function MediaLinksContainer({ mediaLangType }) {
                 }}
                 className={"transition-all duration-300 px-4 py-4 sm:px-10 flex flex-col mt-4 rounded shadow-xl divide-y divide-gray-400 divide-opacity-25 " + (isContentVisible ? "" : "hidden")}>
                 {
+                    mediaLangType[1].length === 0 && <li
+                        className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 justify-between items-center py-3"
+                    >
+                        <p className="text-sm text-gray-200">Coming Soon!</p>
+                    </li>
+                }
+                {
                     mediaLangType[1].map((movieQuality, index) => {
                         return (
                             <li
                                 className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 justify-between items-center py-3"
                                 key={"movieQuality" + index}>
-                                <p className="text-sm text-gray-200">{correctQualityName(movieQuality.quality)} :</p>
+                                <p className="text-sm text-gray-200">{correctQualityName(movieQuality.quality)}</p>
                                 <div className="flex space-x-2">
                                     <a
                                         href={movieQuality.downloadLinks}
