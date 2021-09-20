@@ -12,10 +12,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import MediaLinks from './MediaLinks'
 import Plyr from 'plyr-react'
+import Recommendations from '../utils/Recommendations'
 import { createMovieSourceObjects, getMediaLangTypeName } from '../../functions/functions'
 
 
-function Movie({ movie, error }) {
+function Movie({ movie, recommendations, error }) {
     const router = useRouter()
     const { play } = router.query
     const movieMediaSources = createMovieSourceObjects(movie.download_links);
@@ -184,7 +185,9 @@ function Movie({ movie, error }) {
                     }
                     <MediaLinks movie={movie} />
                 </div>
-
+                {
+                    recommendations.length > 0 && <Recommendations recommendations={recommendations} />
+                }
             </main>
         </>
     )
