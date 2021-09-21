@@ -98,7 +98,12 @@ function Movie({ movie, recommendations, error }) {
     const title = movie.title
     return (
         <>
-            <CustomHead title={title} />
+            <CustomHead
+                title={title}
+                description={`Download or watch ${title} for free , overview: ${movie?.overview?.slice(0, 90)}... `}
+                keywords={`download ${title}, ${title} download,${title} free download ,${title},watch ${title} online,دانلود ${title},${title} free download hd`}
+                imgPath={imageUrl(bgImage)}
+            />
 
             {
 

@@ -11,7 +11,10 @@ function Query({ data, error }) {
   const pathname = router.asPath
   return (
     <div className="flex flex-col">
-      <CustomHead title={`Search results for "${router.query.slug[0]}"`} />
+      <CustomHead
+        title={`Search results for "${router.query.slug[0]}"`}
+        description={`Download or watch ${router.query.slug[0]} for free`}
+      />
       <Main movies={results} movieType={`Search results for "${router.query.slug[0]}"`} topPadding={true} />
 
       {

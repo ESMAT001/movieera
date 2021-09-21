@@ -14,7 +14,12 @@ function Genre({ data, error }) {
     const pathname = router.asPath.split('/').slice(2, 3)[0]
     return (
         <div className="flex flex-col">
-            <CustomHead title={pathname} />
+            <CustomHead
+                title={pathname}
+                description={`Download or Watch ${pathname} movies for free`}
+                keywords={`Download ${pathname} movies, Download ${pathname} movies for free`}
+            />
+
             <Main
                 movies={results}
                 movieType={`${decodeURI(pathname).toUpperCase()}`}

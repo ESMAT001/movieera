@@ -1,14 +1,26 @@
 import React from 'react'
 import Head from 'next/head'
 
-function CustomHead({ title = "Movieera | Your online theater", children }) {
+function CustomHead({ title, description, keywords, imgPath, children }) {
+    const preDefinedKeywords = "best movies for free ,movieera,movie,era,download movie,download movie for free,watch movie for free, download movies, download action movies, download adventure movies, watch movies online ,دانلود مووی , دانلود ,movie, download movies, movieera your online movie theater, online movie theater , free ,latest"
     return (
         <Head>
             <title>{title}</title>
+            <meta name="robots" content="index,follow" />
             <meta name="google-site-verification" content="yqc7NlR0hpMr2BHmz6a8Bz7EF3P0FU2vD7pSMoPUmCc" />
             <meta name="a.validate.01" content="aaeb16d1496dc5a6d2e9b3f1d9ca424c4983" />
-            <meta name="description" content="Movieera | Your online movie theater" />
+            <meta name="description" content={description} />
             <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
+
+            <meta name="keywords" content={preDefinedKeywords + " , " + keywords} />
+            <meta name="author" content="Esmatullah Niazi" />
+            <meta property="og:type" content="website" />
+            <meta property="og:site_name" content="Movieera" />
+            <meta property="og:url" content="https://movieera.vercel.app/" />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
+            <meta property="og:image" content={imgPath} itemProp="image" />
+            <link rel="manifest" href="/manifest.json" />
             <link rel="icon" href="/favicon.ico" />
             <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet" />
             <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -21,7 +33,7 @@ function CustomHead({ title = "Movieera | Your online theater", children }) {
             <meta name='apple-mobile-web-app-capable' content='yes' />
             <meta name='apple-mobile-web-app-status-bar-style' content='default' />
             <meta name='apple-mobile-web-app-title' content='Movieera' />
-            <meta name='description' content='Your online movie theater' />
+            <meta name='description' content={description} />
             <meta name='format-detection' content='telephone=no' />
             <meta name='mobile-web-app-capable' content='yes' />
             <meta name='msapplication-config' content='/static/icons/browserconfig.xml' />
@@ -41,18 +53,11 @@ function CustomHead({ title = "Movieera | Your online theater", children }) {
             <link rel='shortcut icon' href='/favicon.ico' />
 
             <meta name='twitter:card' content='summary' />
-            <meta name='twitter:url' content='https://movieera-taupe.vercel.app' />
-            <meta name='twitter:title' content='Movieera' />
-            <meta name='twitter:description' content='Your online movie theater' />
-            <meta name='twitter:image' content='https://movieera-taupe.vercel.app/static/icons/android-chrome-192x192.png' />
+            <meta name='twitter:url' content='https://movieera.vercel.app' />
+            <meta name='twitter:title' content={title} />
+            <meta name='twitter:description' content={description} />
+            <meta name='twitter:image' content={imgPath} />
             <meta name='twitter:creator' content='@ESMAT001' />
-            <meta property='og:type' content='website' />
-            <meta property='og:title' content='Movieera' />
-            <meta property='og:description' content='Your online movie theater' />
-            <meta property='og:site_name' content='PWA App' />
-            <meta property='og:url' content='https://movieera-taupe.vercel.app' />
-            <meta property='og:image' content='https://movieera-taupe.vercel.app/static/icons/apple-touch-icon.png' />
-
 
             <link rel="apple-touch-icon" href="icons/apple-icon-180.png" />
 
@@ -92,6 +97,13 @@ function CustomHead({ title = "Movieera | Your online theater", children }) {
             <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061303" defer></script>
         </Head>
     )
+}
+
+CustomHead.defaultProps = {
+    title: "Movieera | Your online theater",
+    description: "Your online movie theater , download or watch your favorite movies for free",
+    keywords: "",
+    imgPath: '/static/img/player_poster.png'
 }
 
 export default CustomHead
