@@ -4,26 +4,113 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
 <url>
   <loc>https://movieera.vercel.app/</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://movieera.vercel.app/genre/Action/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Adventure/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Animation/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Comedy/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Crime/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Documentary/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Drama/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Family/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Fantasy/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/History/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Horror/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Music/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Mystery/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
   <loc>https://movieera.vercel.app/movies</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Romance/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/War/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Western/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Thriller/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/TV%20Movie/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://movieera.vercel.app/genre/Science%20Fiction/page/1</loc>
+  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
+  <priority>0.90</priority>
 </url>
 <url>
   <loc>https://movieera.vercel.app/movie/744275</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/movie/744275?play=true</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -33,17 +120,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/movie/750253?play=true</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/739990</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/movie/739990?play=true</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -53,27 +130,12 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/movie/597891?play=true</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/853588</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/movie/853588?play=true</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/593910</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/movie/593910?play=true</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -158,11 +220,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/genre/Action/page/1</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/859860</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
@@ -179,11 +236,6 @@
 </url>
 <url>
   <loc>https://movieera.vercel.app/movie/841755</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/genre/Adventure/page/1</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -208,11 +260,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/genre/Animation/page/1</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/666243</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
@@ -229,11 +276,6 @@
 </url>
 <url>
   <loc>https://movieera.vercel.app/movie/809717</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/genre/Comedy/page/1</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -258,11 +300,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/genre/Crime/page/1</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/567748</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
@@ -279,11 +316,6 @@
 </url>
 <url>
   <loc>https://movieera.vercel.app/movie/716594</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/genre/Documentary/page/1</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -308,11 +340,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/genre/Drama/page/1</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/600583</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
@@ -329,11 +356,6 @@
 </url>
 <url>
   <loc>https://movieera.vercel.app/movie/778256</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/genre/Family/page/1</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -358,11 +380,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/genre/Fantasy/page/1</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/859348</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
@@ -379,11 +396,6 @@
 </url>
 <url>
   <loc>https://movieera.vercel.app/movie/460465</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/genre/History/page/1</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -408,11 +420,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/genre/Horror/page/1</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/762842</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
@@ -429,11 +436,6 @@
 </url>
 <url>
   <loc>https://movieera.vercel.app/movie/799640</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/genre/Music/page/1</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -458,11 +460,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/genre/Mystery/page/1</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/675319</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
@@ -479,11 +476,6 @@
 </url>
 <url>
   <loc>https://movieera.vercel.app/movie/649409</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/genre/Romance/page/1</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -508,11 +500,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/genre/Science%20Fiction/page/1</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/848278</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
@@ -529,11 +516,6 @@
 </url>
 <url>
   <loc>https://movieera.vercel.app/movie/791568</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/genre/TV%20Movie/page/1</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -558,11 +540,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/genre/Thriller/page/1</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/852981</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
@@ -583,11 +560,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://movieera.vercel.app/genre/War/page/1</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://movieera.vercel.app/movie/599925</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
@@ -604,11 +576,6 @@
 </url>
 <url>
   <loc>https://movieera.vercel.app/movie/681887</loc>
-  <lastmod>2021-09-21T07:06:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://movieera.vercel.app/genre/Western/page/1</loc>
   <lastmod>2021-09-21T07:06:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
