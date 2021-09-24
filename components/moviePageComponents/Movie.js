@@ -100,8 +100,8 @@ function Movie({ movie, recommendations, error }) {
         <>
             <CustomHead
                 title={title}
-                description={`Download or watch ${title} for free , overview: ${movie?.overview?.slice(0, 90)}... `}
-                keywords={`download ${title}, ${title} download,${title} free download ,${title},watch ${title} online,دانلود ${title},${title} free download hd`}
+                description={`Download or watch ${title} for free from Movieera (your online movie theater) , overview: ${movie?.overview?.slice(0, 90)}... `}
+                keywords={`download ${title}, ${title} download,${title} free download,movieera ${title} ,${title} movie download movieera,${title},watch ${title} online,دانلود ${title},${title} free download hd`}
                 imgPath={imageUrl(bgImage)}
             />
 
