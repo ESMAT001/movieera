@@ -10,9 +10,9 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             <meta name="google-site-verification" content="yqc7NlR0hpMr2BHmz6a8Bz7EF3P0FU2vD7pSMoPUmCc" />
             <meta name="a.validate.01" content="aaeb16d1496dc5a6d2e9b3f1d9ca424c4983" />
             <meta name="description" content={description} />
-            <meta content={description} property="og:description"/>
+            <meta content={description} property="og:description" />
             <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
-            <meta content={title} property="og:title"/>
+            <meta content={title} property="og:title" />
 
             <meta name="keywords" content={preDefinedKeywords + " , " + keywords} />
             <meta name="author" content="Esmatullah Niazi" />
@@ -106,7 +106,7 @@ CustomHead.defaultProps = {
     title: "Movieera | Your online theater",
     description: "Movieera your online movie theater , download or watch your favorite Action ,Adventure ,Animation ,Comedy ,Crime ,Documentary ,Drama ,Family ,Fantasy ,History ,Horror ,Music ,Mystery ,Romance ,Science Fiction ,TV Movie ,Thriller and War Western movies for free",
     keywords: "",
-    imgPath: '/static/img/player_poster.png'
+    imgPath: '/static/img/main.png'
 }
 
 export default CustomHead
