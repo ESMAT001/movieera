@@ -43,7 +43,7 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             <meta name='msapplication-tap-highlight' content='no' />
             <meta name='theme-color' content='#0f1014' />
 
-            <link rel='apple-touch-icon' href='/static/icons/touch-icon-iphone.png' />
+            {/* <link rel='apple-touch-icon' href='/static/icons/touch-icon-iphone.png' /> */}
             <link rel='apple-touch-icon' sizes='152x152' href='/static/icons/touch-icon-ipad.png' />
             <link rel='apple-touch-icon' sizes='180x180' href='/static/icons/touch-icon-iphone-retina.png' />
             <link rel='apple-touch-icon' sizes='167x167' href='/static/icons/touch-icon-ipad-retina.png' />
@@ -61,7 +61,9 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             <meta name='twitter:image' content={imgPath} />
             <meta name='twitter:creator' content='@ESMAT001' />
 
-            <link rel="apple-touch-icon" href="icons/apple-icon-180.png" />
+            <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png" />
+            <link rel="apple-touch-icon" sizes="72x72" href="/static/icons/apple-touch-icon-72x72.png" />
+            <link rel="apple-touch-icon" sizes="114x114" href="/static/icons/apple-touch-icon-114x114.png" />
 
             <meta name="apple-mobile-web-app-capable" content="yes" />
 
