@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const ads = ["https://s.skimresources.com/js/200910X1679342.skimlinks.js",
     getAdUrl('rndskittytor.com', 4570659),
-    "http://www.effectiveperformanceformat.com/3a858513dc883f1d6bb56a65456bb3c4/invoke.js"
+    "https://www.effectiveperformanceformat.com/3a858513dc883f1d6bb56a65456bb3c4/invoke.js"
   ]
 
   useEffect(() => {
