@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
 }
+
+iframe{
+  margin: 0 auto;
+}
+
 ::-webkit-scrollbar {
   width: 3px;
   height: 3px;

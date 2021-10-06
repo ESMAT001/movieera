@@ -2,6 +2,7 @@
 import Main from '../components/mainPageComponents/Main'
 import CustomHead from '../components/utils/CustomHead'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
+import Ad from '../components/utils/Ad'
 import { apiUrl } from '../utils'
 
 
@@ -14,13 +15,16 @@ export default function Home({ movies, error }) {
     const genreName = Object.keys(genre)[0]
     index++
     return (
-      <Main
-        movies={genre[genreName]}
-        movieType={genreName}
-        seeAllBtn={true}
-        key={index + "sGenreIndex"}
-        moviesGenre={genreName}
-      />
+      <>
+        <Ad />
+        <Main
+          movies={genre[genreName]}
+          movieType={genreName}
+          seeAllBtn={true}
+          key={index + "sGenreIndex"}
+          moviesGenre={genreName}
+        />
+      </>
     )
   }
   return (
