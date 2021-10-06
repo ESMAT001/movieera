@@ -16,7 +16,7 @@ export default function Home({ movies, error }) {
     index++
     return (
       <>
-        <Ad />
+        <Ad  key={index + "AdIndexK"} />
         <Main
           movies={genre[genreName]}
           movieType={genreName}

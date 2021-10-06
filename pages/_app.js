@@ -20,30 +20,45 @@ import Footer from '../components/Footer'
 
 function MyApp({ Component, pageProps }) {
 
+  const keys = ['3a858513dc883f1d6bb56a65456bb3c4', 'a28966de6c86e3fb4cfd5890ab00f94d']//1-768  2-350
+
   function getAdUrl(d, z) {
     return '//' + d + '/400/' + z;
   }
 
   const [savedMovies, setSavedMovies] = useState([])
   const [scriptLoaded, setScriptLoaded] = useState(false);
-  const ads = ["https://s.skimresources.com/js/200910X1679342.skimlinks.js",
-    getAdUrl('rndskittytor.com', 4570659),
-    "https://www.effectiveperformanceformat.com/3a858513dc883f1d6bb56a65456bb3c4/invoke.js"
-  ]
 
   useEffect(() => {
     const dataFromLocalStorage = JSON.parse(localStorage.getItem('savedMovies'))
     if (dataFromLocalStorage) setSavedMovies(dataFromLocalStorage);
     fetch("https://api-movieera.herokuapp.com/v1/insights")
 
-    window.atOptions = {
-      'key': '3a858513dc883f1d6bb56a65456bb3c4',
-      'format': 'iframe',
-      'height': 90,
-      'width': 728,
-      'params': {}
-    };
+    window.atOptions = (() => {
+      const width = window.innerWidth;
+      if (width > 500) {
+        return {
+          'key': keys[0],
+          'format': 'iframe',
+          'height': 90,
+          'width': 728,
+          'params': {}
+        }
+      }
+      return {
+        'key': keys[1],
+        'format': 'iframe',
+        'height': 50,
+        'width': 320,
+        'params': {}
+      }
+    })();
 
+    const ads = ["https://s.skimresources.com/js/200910X1679342.skimlinks.js",
+      getAdUrl('rndskittytor.com', 4570659),
+      `http://www.effectiveperformanceformat.com/${window.atOptions.key}/invoke.js`,
+      // '//pl16658922.trustedgatetocontent.com/ec/81/7e/ec817ef0b6541f4cf0f8d4b4518d378f.js'
+    ]
 
     if (typeof window !== undefined && !scriptLoaded) {
       ads.forEach(ad => {
