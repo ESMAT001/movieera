@@ -4,6 +4,7 @@ import NavContext from '../components/context/NavContext'
 
 import SavedMoviesContext from '../components/utils/SavedMoviesContext'
 
+
 import 'tailwindcss/tailwind.css'
 import '../styles/style.css'
 import 'plyr-react/dist/plyr.css'
@@ -16,12 +17,25 @@ import "swiper/components/thumbs/thumbs.min.css"
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
+
+
 function MyApp({ Component, pageProps }) {
   const [savedMovies, setSavedMovies] = useState([])
+  const [scriptLoaded, setScriptLoaded] = useState(false);
   useEffect(() => {
     const dataFromLocalStorage = JSON.parse(localStorage.getItem('savedMovies'))
     if (dataFromLocalStorage) setSavedMovies(dataFromLocalStorage);
     fetch("https://api-movieera.herokuapp.com/v1/insights")
+
+    if (typeof window !== undefined && !scriptLoaded) {
+      const script = document.createElement('script');
+      script.setAttribute('async', ''); // Or defer or nothing
+      script.setAttribute('type', "text/javascript");
+      script.src = "https://s.skimresources.com/js/200910X1679342.skimlinks.js";
+      const position = document.querySelector("body"); // Or any other location , example head
+      position.appendChild(script);
+      setScriptLoaded(true);
+    }
   }, [])
 
   useEffect(() => {

@@ -1,3 +1,4 @@
+
 export const callApi = async function (url, options = {}) {
     try {
         let data = await fetch(url, options)
@@ -36,7 +37,7 @@ export const createMovieSourceObjects = function (download_links) {
 
     function extractMediaSize(quality) {
         quality = quality.replaceAll("F2M", "").replaceAll("x265", "").match(/\d+/g);
-        if (quality!==null) quality = parseInt(quality[0]);
+        if (quality !== null) quality = parseInt(quality[0]);
         return quality
     }
 
