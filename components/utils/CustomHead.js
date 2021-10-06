@@ -50,7 +50,7 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
 
             <link rel='icon' type='image/png' sizes='32x32' href='/static/icons/favicon-32x32.png' />
             <link rel='icon' type='image/png' sizes='16x16' href='/static/icons/favicon-16x16.png' />
-            <link rel='manifest' href='/static/manifest.json' />
+            
             <link rel='mask-icon' href='/static/icons/safari-pinned-tab.svg' color='#0f1014' />
             <link rel='shortcut icon' href='/favicon.ico' />
 
