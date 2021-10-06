@@ -14,7 +14,7 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
             <meta content={title} property="og:title" />
 
-            <meta name="keywords" content={preDefinedKeywords + " , " + keywords} />
+            <meta name="keywords" content={preDefinedKeywords + "," + keywords} />
             <meta name="author" content="Esmatullah Niazi" />
             <meta property="og:type" content="website" />
             <meta property="og:site_name" content="Movieera" />
@@ -98,7 +98,7 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             {/* <script type="text/javascript" data-adel="atag" src="//acdcdn.com/script/atg.js" czid="i8h3zebs" defer>
             </script> */}
             {/* <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061035" defer></script> */}
-            <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061303" defer></script>
+            {/* <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061303" defer></script> */}
         </Head>
     )
 }
