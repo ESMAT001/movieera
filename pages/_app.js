@@ -57,7 +57,8 @@ function MyApp({ Component, pageProps }) {
     const ads = ["https://s.skimresources.com/js/200910X1679342.skimlinks.js",
       getAdUrl('rndskittytor.com', 4570659),
       `http://www.effectiveperformanceformat.com/${window.atOptions.key}/invoke.js`,
-      // '//pl16658922.trustedgatetocontent.com/ec/81/7e/ec817ef0b6541f4cf0f8d4b4518d378f.js'
+      // '//pl16658922.trustedgatetocontent.com/ec/81/7e/ec817ef0b6541f4cf0f8d4b4518d378f.js',
+      "//pl16658952.trustedgatetocontent.com/39affabc185ccad0c249c41062d20da9/invoke.js"
     ]
 
     if (typeof window !== undefined && !scriptLoaded) {
