@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const dataFromLocalStorage = JSON.parse(localStorage.getItem('savedMovies'))
     if (dataFromLocalStorage) setSavedMovies(dataFromLocalStorage);
+    fetch("https://api-movieera.herokuapp.com/v1/insights")
   }, [])
 
   useEffect(() => {
