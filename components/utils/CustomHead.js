@@ -7,6 +7,7 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
         <Head>
             <title>{title}</title>
             <meta name="robots" content="index,follow" />
+            <meta name="propeller" content="8a6f5e53d45da61b2602fd399b8314ab"/>
             <meta name="google-site-verification" content="yqc7NlR0hpMr2BHmz6a8Bz7EF3P0FU2vD7pSMoPUmCc" />
             <meta name="a.validate.01" content="aaeb16d1496dc5a6d2e9b3f1d9ca424c4983" />
             <meta name="description" content={description} />
