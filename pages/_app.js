@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import NavContext from '../components/context/NavContext'
 
 import SavedMoviesContext from '../components/utils/SavedMoviesContext'
-import Ad from '../components/utils/Ad'
+
 
 import 'tailwindcss/tailwind.css'
 import '../styles/style.css'

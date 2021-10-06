@@ -37,7 +37,7 @@ function Ad() {
             src={`https://pppbr.com/bnr_xload.php?section=General&pub=871543&format=${size.width}x${size.height}&ga=g&xt=163353997845794&xtt='+${qs}+'`}
             width={size.width}
             height={size.height}
-            frameborder="0" marginheight="0" marginwidth="0" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts">
+            frameBorder="0" marginHeight="0" marginWidth="0" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts">
         </iframe>
     )
 }
