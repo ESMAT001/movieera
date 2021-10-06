@@ -13,7 +13,10 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <Script type="text/javascript" src="https://s.skimresources.com/js/200910X1679342.skimlinks.js" />
+          <script
+            // id="CUSTOM SCRIPTTT"
+            type="text/javascript"
+            src="https://s.skimresources.com/js/200910X1679342.skimlinks.js" ></script>
         </body>
       </Html>
     )
