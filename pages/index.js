@@ -1,4 +1,4 @@
-
+import { Fragment } from 'react'
 import Main from '../components/mainPageComponents/Main'
 import CustomHead from '../components/utils/CustomHead'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
@@ -15,7 +15,7 @@ export default function Home({ movies, error }) {
     const genreName = Object.keys(genre)[0]
     index++
     return (
-      <>
+      <Fragment key={index + "ContainerIndexK"}>
         <Ad  key={index + "AdIndexK"} />
         <Main
           movies={genre[genreName]}
@@ -24,7 +24,7 @@ export default function Home({ movies, error }) {
           key={index + "sGenreIndex"}
           moviesGenre={genreName}
         />
-      </>
+      </Fragment>
     )
   }
   return (
