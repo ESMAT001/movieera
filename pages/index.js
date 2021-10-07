@@ -15,16 +15,16 @@ export default function Home({ movies, error }) {
     const genreName = Object.keys(genre)[0]
     index++
     return (
-      <Fragment key={index + "ContainerIndexK"}>
-        <Ad  key={index + "AdIndexK"} />
-        <Main
-          movies={genre[genreName]}
-          movieType={genreName}
-          seeAllBtn={true}
-          key={index + "sGenreIndex"}
-          moviesGenre={genreName}
-        />
-      </Fragment>
+      // <Fragment key={index + "ContainerIndexK"}>
+      // {/* <Ad  key={index + "AdIndexK"} /> */}
+      <Main
+        movies={genre[genreName]}
+        movieType={genreName}
+        seeAllBtn={true}
+        key={index + "sGenreIndex"}
+        moviesGenre={genreName}
+      />
+      // </Fragment>
     )
   }
   return (
@@ -32,7 +32,7 @@ export default function Home({ movies, error }) {
       <CustomHead />
       <CustomHeader movies={trending.slice(0, 6)} />
       <Main movies={trending.slice(6)} error={error} topPadding={true} />
-      <div className="mb-8 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div>
+      <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div>
       {/* ad */}
       {
         genres.map(genre => renderGenres(genre))
