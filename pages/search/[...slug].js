@@ -26,6 +26,11 @@ function Query({ data, error }) {
       }
 
       {error && <h1 className="text-red-400">{error}</h1>}
+
+      {/* cool ads */}
+      <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div>
+      {/*cool ad */}
+
       {
         totalPages > 1 && <Pagenation currentPage={page} endPage={totalPages} pathname={pathname} />
       }
@@ -49,7 +54,7 @@ export async function getServerSideProps(context) {
     }
   }
 
-  console.log(query, temp, page)
+
   const res = await fetch(apiUrl + "/search?mode=full&limit=20&query=" + query + "&page=" + page)
   const data = await res.json()
 

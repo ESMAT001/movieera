@@ -32,8 +32,6 @@ export default function Home({ movies, error }) {
       <CustomHead />
       <CustomHeader movies={trending.slice(0, 6)} />
       <Main movies={trending.slice(6)} error={error} topPadding={true} />
-      <div id="awn-z5163363"></div>   {/*ads */}
-      <div id="awn-z5163371"></div>
       <a
         href="https://discovernative.com/al/visit.php?al=1,7"
         style={{ position: 'absolute', top: '-1000px', left: '-1000px', width: '1px', height: '1px', visibility: 'hidden', display: "none" }}
@@ -42,13 +40,15 @@ export default function Home({ movies, error }) {
         style={{ position: 'absolute', top: '-1000px', left: '-1000px', width: '1px', height: '1px', visibility: 'hidden', display: "none" }}
       ></a>
       </noscript>
-      {/*ads */}
-
+      {/* cool ads */}
       <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div>
-      {/* ad */}
+      {/*cool ad */}
       {
         genres.map(genre => renderGenres(genre))
       }
+      {/*adcash ad */}
+      <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="awn-z5163363"></div>
+      {/*adcash ads */}
     </>
 
   )

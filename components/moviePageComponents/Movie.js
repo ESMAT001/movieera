@@ -188,11 +188,17 @@ function Movie({ movie, recommendations, error }) {
                     {
                         movie.production_companies.length > 0 && <ProductionCompanies companies={movie.production_companies} />
                     }
+                    {/* cool ads */}
+                    <div className="mb-12  w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div>
+                    {/*cool ad */}
                     <MediaLinks movie={movie} />
                 </div>
                 {
                     recommendations.length > 0 && <Recommendations recommendations={recommendations} />
                 }
+                {/* ad */}
+                <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="awn-z5163371"></div>
+                {/* ad */}
             </main>
         </>
     )

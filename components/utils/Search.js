@@ -45,7 +45,7 @@ function Search() {
             }
 
             <button
-                onClick={() => handleClick("/search/" + searchVal)}
+                onClick={() => { if (searchVal !== "") handleClick("/search/" + searchVal) }}
                 type="submit"
                 className="rounded antialiased bg-nice-red border-2 font-semibold border-nice-red hover:bg-red-600 hover:border-red-600 focus:outline-none gap-1 outline-none tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-1 px-3 text-sm  text-white flex items-center"
             >Search <BiSearchAlt className="text-lg" /> </button>
