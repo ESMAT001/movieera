@@ -1,6 +1,6 @@
 import React from 'react'
 import { apiUrl } from '../../utils'
-import Main from '../../components/mainPageComponents/Main'
+import Media from '../../components/Media'
 import Pagenation from '../../components/Pagenation'
 import CustomHead from '../../components/utils/CustomHead'
 import { useRouter } from 'next/router'
@@ -15,7 +15,7 @@ function Query({ data, error }) {
         title={`Search results for "${router.query.slug[0]}"`}
         description={`Download or watch ${router.query.slug[0]} for free`}
       />
-      <Main movies={results} movieType={`Search results for "${router.query.slug[0]}"`} topPadding={true} />
+      <Media movies={results} movieType={`Search results for "${router.query.slug[0]}"`} topPadding={true} />
 
       {
         results.length === 0 && (

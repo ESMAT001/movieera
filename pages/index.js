@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import Main from '../components/mainPageComponents/Main'
+import Media from '../components/Media'
 import CustomHead from '../components/utils/CustomHead'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
 import Ad from '../components/utils/Ad'
@@ -17,7 +17,7 @@ export default function Home({ movies, error }) {
     return (
       // <Fragment key={index + "ContainerIndexK"}>
       // {/* <Ad  key={index + "AdIndexK"} /> */}
-      <Main
+      <Media
         movies={genre[genreName]}
         movieType={genreName}
         seeAllBtn={true}
@@ -31,7 +31,7 @@ export default function Home({ movies, error }) {
     <>
       <CustomHead />
       <CustomHeader movies={trending.slice(0, 6)} />
-      <Main movies={trending.slice(6)} error={error} topPadding={true} />
+      <Media movies={trending.slice(6)} error={error} topPadding={true} />
       <a
         href="https://discovernative.com/al/visit.php?al=1,7"
         style={{ position: 'absolute', top: '-1000px', left: '-1000px', width: '1px', height: '1px', visibility: 'hidden', display: "none" }}

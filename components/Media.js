@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import MovieInfoBox from '../utils/MovieInfoBox'
+import MovieInfoBox from './utils/MovieInfoBox'
 
-function Main({ movies, error, movieType, seeAllBtn, topPadding, bottomPadding, moviesGenre }) {
+function Media({ movies, error, movieType, seeAllBtn, topPadding, bottomPadding, moviesGenre }) {
     return (
         <section className={`bg-black-light ${topPadding ? 'pt-20 lg:pt-32 xl:pt-44' : 'pt-6'} ${bottomPadding ? 'pb-20 lg:pb-32 xl:pb-44' : 'pb-6'} px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto z-10`}>
             <div className="">
@@ -27,9 +27,9 @@ function Main({ movies, error, movieType, seeAllBtn, topPadding, bottomPadding, 
     )
 }
 
-export default Main
+export default Media
 
-Main.defaultProps = {
+Media.defaultProps = {
     movies: [],
     error: null,
     movieType: "Trending Movies",
