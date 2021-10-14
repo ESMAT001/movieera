@@ -189,6 +189,14 @@ function Movie({ movie, recommendations, error }) {
                         movie.production_companies.length > 0 && <ProductionCompanies companies={movie.production_companies} />
                     }
                     {/* cool ads */}
+
+                    <ins className="adsbygoogle"
+                        style={{ display: "block", textAlign: "center" }}
+                        data-ad-layout="in-article"
+                        data-ad-format="fluid"
+                        data-ad-client="ca-pub-8407721631737964"
+                        data-ad-slot="8059491915"></ins>
+
                     <div className="mb-12  w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div>
                     {/*cool ad */}
                     <MediaLinks movie={movie} />

@@ -1,8 +1,6 @@
-import { Fragment } from 'react'
 import Media from '../components/Media'
 import CustomHead from '../components/utils/CustomHead'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
-import Ad from '../components/utils/Ad'
 import { apiUrl } from '../utils'
 
 
@@ -15,8 +13,7 @@ export default function Home({ movies, error }) {
     const genreName = Object.keys(genre)[0]
     index++
     return (
-      // <Fragment key={index + "ContainerIndexK"}>
-      // {/* <Ad  key={index + "AdIndexK"} /> */}
+      
       <Media
         movies={genre[genreName]}
         movieType={genreName}
@@ -24,7 +21,7 @@ export default function Home({ movies, error }) {
         key={index + "sGenreIndex"}
         moviesGenre={genreName}
       />
-      // </Fragment>
+     
     )
   }
   return (
@@ -41,6 +38,22 @@ export default function Home({ movies, error }) {
       ></a>
       </noscript>
       {/* cool ads */}
+
+
+      <ins className="adsbygoogle"
+        style={{ display: "block", textAlign: "center" }}
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-8407721631737964"
+        data-ad-slot="8059491915"></ins>
+
+      <ins className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-8407721631737964"
+        data-ad-slot="3368426100"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      
       <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div>
       {/*cool ad */}
       {

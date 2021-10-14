@@ -7,7 +7,7 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
         <Head>
             <title>{title}</title>
             <meta name="robots" content="index,follow" />
-            <meta name="propeller" content="8a6f5e53d45da61b2602fd399b8314ab"/>
+            {/* <meta name="propeller" content="8a6f5e53d45da61b2602fd399b8314ab" /> */}
             <meta name="google-site-verification" content="yqc7NlR0hpMr2BHmz6a8Bz7EF3P0FU2vD7pSMoPUmCc" />
             <meta name="a.validate.01" content="aaeb16d1496dc5a6d2e9b3f1d9ca424c4983" />
             <meta name="description" content={description} />
@@ -51,7 +51,7 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
 
             <link rel='icon' type='image/png' sizes='32x32' href='/static/icons/favicon-32x32.png' />
             <link rel='icon' type='image/png' sizes='16x16' href='/static/icons/favicon-16x16.png' />
-            
+
             <link rel='mask-icon' href='/static/icons/safari-pinned-tab.svg' color='#0f1014' />
             <link rel='shortcut icon' href='/favicon.ico' />
 
@@ -95,12 +95,19 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             <link rel="apple-touch-startup-image" href="/static/icons/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
             <link rel="apple-touch-startup-image" href="/static/icons/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
 
-            <script data-ad-client="ca-pub-8407721631737964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            {/* google ads */}
+            <script data-ad-client="ca-pub-8407721631737964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8407721631737964"></script>
+            {/* google ads */}
+
+            {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8407721631737964"
+                crossorigin="anonymous"></script> */}
+
+            {/* <script async src="https://cse.google.com/cse.js?cx=9a8665922168911b6"></script> */}
             {/* <script type="text/javascript" data-adel="atag" src="//acdcdn.com/script/atg.js" czid="i8h3zebs" defer>
             </script> */}
             {/* <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061035" defer></script> */}
             {/* <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061303" defer></script> */}
-           
+
         </Head>
     )
 }
