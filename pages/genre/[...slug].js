@@ -1,5 +1,5 @@
 import { apiUrl } from '../../utils'
-import Main from '../../components/mainPageComponents/Main'
+import Media from '../../components/Media'
 import Pagenation from '../../components/Pagenation'
 import CustomHead from '../../components/utils/CustomHead'
 import { useRouter } from 'next/router'
@@ -20,7 +20,7 @@ function Genre({ data, error }) {
                 keywords={`Download ${pathname} movies, Download ${pathname} movies for free`}
             />
 
-            <Main
+            <Media
                 movies={results}
                 movieType={`${decodeURI(pathname).toUpperCase()}`}
                 topPadding={true}
