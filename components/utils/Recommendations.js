@@ -1,9 +1,9 @@
 import React from 'react'
-import Main from '../mainPageComponents/Main'
+import Media from '../Media'
 function Recommendations({ recommendations, error }) {
     return (
         <div className="mt-8">
-            <Main
+            <Media
                 movies={recommendations}
                 error={error}
                 movieType="Recommendations:"
