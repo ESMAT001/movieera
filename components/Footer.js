@@ -82,8 +82,8 @@ function Footer() {
                     <p>All rights reserved.</p>
                 </div>
                 <div className="flex text-gray-500 text-2xl justify-center space-x-6">
-                    <Link href="/">
-                        <a >
+                    <Link href="https://fb.me/movieeraapp" target="_blank">
+                        <a>
                             <FaFacebookSquare />
                         </a>
                     </Link>

@@ -160,17 +160,6 @@ function Movie({ movie, recommendations, error }) {
                 </div>
                 <div className="text-gray-400 px-14 sm:px-16 md:px-20 lg:px-32 xl:px-36 2xl:px-44 py-10 md:py-20 xl:py-26" >
                     <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-10 sm:space-y-0">
-
-                        {/* cool ads */}
-
-                        <ins className="adsbygoogle"
-                            style={{ display: "block", textAlign: "center" }}
-                            data-ad-layout="in-article"
-                            data-ad-format="fluid"
-                            data-ad-client="ca-pub-8407721631737964"
-                            data-ad-slot="8059491915"></ins>
-
-                        {/* cool ads */}
                         <MovieInfo movie={movie} />
                         {movie.videos.results.length > 0 && <div className="sm:w-3/6 flex flex-col items-center space-y-4">
                             <h2 className="text-center text-xl font-movieNameFont">Trailers</h2>
