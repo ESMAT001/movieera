@@ -1,6 +1,8 @@
+
 import Media from '../components/Media'
 import CustomHead from '../components/utils/CustomHead'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
+import AdSense from 'react-adsense';
 import { apiUrl } from '../utils'
 
 
@@ -13,7 +15,6 @@ export default function Home({ movies, error }) {
     const genreName = Object.keys(genre)[0]
     index++
     return (
-
       <Media
         movies={genre[genreName]}
         movieType={genreName}
@@ -21,7 +22,6 @@ export default function Home({ movies, error }) {
         key={index + "sGenreIndex"}
         moviesGenre={genreName}
       />
-
     )
   }
   return (
@@ -29,40 +29,50 @@ export default function Home({ movies, error }) {
       <CustomHead />
       <CustomHeader movies={trending.slice(0, 6)} />
       <Media movies={trending.slice(6)} error={error} topPadding={true} />
-      <a
-        href="https://discovernative.com/al/visit.php?al=1,7"
-        style={{ position: 'absolute', top: '-1000px', left: '-1000px', width: '1px', height: '1px', visibility: 'hidden', display: "none" }}
-      ></a>
-      <noscript><a href="https://discovernative.com/al/visit.php?al=1,6"
-        style={{ position: 'absolute', top: '-1000px', left: '-1000px', width: '1px', height: '1px', visibility: 'hidden', display: "none" }}
-      ></a>
-      </noscript>
       {/* cool ads */}
-
       <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
-        <ins className="adsbygoogle"
+
+        <AdSense.Google
           style={{ display: "block", textAlign: "center" }}
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-8407721631737964"
-          data-ad-slot="8059491915"></ins>
+          layout="in-article"
+          format="fluid"
+          client="ca-pub-8407721631737964"
+          slot="8059491915"
+        />
+
+      </div>
+      <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
+
+        <AdSense.Google
+          className="adsbygoogle"
+          style={{ display: "block", textAlign: "center" }}
+          layout="in-article"
+          format="fluid"
+          client="ca-pub-8407721631737964"
+          slot="8059491915"
+        />
+
+      </div>
+      <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
+
+        <AdSense.Google
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          client="ca-pub-8407721631737964"
+          slot="3368426100"
+          format="auto"
+          responsive="true"
+        />
+
       </div>
 
-
-      <ins className="adsbygoogle"
-        style={{display:"block"}}
-        data-ad-client="ca-pub-8407721631737964"
-        data-ad-slot="3368426100"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-
-      <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div>
+      {/* <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div> */}
       {/*cool ad */}
       {
         genres.map(genre => renderGenres(genre))
       }
       {/*adcash ad */}
-      <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="awn-z5163363"></div>
+      {/* <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="awn-z5163363"></div> */}
       {/*adcash ads */}
     </>
 

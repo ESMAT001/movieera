@@ -96,7 +96,7 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             <link rel="apple-touch-startup-image" href="/static/icons/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
 
             {/* google ads */}
-            <script data-ad-client="ca-pub-8407721631737964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8407721631737964"></script>
+            <script data-ad-client="ca-pub-8407721631737964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             {/* google ads */}
 
             {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8407721631737964"
