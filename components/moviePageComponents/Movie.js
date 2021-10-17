@@ -205,6 +205,14 @@ function Movie({ movie, recommendations, error }) {
                     recommendations.length > 0 && <Recommendations recommendations={recommendations} />
                 }
                 {/* ad */}
+                <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
+                    <ins className="adsbygoogle"
+                        style={{display:"block"}}
+                        data-ad-client="ca-pub-8407721631737964"
+                        data-ad-slot="4030609383"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                </div>
                 <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="awn-z5163371"></div>
                 {/* ad */}
             </main>
