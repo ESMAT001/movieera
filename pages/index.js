@@ -15,13 +15,36 @@ export default function Home({ movies, error }) {
     const genreName = Object.keys(genre)[0]
     index++
     return (
-      <Media
-        movies={genre[genreName]}
-        movieType={genreName}
-        seeAllBtn={true}
-        key={index + "sGenreIndex"}
-        moviesGenre={genreName}
-      />
+      <>
+        <Media
+          movies={genre[genreName]}
+          movieType={genreName}
+          seeAllBtn={true}
+          key={index + "sGenreIndex"}
+          moviesGenre={genreName}
+        />
+        {/* cool ads */}
+        <div className="block md:hidden mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
+          <AdSense.Google
+            style={{ display: "block", textAlign: "center" }}
+            layout="in-article"
+            format="fluid"
+            client="ca-pub-8407721631737964"
+            slot="8059491915"
+          />
+        </div>
+        <div className="hidden md:block mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
+          <AdSense.Google
+            className="adsbygoogle"
+            style={{ display: "block" }}
+            client="ca-pub-8407721631737964"
+            slot="3368426100"
+            format="auto"
+            responsive="true"
+          />
+        </div>
+        {/*cool ad */}
+      </>
     )
   }
   return (
@@ -31,7 +54,6 @@ export default function Home({ movies, error }) {
       <Media movies={trending.slice(6)} error={error} topPadding={true} />
       {/* cool ads */}
       <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
-
         <AdSense.Google
           style={{ display: "block", textAlign: "center" }}
           layout="in-article"
@@ -39,22 +61,8 @@ export default function Home({ movies, error }) {
           client="ca-pub-8407721631737964"
           slot="8059491915"
         />
-
       </div>
-      <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
-
-        <AdSense.Google
-          className="adsbygoogle"
-          style={{ display: "block", textAlign: "center" }}
-          layout="in-article"
-          format="fluid"
-          client="ca-pub-8407721631737964"
-          slot="8059491915"
-        />
-
-      </div>
-      <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
-
+      <div className="hidden md:block mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
         <AdSense.Google
           className="adsbygoogle"
           style={{ display: "block" }}
@@ -63,8 +71,8 @@ export default function Home({ movies, error }) {
           format="auto"
           responsive="true"
         />
-
       </div>
+      {/*cool ad */}
 
       {/* <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div> */}
       {/*cool ad */}
