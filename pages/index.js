@@ -24,8 +24,9 @@ export default function Home({ movies, error }) {
           moviesGenre={genreName}
         />
         {/* cool ads */}
-        <div className="block md:hidden mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
+        {/* <div className="block md:hidden mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
           <AdSense.Google
+            key={index + "adsGoogle"}
             style={{ display: "block", textAlign: "center" }}
             layout="in-article"
             format="fluid"
@@ -35,6 +36,7 @@ export default function Home({ movies, error }) {
         </div>
         <div className="hidden md:block mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
           <AdSense.Google
+            key={index + "adsGoogle2"}
             className="adsbygoogle"
             style={{ display: "block" }}
             client="ca-pub-8407721631737964"
@@ -42,7 +44,7 @@ export default function Home({ movies, error }) {
             format="auto"
             responsive="true"
           />
-        </div>
+        </div> */}
         {/*cool ad */}
       </>
     )
@@ -55,6 +57,7 @@ export default function Home({ movies, error }) {
       {/* cool ads */}
       <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
         <AdSense.Google
+          key="googleAd-1"
           style={{ display: "block", textAlign: "center" }}
           layout="in-article"
           format="fluid"
@@ -64,6 +67,7 @@ export default function Home({ movies, error }) {
       </div>
       <div className="hidden md:block mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
         <AdSense.Google
+          key="googleAd-2"
           className="adsbygoogle"
           style={{ display: "block" }}
           client="ca-pub-8407721631737964"
