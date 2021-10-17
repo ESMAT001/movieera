@@ -8,7 +8,6 @@ import { useRouter } from 'next/router'
 function Query({ data, error }) {
   const router = useRouter()
   const { results, page, totalPages } = data
-  const pathname = router.asPath
   return (
     <div className="flex flex-col">
       <CustomHead
@@ -32,7 +31,9 @@ function Query({ data, error }) {
       {/*cool ad */}
 
       {
-        totalPages > 1 && <Pagenation currentPage={page} endPage={totalPages} pathname={pathname} />
+        totalPages > 1 && <Pagenation currentPage={page} endPage={totalPages} pathname={
+          `search/${router.query.slug[0]}`
+        } />
       }
     </div>
   )

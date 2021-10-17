@@ -49,8 +49,8 @@ export default function Home({ movies, error }) {
       </div>
 
 
-      <ins class="adsbygoogle"
-        style="display:block"
+      <ins className="adsbygoogle"
+        style={{display:"block"}}
         data-ad-client="ca-pub-8407721631737964"
         data-ad-slot="3368426100"
         data-ad-format="auto"
