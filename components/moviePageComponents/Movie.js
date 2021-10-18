@@ -13,7 +13,7 @@ import { useRouter } from 'next/router'
 import MediaLinks from './MediaLinks'
 import Plyr from 'plyr-react'
 import Recommendations from '../utils/Recommendations'
-import AdSense from 'react-adsense';
+import AdSense from 'react-ssr-adsense';
 import { createMovieSourceObjects, getMediaLangTypeName } from '../../functions/functions'
 
 
@@ -191,7 +191,7 @@ function Movie({ movie, recommendations, error }) {
                     }
                     {/* cool ads */}
 
-                    <AdSense.Google
+                    <AdSense
                         className="adsbygoogle"
                         style={{ display: "block", textAlign: "center" }}
                         layout="in-article"
@@ -209,7 +209,7 @@ function Movie({ movie, recommendations, error }) {
                 }
                 {/* ad */}
                 <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
-                    <AdSense.Google
+                    <AdSense
                         className="adsbygoogle"
                         style={{ display: "block" }}
                         client="ca-pub-8407721631737964"

@@ -2,7 +2,7 @@
 import Media from '../components/Media'
 import CustomHead from '../components/utils/CustomHead'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
-import AdSense from 'react-adsense';
+import AdSense from 'react-ssr-adsense';
 import { apiUrl } from '../utils'
 
 
@@ -15,16 +15,17 @@ export default function Home({ movies, error }) {
     const genreName = Object.keys(genre)[0]
     index++
     return (
-      <>
-        <Media
-          movies={genre[genreName]}
-          movieType={genreName}
-          seeAllBtn={true}
-          key={index + "sGenreIndex"}
-          moviesGenre={genreName}
-        />
-        {/* cool ads */}
-        {/* <div className="block md:hidden mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
+      // <>
+      <Media
+        movies={genre[genreName]}
+        movieType={genreName}
+        seeAllBtn={true}
+        key={index + "sGenreIndex"}
+        moviesGenre={genreName}
+      />
+    )
+    {/* cool ads */ }
+    {/* <div className="block md:hidden mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
           <AdSense.Google
             key={index + "adsGoogle"}
             style={{ display: "block", textAlign: "center" }}
@@ -45,9 +46,9 @@ export default function Home({ movies, error }) {
             responsive="true"
           />
         </div> */}
-        {/*cool ad */}
-      </>
-    )
+    {/*cool ad */ }
+    {/* </> */ }
+
   }
   return (
     <>
@@ -56,7 +57,7 @@ export default function Home({ movies, error }) {
       <Media movies={trending.slice(6)} error={error} topPadding={true} />
       {/* cool ads */}
       <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
-        <AdSense.Google
+        <AdSense
           key="googleAd-1"
           style={{ display: "block", textAlign: "center" }}
           layout="in-article"
@@ -66,7 +67,7 @@ export default function Home({ movies, error }) {
         />
       </div>
       <div className="hidden md:block mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
-        <AdSense.Google
+        <AdSense
           key="googleAd-2"
           className="adsbygoogle"
           style={{ display: "block" }}
