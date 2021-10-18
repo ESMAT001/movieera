@@ -161,7 +161,7 @@ function Movie({ movie, recommendations, error }) {
                 </div>
                 <div className="text-gray-400 px-14 sm:px-16 md:px-20 lg:px-32 xl:px-36 2xl:px-44 py-10 md:py-20 xl:py-26" >
 
-                    <Ads
+                    <Ad
                         className="adsbygoogle"
                         style={{ display: "block", textAlign: "center" }}
                         data-ad-layout="in-article"
