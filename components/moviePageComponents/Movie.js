@@ -160,6 +160,15 @@ function Movie({ movie, recommendations, error }) {
                     <SubBox callback={openLangOptionsModal} movie={movie} />
                 </div>
                 <div className="text-gray-400 px-14 sm:px-16 md:px-20 lg:px-32 xl:px-36 2xl:px-44 py-10 md:py-20 xl:py-26" >
+
+                    <Ads
+                        className="adsbygoogle"
+                        style={{ display: "block", textAlign: "center" }}
+                        data-ad-layout="in-article"
+                        data-ad-format="fluid"
+                        data-ad-client="ca-pub-8407721631737964"
+                        data-ad-slot="3903219514" />
+
                     <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-10 sm:space-y-0">
                         <MovieInfo movie={movie} />
                         {movie.videos.results.length > 0 && <div className="sm:w-3/6 flex flex-col items-center space-y-4">
@@ -198,7 +207,7 @@ function Movie({ movie, recommendations, error }) {
                         data-ad-layout="in-article"
                         data-ad-format="fluid"
                         data-ad-client="ca-pub-8407721631737964"
-                        data-ad-slot="8059491915"
+                        data-ad-slot="1854790615"
                     />
 
                     {/* <div className="mb-12  w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div> */}
@@ -215,7 +224,7 @@ function Movie({ movie, recommendations, error }) {
                         className="adsbygoogle"
                         style={{ display: "block" }}
                         data-ad-client="ca-pub-8407721631737964"
-                        data-ad-slot="4030609383"
+                        data-ad-slot="3483567050"
                         data-ad-format="auto"
                         data-full-width-responsive="true"
                     />
