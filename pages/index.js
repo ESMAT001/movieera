@@ -2,8 +2,7 @@
 import Media from '../components/Media'
 import CustomHead from '../components/utils/CustomHead'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
-import AdSense from 'react-ssr-adsense';
-import Ad from '../components/utils/Ad'
+import Ad from '../components/Ad'
 import { apiUrl } from '../utils'
 
 

@@ -13,7 +13,7 @@ import { useRouter } from 'next/router'
 import MediaLinks from './MediaLinks'
 import Plyr from 'plyr-react'
 import Recommendations from '../utils/Recommendations'
-import AdSense from 'react-ssr-adsense';
+import Ad from '../Ad'
 import { createMovieSourceObjects, getMediaLangTypeName } from '../../functions/functions'
 
 
@@ -191,13 +191,14 @@ function Movie({ movie, recommendations, error }) {
                     }
                     {/* cool ads */}
 
-                    <AdSense
+                    <Ad
+                        key="moviePageAd-1"
                         className="adsbygoogle"
                         style={{ display: "block", textAlign: "center" }}
-                        layout="in-article"
-                        format="fluid"
-                        client="ca-pub-8407721631737964"
-                        slot="8059491915"
+                        data-ad-layout="in-article"
+                        data-ad-format="fluid"
+                        data-ad-client="ca-pub-8407721631737964"
+                        data-ad-slot="8059491915"
                     />
 
                     {/* <div className="mb-12  w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div> */}
@@ -209,13 +210,14 @@ function Movie({ movie, recommendations, error }) {
                 }
                 {/* ad */}
                 <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
-                    <AdSense
+                    <Ad
+                        key="moviePageAd-2"
                         className="adsbygoogle"
                         style={{ display: "block" }}
-                        client="ca-pub-8407721631737964"
-                        slot="4030609383"
-                        format="auto"
-                        responsive="true"
+                        data-ad-client="ca-pub-8407721631737964"
+                        data-ad-slot="4030609383"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"
                     />
                 </div>
                 {/* <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="awn-z5163371"></div> */}
