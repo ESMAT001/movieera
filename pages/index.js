@@ -15,14 +15,25 @@ export default function Home({ movies, error }) {
     const genreName = Object.keys(genre)[0]
     index++
     return (
-      // <>
-      <Media
-        movies={genre[genreName]}
-        movieType={genreName}
-        seeAllBtn={true}
-        key={index + "sGenreIndex"}
-        moviesGenre={genreName}
-      />
+      <>
+        <Media
+          movies={genre[genreName]}
+          movieType={genreName}
+          seeAllBtn={true}
+          key={index + "sGenreIndex"}
+          moviesGenre={genreName}
+        />
+        <div key={index + "adsGoogleContainer"} className="block md:hidden mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
+          <AdSense.Google
+            key={index + "adsGoogle"}
+            style={{ display: "block", textAlign: "center" }}
+            layout="in-article"
+            format="fluid"
+            client="ca-pub-8407721631737964"
+            slot="8059491915"
+          />
+        </div>
+      </>
     )
     {/* cool ads */ }
     {/* <div className="block md:hidden mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">

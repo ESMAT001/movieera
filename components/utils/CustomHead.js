@@ -2,11 +2,11 @@ import React from 'react'
 import Head from 'next/head'
 
 function CustomHead({ title, description, keywords, imgPath, children }) {
-    const preDefinedKeywords = "best movies for free ,movieera,movie,era,download movie,download movie for free,watch movie for free, download movies, download action movies, download adventure movies, watch movies online ,دانلود مووی , دانلود ,movie, download movies, movieera your online movie theater, online movie theater , free ,latest"
+    const preDefinedKeywords = " best movies for free ,movieera,movie,era,download movie,download movie for free,watch movie for free, download movies, download action movies, download adventure movies, watch movies online ,دانلود مووی , دانلود ,movie, download movies, movieera your online movie theater, online movie theater , free ,latest"
     return (
         <Head>
             <title>{title}</title>
-            <meta name="robots" content="index,follow" />
+            <meta name="robots" content="index, follow, max-image-preview:large" />
             {/* <meta name="propeller" content="8a6f5e53d45da61b2602fd399b8314ab" /> */}
             <meta name="google-site-verification" content="yqc7NlR0hpMr2BHmz6a8Bz7EF3P0FU2vD7pSMoPUmCc" />
             <meta name="a.validate.01" content="aaeb16d1496dc5a6d2e9b3f1d9ca424c4983" />
@@ -14,6 +14,9 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             <meta content={description} property="og:description" />
             <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
             <meta content={title} property="og:title" />
+            <link rel="canonical" href="https://movieera.vercel.app/"/>
+
+            <meta http-equiv="content-language" content="en"/>
 
             <meta name="keywords" content={preDefinedKeywords + "," + keywords} />
             <meta name="author" content="Esmatullah Niazi" />
@@ -88,8 +91,8 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
 
 
 CustomHead.defaultProps = {
-    title: "Movieera | Your online theater",
-    description: "Movieera your online movie theater , download or watch your favorite Action ,Adventure ,Animation ,Comedy ,Crime ,Documentary ,Drama ,Family ,Fantasy ,History ,Horror ,Music ,Mystery ,Romance ,Science Fiction ,TV Movie ,Thriller and War Western movies for free",
+    title: "Movieera | Your online movie theater",
+    description: "Movieera your online movie theater , download or watch your favorite Action, Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Fantasy, History, Horror, Music, Mystery, Romance, Science Fiction, TV Movie, Thriller and War Western movies for free",
     keywords: "",
     imgPath: '/static/img/main.png'
 }
