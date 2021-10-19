@@ -24,13 +24,14 @@ export default function Home({ movies, error }) {
           moviesGenre={genreName}
         />
         <div key={index + "adsGoogleContainer"} className="block md:hidden mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
-          <AdSense.Google
+          <Ad
+            className="adsbygoogle"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-8407721631737964"
+            data-ad-slot="8059491915"
             key={index + "adsGoogle"}
             style={{ display: "block", textAlign: "center" }}
-            layout="in-article"
-            format="fluid"
-            client="ca-pub-8407721631737964"
-            slot="8059491915"
           />
         </div>
       </>
