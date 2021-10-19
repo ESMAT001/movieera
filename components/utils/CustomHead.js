@@ -16,7 +16,7 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             <meta content={title} property="og:title" />
             <link rel="canonical" href="https://movieera.vercel.app/"/>
 
-            <meta http-equiv="content-language" content="en"/>
+            <meta httpEquiv="content-language" content="en"/>
 
             <meta name="keywords" content={preDefinedKeywords + "," + keywords} />
             <meta name="author" content="Esmatullah Niazi" />
