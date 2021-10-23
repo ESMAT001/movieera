@@ -87,12 +87,12 @@ function Footer() {
                             <FaFacebookSquare />
                         </a>
                     </Link>
-                    <Link href="/">
+                    <Link href="https://www.instagram.com/movi.eera/" target="_blank">
                         <a >
                             <AiOutlineInstagram />
                         </a>
                     </Link>
-                    <Link href="/">
+                    <Link href="https://twitter.com/movieera2" target="_blank">
                         <a >
                             <AiOutlineTwitter />
                         </a>

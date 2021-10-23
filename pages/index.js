@@ -29,8 +29,8 @@ export default function Home({ movies, error }) {
     <>
       <CustomHead />
       <CustomHeader movies={trending.slice(0, 6)} />
-      <Media movies={trending.slice(6)} error={error} topPadding={true} />
-      {/* cool ads */}
+
+      {/* ad */}
       <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
         <Ad
           key="googleAds-1"
@@ -42,6 +42,10 @@ export default function Home({ movies, error }) {
           data-ad-slot="8059491915"
         />
       </div>
+      {/* ad */}
+
+      <Media movies={trending.slice(6)} error={error} topPadding={true} />
+      {/* cool ads */}
       <div className="hidden md:block mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
         <Ad
           key="googleAds-2"
@@ -55,14 +59,10 @@ export default function Home({ movies, error }) {
       </div>
       {/*cool ad */}
 
-      {/* <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div> */}
-      {/*cool ad */}
       {
         genres.map(genre => renderGenres(genre))
       }
-      {/*adcash ad */}
-      {/* <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="awn-z5163363"></div> */}
-      {/*adcash ads */}
+
     </>
 
   )
