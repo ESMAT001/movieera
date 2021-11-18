@@ -3,11 +3,12 @@ import Media from '../../components/Media'
 import Pagenation from '../../components/Pagenation'
 import CustomHead from '../../components/utils/CustomHead'
 import { useRouter } from 'next/router'
+import Loading from '../../components/utils/Loading'
 function Genre({ data, error }) {
     const router = useRouter()
 
     if (router.isFallback) {
-        return <div>Loading...</div>
+        return <Loading />
     }
 
     const { results = [], page, totalPages } = data
