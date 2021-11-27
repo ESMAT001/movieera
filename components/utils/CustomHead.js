@@ -1,8 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 
-function CustomHead({ title, description, keywords, imgPath, children }) {
-    const preDefinedKeywords = " best movies for free ,movieera,movie,era,download movie,download movie for free,watch movie for free, download movies, download action movies, download adventure movies, watch movies online ,دانلود مووی , دانلود ,movie, download movies, movieera your online movie theater, online movie theater , free ,latest"
+function CustomHead({ title, description, keywords, imgPath, children, url }) {
+    const preDefinedKeywords = " best movies download for free ,movieera,movie,era,download movies,download movie for free,watch movie for free, download movies, download action movies, download adventure movies, watch movies online ,دانلود مووی , دانلود ,movie, download movies, movieera your online movie theater, online movie theater , free ,latest"
     return (
         <Head>
             <title>{title}</title>
@@ -11,18 +11,24 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             <meta name="google-site-verification" content="yqc7NlR0hpMr2BHmz6a8Bz7EF3P0FU2vD7pSMoPUmCc" />
             <meta name="a.validate.01" content="aaeb16d1496dc5a6d2e9b3f1d9ca424c4983" />
             <meta name="description" content={description} />
+
+
+            <meta itemProp="name" content={title} />
+            <meta itemProp="description" content={description} />
+            <meta itemProp="image" content={imgPath} />
+
             <meta content={description} property="og:description" />
             <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
-            <meta content={title} property="og:title" />
-            <link rel="canonical" href="https://movieera.vercel.app/"/>
+            <link rel="canonical" href="https://movieera.vercel.app/" />
 
-            <meta httpEquiv="content-language" content="en"/>
+            <meta httpEquiv="content-language" content="en" />
 
-            <meta name="keywords" content={preDefinedKeywords + "," + keywords} />
+            <meta name="keywords" content={keywords != "" ? keywords + "," + preDefinedKeywords : preDefinedKeywords} />
             <meta name="author" content="Esmatullah Niazi" />
+
             <meta property="og:type" content="website" />
             <meta property="og:site_name" content="Movieera" />
-            <meta property="og:url" content="https://movieera.vercel.app/" />
+            <meta property="og:url" content={url} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={imgPath} itemProp="image" />
@@ -58,12 +64,12 @@ function CustomHead({ title, description, keywords, imgPath, children }) {
             <link rel='mask-icon' href='/static/icons/safari-pinned-tab.svg' color='#0f1014' />
             <link rel='shortcut icon' href='/favicon.ico' />
 
-            <meta name='twitter:card' content='summary' />
-            <meta name='twitter:url' content='https://movieera.vercel.app' />
+            <meta name='twitter:card' content="summary_large_image" />
+            <meta name='twitter:url' content={url} />
             <meta name='twitter:title' content={title} />
             <meta name='twitter:description' content={description} />
             <meta name='twitter:image' content={imgPath} />
-            <meta name='twitter:creator' content='@ESMAT001' />
+            <meta name='twitter:creator' content='@ESMAT0100' />
 
             <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png" />
             <link rel="apple-touch-icon" sizes="72x72" href="/static/icons/apple-touch-icon-72x72.png" />
@@ -94,7 +100,8 @@ CustomHead.defaultProps = {
     title: "Movieera | Your online movie theater",
     description: "Movieera your online movie theater , download or watch your favorite Action, Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Fantasy, History, Horror, Music, Mystery, Romance, Science Fiction, TV Movie, Thriller and War Western movies for free",
     keywords: "",
-    imgPath: '/static/img/main.png'
+    imgPath: 'https://movieera.vercel.app/static/img/main.png',
+    url: "https://movieera.vercel.app/"
 }
 
 export default CustomHead

@@ -1,4 +1,5 @@
 module.exports = {
+    websiteUrl:"https://movieera.vercel.app/",
     apiUrl: "https://api-movieera.herokuapp.com/v1",
     imageUrl: (imgPath) => {
 

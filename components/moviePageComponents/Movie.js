@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import CustomHead from '../utils/CustomHead'
-import { imageUrl, trailerImgUrl } from '../../utils'
+import { imageUrl, trailerImgUrl ,websiteUrl} from '../../utils'
 import Bg from './Bg'
 import SubBox from './SubBox'
 import MoreTrailers from './MoreTrailers'
@@ -102,8 +102,9 @@ function Movie({ movie, recommendations, error }) {
             <CustomHead
                 title={title}
                 description={`Download or watch ${title} for free from Movieera (your online movie theater) , overview: ${movie?.overview?.slice(0, 90)}... `}
-                keywords={`download ${title}, ${title} download,${title} free download,movieera ${title} ,${title} movie download movieera,${title},watch ${title} online,دانلود ${title},${title} free download hd`}
+                keywords={`download ${title}, ${title} download,${title} free download,movieera ${title} ,${title} movieera,${title} movie download movieera,${title},watch ${title} online,دانلود ${title},${title} free download hd`}
                 imgPath={imageUrl(movie.poster_path)}
+                url={`${websiteUrl}movie/${movie.id}`}
             />
 
             {
