@@ -81,7 +81,7 @@ function CustomHead({ title, description, keywords, imgPath, children, url }) {
             {/* google ads */}
             {/* new */}
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9968927152480430"
-                crossorigin="anonymous"></script>
+                crossOrigin="anonymous"></script>
 
             {/* old */}
             {/* <script data-ad-client="ca-pub-8407721631737964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossOrigin="anonymous"></script> */}
