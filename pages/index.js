@@ -38,8 +38,8 @@ export default function Home({ movies, error }) {
           style={{ display: "block", textAlign: "center" }}
           data-ad-layout="in-article"
           data-ad-format="fluid"
-          data-ad-client="ca-pub-8407721631737964"
-          data-ad-slot="8059491915"
+          data-ad-client="ca-pub-9968927152480430"
+          data-ad-slot="6060285008"
         />
       </div>
       {/* ad */}
@@ -51,8 +51,8 @@ export default function Home({ movies, error }) {
           key="googleAds-2"
           className="adsbygoogle"
           style={{ display: "block" }}
-          data-ad-client="ca-pub-8407721631737964"
-          data-ad-slot="3368426100"
+          data-ad-client="ca-pub-9968927152480430"
+          data-ad-slot="3908748475"
           data-ad-format="auto"
           data-full-width-responsive="true"
         />

@@ -168,8 +168,8 @@ function Movie({ movie, recommendations, error }) {
                         style={{ display: "block", textAlign: "center" }}
                         data-ad-layout="in-article"
                         data-ad-format="fluid"
-                        data-ad-client="ca-pub-8407721631737964"
-                        data-ad-slot="3903219514" />
+                        data-ad-client="ca-pub-9968927152480430"
+                        data-ad-slot="8822179716" />
 
                     <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-10 sm:space-y-0">
                         <MovieInfo movie={movie} />
@@ -208,8 +208,8 @@ function Movie({ movie, recommendations, error }) {
                         style={{ display: "block", textAlign: "center" }}
                         data-ad-layout="in-article"
                         data-ad-format="fluid"
-                        data-ad-client="ca-pub-8407721631737964"
-                        data-ad-slot="1854790615"
+                        data-ad-client="ca-pub-9968927152480430"
+                        data-ad-slot="2747725953"
                     />
 
                     {/* <div className="mb-12  w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div> */}
@@ -225,8 +225,8 @@ function Movie({ movie, recommendations, error }) {
                         key="moviePageAd-2"
                         className="adsbygoogle"
                         style={{ display: "block" }}
-                        data-ad-client="ca-pub-8407721631737964"
-                        data-ad-slot="3483567050"
+                        data-ad-client="ca-pub-9968927152480430"
+                        data-ad-slot="4799174229"
                         data-ad-format="auto"
                         data-full-width-responsive="true"
                     />
