@@ -49,7 +49,7 @@ function MediaLinksContainer({ mediaLangType }) {
                                 <div className="flex space-x-2">
                                     <a
                                         href={movieQuality.downloadLinks}
-                                        target="_blank"
+                                        // target="_blank"
                                         rel="noreferrer"
                                         download={true}
                                         className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2 px-4 text-xs leading-normal text-white cursor-pointer">
