@@ -2,7 +2,7 @@ import { useState, memo } from 'react'
 import { imageUrl, placeholderImgUrl } from "../../utils";
 import Image from 'next/image'
 
-function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layout = 'responsive', children }) {
+function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layout = 'responsive', badgeComponent, children }) {
 
     const [isMouseOver, setIsMouseOver] = useState(false)
     const handleMouseEnter = () => setIsMouseOver(true)
@@ -14,6 +14,9 @@ function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layou
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
+            {
+                badgeComponent
+            }
             <span
                 style={{
                     height: layout === 'fill' ? '98.225%' : '100%',

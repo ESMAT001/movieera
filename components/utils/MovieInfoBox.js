@@ -45,10 +45,28 @@ function MovieInfoBox({ movie, movieGenre }) {
         }
     }, [savedMovies])
 
+    const badgeComponent = (() => {
+        const clsName = "absolute text-white text-sm px-2 py-1 bg-nice-red z-40"
+        if (movie.last_updated) {
+            //add two days to the date
+            const date = new Date(movie.last_updated)
+            date.setDate(date.getDate() + 2)
+            return date >= new Date() ? <p className={clsName}>Updated</p> : "";
+        } else if (movie.inserted_at) {
+            //add two days to the date
+            const date = new Date(movie.inserted_at)
+            date.setDate(date.getDate() + 2)
+            return date >= new Date() ? <p className={clsName}>Featured</p> : "";
+        } else {
+            return "";
+        }
+
+    })();
+
     return (
         <div className="w-full flex flex-col">
             <div className="w-full ">
-                <MovieMoreInfo alt={movie.title + " movie poster image"} imagePath={movie.poster_path} >
+                <MovieMoreInfo alt={movie.title + " movie poster image"} imagePath={movie.poster_path} badgeComponent={badgeComponent} >
                     <Link href={"/movie/" + id}>
                         <a className="font-semibold rounded-full antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 p-3 text-2xl leading-normal text-white">
                             <BsFillPlayFill />

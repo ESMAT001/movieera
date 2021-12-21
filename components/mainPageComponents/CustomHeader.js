@@ -114,6 +114,23 @@ function CustomHeader({ movies }) {
 
                     {movies.map((movie, i) => {
                         const movieId = movie.id
+                        const badgeComponent = (() => {
+                            const clsName = "absolute text-white text-sm px-2 py-1 bg-nice-red z-40"
+                            if (movie.last_updated) {
+                                //add two days to the date
+                                const date = new Date(movie.last_updated)
+                                date.setDate(date.getDate() + 2)
+                                return date >= new Date() ? <p className={clsName}>Updated</p> : "";
+                            } else if (movie.inserted_at) {
+                                //add two days to the date
+                                const date = new Date(movie.inserted_at)
+                                date.setDate(date.getDate() + 2)
+                                return date >= new Date() ? <p className={clsName}>Featured</p> : "";
+                            } else {
+                                return "";
+                            }
+
+                        })();
                         return (
                             <SwiperSlide key={i}>
                                 {({ isActive }) => {
@@ -155,6 +172,7 @@ function CustomHeader({ movies }) {
                                                 </div>
                                                 <div className="col-span-3 sm:col-span-1 order-1 sm:order-2">
                                                     <MovieMoreInfo
+                                                        badgeComponent={badgeComponent}
                                                         alt={movie.title + " movie poster image"}
                                                         loading='eager'
                                                         imagePath={movie.poster_path}
