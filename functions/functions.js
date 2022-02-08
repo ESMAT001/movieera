@@ -14,7 +14,7 @@ export const getMediaLangTypeName = function (mediaType) {
         case 'original_lang':
             return 'Original language'
         case 'persian_sub':
-            return 'Persian subtitled'
+            return 'Original language with Persian subtitled'
         case 'dual_lang':
         case 'persian_lang':
             return 'Persian Language'
