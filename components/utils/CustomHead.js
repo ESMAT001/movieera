@@ -80,8 +80,8 @@ function CustomHead({ title, description, keywords, imgPath, children, url }) {
 
             {/* google ads */}
             {/* new */}
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9968927152480430"
-                crossOrigin="anonymous"></script>
+            {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9968927152480430"
+                crossOrigin="anonymous"></script> */}
 
             {/* old */}
             {/* <script data-ad-client="ca-pub-8407721631737964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossOrigin="anonymous"></script> */}
@@ -95,6 +95,12 @@ function CustomHead({ title, description, keywords, imgPath, children, url }) {
             </script> */}
             {/* <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061035" defer></script> */}
             {/* <script data-cfasync="false" type="text/javascript" src="https://www.dexpredict.com/a/display.php?r=5061303" defer></script> */}
+
+
+            {/* amazon */}
+            <script
+                defer
+                src="https://z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
 
         </Head>
     )

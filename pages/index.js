@@ -1,4 +1,4 @@
-
+import { useEffect } from 'react';
 import Media from '../components/Media'
 import CustomHead from '../components/utils/CustomHead'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
@@ -25,14 +25,30 @@ export default function Home({ movies, error }) {
     )
 
   }
+
+  useEffect(() => {
+    window.amzn_assoc_ad_type = "banner";
+    window.amzn_assoc_marketplace = "amazon";
+    window.amzn_assoc_region = "US";
+    window.amzn_assoc_placement = "assoc_banner_placement_default";
+    window.amzn_assoc_campaigns = "primevideo";
+    window.amzn_assoc_banner_type = "category";
+    window.amzn_assoc_isresponsive = "true";
+    window.amzn_assoc_banner_id = "0KC3CQDCAEK3M5477XR2";
+    window.amzn_assoc_tracking_id = "movieera05-20";
+    window.amzn_assoc_linkid = "e22e540fc1a1b072e1f1f95ee2b012be"
+  }, []);
+
+
+
   return (
     <>
       <CustomHead />
       <CustomHeader movies={trending.slice(0, 6)} />
 
       {/* ad */}
-      <div className="bg-black-light pt-12 z-10 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
-        <Ad
+      <div className="bg-black-light pt-12 z-10 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200 overflow-hidden">
+        {/* <Ad
           key="googleAds-1"
           className="adsbygoogle"
           style={{ display: "block", textAlign: "center" }}
@@ -40,7 +56,9 @@ export default function Home({ movies, error }) {
           data-ad-format="fluid"
           data-ad-client="ca-pub-9968927152480430"
           data-ad-slot="6060285008"
-        />
+        /> */}
+        <div className="alignleft">
+        </div>
       </div>
       {/* ad */}
 

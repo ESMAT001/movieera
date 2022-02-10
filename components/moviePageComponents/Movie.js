@@ -70,7 +70,7 @@ function Movie({ movie, recommendations, error }) {
                             closeLangOptionsModal()
                             setMovieLanguage(key)
                         }}
-                        className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white "
+                        className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white "
                     >
                         {getMediaLangTypeName(key)}
                     </button>
