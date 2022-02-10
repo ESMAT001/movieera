@@ -99,7 +99,8 @@ function CustomHead({ title, description, keywords, imgPath, children, url }) {
 
             {/* amazon */}
 
-            <script src="https://ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+            <script 
+            src="https://ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US" defer></script>
 
         </Head>
     )
