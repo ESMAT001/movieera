@@ -27,16 +27,12 @@ export default function Home({ movies, error }) {
   }
 
   useEffect(() => {
-    window.amzn_assoc_ad_type = "banner";
+    window.amzn_assoc_ad_type = "link_enhancement_widget";
+    window.amzn_assoc_tracking_id = "movieera05-20";
+    window.amzn_assoc_linkid = "4228f340c7b54c352bb4c08904670d52";
+    window.amzn_assoc_placement = "";
     window.amzn_assoc_marketplace = "amazon";
     window.amzn_assoc_region = "US";
-    window.amzn_assoc_placement = "assoc_banner_placement_default";
-    window.amzn_assoc_campaigns = "primevideo";
-    window.amzn_assoc_banner_type = "category";
-    window.amzn_assoc_isresponsive = "true";
-    window.amzn_assoc_banner_id = "0KC3CQDCAEK3M5477XR2";
-    window.amzn_assoc_tracking_id = "movieera05-20";
-    window.amzn_assoc_linkid = "e22e540fc1a1b072e1f1f95ee2b012be"
   }, []);
 
 
