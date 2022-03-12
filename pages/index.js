@@ -84,7 +84,7 @@ export default function Home({ movies, error }) {
 
 export async function getStaticProps() {
 
-  const revalidate = parseInt(86400 / 4)
+  const revalidate = parseInt(86400 / 8)
 
   const [movies, error] = await callApi(apiUrl + "/trending")
 
