@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import Media from '../components/Media'
 import CustomHead from '../components/utils/CustomHead'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
@@ -26,14 +26,14 @@ export default function Home({ movies, error }) {
 
   }
 
-  useEffect(() => {
-    window.amzn_assoc_ad_type = "link_enhancement_widget";
-    window.amzn_assoc_tracking_id = "movieera05-20";
-    window.amzn_assoc_linkid = "4228f340c7b54c352bb4c08904670d52";
-    window.amzn_assoc_placement = "";
-    window.amzn_assoc_marketplace = "amazon";
-    window.amzn_assoc_region = "US";
-  }, []);
+  // useEffect(() => {
+  //   window.amzn_assoc_ad_type = "link_enhancement_widget";
+  //   window.amzn_assoc_tracking_id = "movieera05-20";
+  //   window.amzn_assoc_linkid = "4228f340c7b54c352bb4c08904670d52";
+  //   window.amzn_assoc_placement = "";
+  //   window.amzn_assoc_marketplace = "amazon";
+  //   window.amzn_assoc_region = "US";
+  // }, []);
 
 
 
@@ -44,7 +44,7 @@ export default function Home({ movies, error }) {
 
       {/* ad */}
       <div className="bg-black-light pt-12 z-10 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200 overflow-hidden">
-        {/* <Ad
+        <Ad
           key="googleAds-1"
           className="adsbygoogle"
           style={{ display: "block", textAlign: "center" }}
@@ -52,9 +52,7 @@ export default function Home({ movies, error }) {
           data-ad-format="fluid"
           data-ad-client="ca-pub-9968927152480430"
           data-ad-slot="6060285008"
-        /> */}
-        <div className="alignleft">
-        </div>
+        />
       </div>
       {/* ad */}
 
