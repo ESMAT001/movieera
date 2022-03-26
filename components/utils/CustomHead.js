@@ -86,7 +86,7 @@ function CustomHead({ title, description, keywords, imgPath, children, url }) {
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9968927152480430"
                 crossOrigin="anonymous"
-                type="text/partytown"
+                // type="text/partytown"
             ></script>
             <script
                 type="text/partytown"
