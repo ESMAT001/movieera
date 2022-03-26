@@ -7,11 +7,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "partytown": "partytown copylib public/~partytown",
     "start": "next start",
     "lint": "next lint",
     "pwa": "node server.js"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.5.1",
     "next": "11.0.1",
     "nextjs-progressbar": "^0.0.14",
     "plyr-react": "^3.0.8",
