@@ -55,6 +55,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <NextNProgress color="#ff003c" height={4} />
+      {/* <!-- Google Tag Manager (noscript) --> */}
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57CXKQV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      {/* <!-- End Google Tag Manager (noscript) --> */}
       <NavContext>
         <div className="bg-black-dark min-w-full h-full font-subMovieFont">
           <div className="bg-black-light rounded shadow-xl overflow-hidden flex flex-col">

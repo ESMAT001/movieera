@@ -1,5 +1,5 @@
-import React from 'react'
 import Head from 'next/head'
+import { Partytown } from '@builder.io/partytown/react';
 
 function CustomHead({ title, description, keywords, imgPath, children, url }) {
     const preDefinedKeywords = " best movies download for free ,movieera,movie,era,download movies,download movie for free,watch movie for free, download movies, download action movies, download adventure movies, watch movies online ,دانلود مووی , دانلود ,movie, download movies, movieera your online movie theater, online movie theater , free ,latest"
@@ -77,11 +77,27 @@ function CustomHead({ title, description, keywords, imgPath, children, url }) {
 
             <meta name="apple-mobile-web-app-capable" content="yes" />
 
+            <Partytown forward={['dataLayer.push']} />
+
 
             {/* google ads */}
             {/* new */}
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9968927152480430"
-                crossOrigin="anonymous"></script>
+            <script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9968927152480430"
+                crossOrigin="anonymous"
+                type="text/partytown"
+            ></script>
+            <script
+                type="text/partytown"
+                dangerouslySetInnerHTML={{
+                    __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                    })(window,document,'script','dataLayer','GTM-57CXKQV');`,
+                }}
+            />
 
             {/* old */}
             {/* <script data-ad-client="ca-pub-8407721631737964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossOrigin="anonymous"></script> */}
