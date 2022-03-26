@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn run partytown && next build",
     "partytown": "partytown copylib public/~partytown",
     "start": "next start",
     "lint": "next lint",
