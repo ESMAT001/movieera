@@ -77,6 +77,8 @@ function CustomHead({ title, description, keywords, imgPath, children, url }) {
 
             <meta name="apple-mobile-web-app-capable" content="yes" />
 
+            <meta name="yandex-verification" content="243ec6cc31ed1dd2" />
+
             <Partytown forward={['dataLayer.push']} />
 
 
