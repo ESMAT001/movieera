@@ -158,12 +158,12 @@ function CustomHeader({ movies }) {
                                                     </ul>
                                                     <div className="flex space-x-2">
                                                         <Link href={"/movie/" + movieId + "#downloadLinks"}>
-                                                            <a className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
+                                                            <a className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
                                                                 <FaDownload className="text-md mr-1" />Download
                                                             </a>
                                                         </Link>
                                                         <Link href={"/movie/" + movieId + "?play=true"}>
-                                                            <a className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
+                                                            <a className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
                                                                 <IoIosPlay className="text-xl" /> Play
                                                             </a>
                                                         </Link>
@@ -178,7 +178,7 @@ function CustomHeader({ movies }) {
                                                         imagePath={movie.poster_path}
                                                         layout="fill" >
                                                         <Link href={"/movie/" + movieId}>
-                                                            <a className={"font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 py-2 px-4 text-xs leading-normal text-white"}>
+                                                            <a className={"font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 py-2 px-4 text-xs leading-normal text-white"}>
                                                                 More info
                                                             </a>
                                                         </Link>
