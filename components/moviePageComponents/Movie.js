@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import CustomHead from '../utils/CustomHead'
-import { imageUrl, trailerImgUrl ,websiteUrl} from '../../utils'
+import { imageUrl, trailerImgUrl, websiteUrl } from '../../utils'
 import Bg from './Bg'
 import SubBox from './SubBox'
 import MoreTrailers from './MoreTrailers'
@@ -30,6 +30,8 @@ function Movie({ movie, recommendations, error }) {
     const [isLanguageOptionsModalOpen, setLanguageOptionsModalOpen] = useState(false)
 
     const [movieLanguage, setMovieLanguage] = useState(null)
+    const [embeddedPlayerMovieId, setEmbeddedPlayerMovieId] = useState(null)
+
 
     const openLangOptionsModal = () => setLanguageOptionsModalOpen(true)
     const closeLangOptionsModal = () => setLanguageOptionsModalOpen(false)
@@ -39,6 +41,7 @@ function Movie({ movie, recommendations, error }) {
     }
 
     const closeMoviePlayerModal = () => {
+        setEmbeddedPlayerMovieId(null)
         setMovieLanguage(null)
         setMoviePlayerModalOpen(false)
     }
@@ -54,10 +57,10 @@ function Movie({ movie, recommendations, error }) {
 
 
     useEffect(() => {
-        if (movieLanguage !== null) {
+        if (movieLanguage !== null || embeddedPlayerMovieId !== null) {
             openMoviePlayerModal()
         }
-    }, [movieLanguage])
+    }, [movieLanguage, embeddedPlayerMovieId])
 
     const showLanguageOptions = () => {
         const jsx = []
@@ -97,6 +100,7 @@ function Movie({ movie, recommendations, error }) {
     // console.log(movie)
     const bgImage = movie.backdrop_path
     const title = movie.title
+    const movieId = movie.id
     return (
         <>
             <CustomHead
@@ -111,7 +115,17 @@ function Movie({ movie, recommendations, error }) {
 
                 isLanguageOptionsModalOpen && <Modal close={closeLangOptionsModal} >
                     <div className="flex flex-col justify-center items-center space-y-4">
-                        <h2>Choose Language :</h2>
+                        <h2>Choose Language type and :</h2>
+                        <button
+                            key={"movieType101"}
+                            onClick={() => {
+                                closeLangOptionsModal()
+                                setEmbeddedPlayerMovieId(movieId)
+                            }}
+                            className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white "
+                        >
+                            External Servers (HD)
+                        </button>
                         {
                             showLanguageOptions()
                         }
@@ -153,7 +167,13 @@ function Movie({ movie, recommendations, error }) {
                     />
                 </Modal>
             }
+            {
 
+                isMoviePlayerModalOpen && embeddedPlayerMovieId !== null && <Modal close={closeMoviePlayerModal} >
+                    <iframe id="iframe" src={"https://www.2embed.ru/embed/tmdb/movie?id=" + embeddedPlayerMovieId} width="100%" height="100%" frameborder="0"></iframe>
+                </Modal>
+
+            }
 
             <main>
                 <div className="relative overflow-hidden px-10 sm:px-20 md:px-32 lg:px-44 xl:px-60 2xl:px-72 pt-32 pb-10 sm:py-32">
