@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "yarn run partytown && next build",
-    "postbuild": "next-sitemap --config next-sitemap.config.js",
+    "postbuild": "next-sitemap --config custome-next-sitemap.js",
     "partytown": "partytown copylib public/~partytown",
     "start": "next start",
     "lint": "next lint",
