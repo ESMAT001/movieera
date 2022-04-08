@@ -17,7 +17,7 @@ const fetchEndPoints = async () => {
     const result = await fetch(`https://api-movieera.herokuapp.com/v1/movies?page=1`)
     const { totalPages, results } = await result.json()
     fields.push(...createFields(results))
-    for (let i = 2; i <= 4; i++) {
+    for (let i = 2; i <= totalPages; i++) {
         const result = await fetch(`https://api-movieera.herokuapp.com/v1/movies?page=${i}`)
         const { results } = await result.json()
         fields.push(...createFields(results))
