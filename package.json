@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "yarn run partytown && next build",
+    "postbuild": "next-sitemap --config next-sitemap.config.js",
     "partytown": "partytown copylib public/~partytown",
     "start": "next start",
     "lint": "next lint",
@@ -28,6 +29,7 @@
     "autoprefixer": "^10.3.1",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1",
+    "next-sitemap": "^2.5.19",
     "postcss": "^8.3.6",
     "pwa-asset-generator": "^4.3.5"
   }
