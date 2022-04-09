@@ -17,6 +17,19 @@ import Ad from '../Ad'
 import { createMovieSourceObjects, getMediaLangTypeName } from '../../functions/functions'
 
 
+
+const playerOptions = {
+    storage: { enabled: true, key: 'plyr' },
+    captions: { active: true, language: 'auto', update: false },
+    autoplay: true,
+    preload: 'metadata',
+    controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'captions', 'volume', 'settings', 'fullscreen'],
+}
+
+
+
+
+
 function Movie({ movie, recommendations, error }) {
     const router = useRouter()
     const { play } = router.query
@@ -62,6 +75,13 @@ function Movie({ movie, recommendations, error }) {
         }
     }, [movieLanguage, embeddedPlayerMovieId])
 
+
+    useEffect(() => {
+        if (play === "true") {
+            openLangOptionsModal()
+        }
+    }, [])
+
     const showLanguageOptions = () => {
         const jsx = []
         for (const key in movieMediaSources) {
@@ -83,19 +103,6 @@ function Movie({ movie, recommendations, error }) {
         return jsx
     }
 
-    useEffect(() => {
-        if (play === "true") {
-            openLangOptionsModal()
-        }
-    }, [])
-
-    const playerOptions = {
-        storage: { enabled: true, key: 'plyr' },
-        captions: { active: true, language: 'auto', update: false },
-        autoplay: true,
-        preload: 'metadata',
-        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'captions', 'volume', 'settings', 'fullscreen'],
-    }
 
     // console.log(movie)
     const bgImage = movie.backdrop_path
@@ -115,19 +122,20 @@ function Movie({ movie, recommendations, error }) {
 
                 isLanguageOptionsModalOpen && <Modal close={closeLangOptionsModal} >
                     <div className="flex flex-col justify-center items-center space-y-4">
-                        <h2>Choose Language type and :</h2>
                         <button
                             key={"movieType101"}
                             onClick={() => {
                                 closeLangOptionsModal()
                                 setEmbeddedPlayerMovieId(movieId)
                             }}
-                            className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white "
+                            className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white"
                         >
-                            External Servers (HD)
+                           Watch form External Servers (HD)
                         </button>
+                        <h2>Choose Language :</h2>
+
                         {
-                            showLanguageOptions()
+                            showLanguageOptions(movieMediaSources)
                         }
                     </div>
                 </Modal>
@@ -176,10 +184,10 @@ function Movie({ movie, recommendations, error }) {
             }
 
             <main>
-                <div className="relative overflow-hidden px-10 sm:px-20 md:px-32 lg:px-44 xl:px-60 2xl:px-72 pt-32 pb-10 sm:py-32">
+                <article className="relative overflow-hidden px-10 sm:px-20 md:px-32 lg:px-44 xl:px-60 2xl:px-72 pt-32 pb-10 sm:py-32">
                     <Bg bgImage={bgImage} />
                     <SubBox callback={openLangOptionsModal} movie={movie} />
-                </div>
+                </article>
                 <div className="text-gray-400 px-14 sm:px-16 md:px-20 lg:px-32 xl:px-36 2xl:px-44 py-10 md:py-20 xl:py-26" >
 
                     <Ad
@@ -191,7 +199,7 @@ function Movie({ movie, recommendations, error }) {
                         data-ad-client="ca-pub-9968927152480430"
                         data-ad-slot="8822179716" />
 
-                    <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-10 sm:space-y-0">
+                    <article className="flex flex-col sm:flex-row sm:space-x-6 space-y-10 sm:space-y-0">
                         <MovieInfo movie={movie} />
                         {movie.videos.results.length > 0 && <div className="sm:w-3/6 flex flex-col items-center space-y-4">
                             <h2 className="text-center text-xl font-movieNameFont">Trailers</h2>
@@ -201,7 +209,7 @@ function Movie({ movie, recommendations, error }) {
                                 fn={openTrailerModal}
                             />
                         </div>}
-                    </div>
+                    </article>
                     {movie.videos.results.length > 1 && <MoreTrailers
                         videos={movie.videos.results.slice(1)}
                         title={movie.title}
@@ -251,8 +259,35 @@ function Movie({ movie, recommendations, error }) {
                         data-full-width-responsive="true"
                     />
                 </div>
-                {/* <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="awn-z5163371"></div> */}
-                {/* ad */}
+                <article className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200 ">
+                    <h2>Keywords :</h2>
+                    <ul className='text-nice-red flex space-x-4 cursor-pointer flex-wrap'>
+                        <li>
+                            {movie.title} download
+                        </li>
+                        <li>
+                            {movie.title} Movieera
+                        </li>
+                        <li>
+                            Movieera {movie.title} 
+                        </li>
+                        <li>
+                            {movie.title} watch online
+                        </li>
+                        <li>
+                            {movie.original_title} movie hd
+                        </li>
+                        <li>
+                            {movie.original_title} download hd 
+                        </li>
+                        <li>
+                            {movie.original_title} download hd for free
+                        </li>
+                        <li>
+                            {movie.original_title} watch online in movieera
+                        </li>
+                    </ul>
+                </article>
             </main>
         </>
     )

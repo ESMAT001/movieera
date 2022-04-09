@@ -15,6 +15,10 @@
   },
   "dependencies": {
     "@builder.io/partytown": "^0.5.1",
+    "@mantine/core": "^4.1.2",
+    "@mantine/hooks": "^4.1.2",
+    "@mantine/modals": "^4.1.2",
+    "@mantine/next": "^4.1.2",
     "next": "12.1.4",
     "nextjs-progressbar": "^0.0.14",
     "plyr-react": "^3.2.1",
@@ -23,7 +27,7 @@
     "react-icons": "^4.2.0",
     "sass": "^1.35.2",
     "swiper": "6.7.5",
-    "tailwindcss": "^2.2.4"
+    "tailwindcss": "^3.0.23"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.1",

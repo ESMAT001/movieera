@@ -1,5 +1,7 @@
 import NextNProgress from "nextjs-progressbar";
 import { useState, useEffect } from 'react'
+import { MantineProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
 
 import NavContext from '../components/context/NavContext'
 
@@ -53,20 +55,22 @@ function MyApp({ Component, pageProps }) {
     localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
   }, [savedMovies])
   return (
-    <>
-      <NextNProgress color="#ff003c" height={4} />
-      <NavContext>
-        <div className="bg-black-dark min-w-full h-full font-subMovieFont">
-          <div className="bg-black-light rounded shadow-xl overflow-hidden flex flex-col">
-            <SavedMoviesContext.Provider value={{ savedMovies, setSavedMovies }}>
-              <Nav />
-              <Component {...pageProps} />
-            </SavedMoviesContext.Provider>
-            <Footer />
+    <MantineProvider theme={{colorScheme: 'dark',}}>
+      <ModalsProvider>
+        <NextNProgress color="#ff003c" height={4} />
+        <NavContext>
+          <div className="bg-black-dark min-w-full h-full font-subMovieFont">
+            <div className="bg-black-light rounded shadow-xl overflow-hidden flex flex-col">
+              <SavedMoviesContext.Provider value={{ savedMovies, setSavedMovies }}>
+                <Nav />
+                <Component {...pageProps} />
+              </SavedMoviesContext.Provider>
+              <Footer />
+            </div>
           </div>
-        </div>
-      </NavContext>
-    </>
+        </NavContext>
+      </ModalsProvider>
+    </MantineProvider>
   )
 }
 

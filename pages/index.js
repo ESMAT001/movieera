@@ -26,16 +26,6 @@ export default function Home({ movies, error }) {
 
   }
 
-  // useEffect(() => {
-  //   window.amzn_assoc_ad_type = "link_enhancement_widget";
-  //   window.amzn_assoc_tracking_id = "movieera05-20";
-  //   window.amzn_assoc_linkid = "4228f340c7b54c352bb4c08904670d52";
-  //   window.amzn_assoc_placement = "";
-  //   window.amzn_assoc_marketplace = "amazon";
-  //   window.amzn_assoc_region = "US";
-  // }, []);
-
-
 
   return (
     <>

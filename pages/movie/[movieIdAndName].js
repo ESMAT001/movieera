@@ -2,7 +2,7 @@ import { callApi } from '../../functions/functions'
 import { useRouter } from 'next/router'
 import Movie from '../../components/moviePageComponents/Movie'
 import Loading from '../../components/utils/Loading'
-import { apiUrl } from '../../utils'
+import { apiUrl,createMovieNameForUrl } from '../../utils'
 
 function Index(props) {
     const router = useRouter()
@@ -15,7 +15,8 @@ function Index(props) {
 export default Index
 
 export async function getStaticProps(context) {
-    const { id } = context.params
+    const { movieIdAndName } = context.params;
+    const id = movieIdAndName.split('-')[0];
     const [movie, error] = await callApi(apiUrl + "/movie?id=" + id)
     const [recommendations, error2] = await callApi(apiUrl + "/recommendations?limit=8&id=" + id)
     const revalidate = parseInt(86400 / 8)
@@ -32,7 +33,9 @@ export async function getStaticPaths() {
 
     for (let index = 0; index < movies.length; index++) {
         paths.push({
-            params: { id: movies[index].id.toString() }
+            params: {
+                movieIdAndName: createMovieNameForUrl(movies[index].id, movies[index].title)
+            }
         })
     }
 

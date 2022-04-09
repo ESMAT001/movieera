@@ -3,6 +3,7 @@ import SavedMoviesContext from './SavedMoviesContext';
 import { BsHeart, BsFillHeartFill, BsFillPlayFill } from "react-icons/bs";
 import Link from 'next/link'
 import MovieMoreInfo from './MovieMoreInfo';
+import { createMovieNameForUrl } from '../../utils';
 
 function MovieInfoBox({ movie, movieGenre }) {
     const { savedMovies, setSavedMovies } = useContext(SavedMoviesContext);
@@ -17,7 +18,6 @@ function MovieInfoBox({ movie, movieGenre }) {
     }
 
     const id = movie.id
-
     function handleHeartClick() {
         setController(true)
         setHeartBtnClicked(prevState => !prevState)
@@ -67,8 +67,10 @@ function MovieInfoBox({ movie, movieGenre }) {
         <div className="w-full flex flex-col">
             <div className="w-full ">
                 <MovieMoreInfo alt={movie.title + " movie poster image"} imagePath={movie.poster_path} badgeComponent={badgeComponent} >
-                    <Link href={"/movie/" + id}>
-                        <a className="font-semibold rounded-full antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 p-3 text-2xl leading-normal text-white">
+                    <Link href={`/movie/${createMovieNameForUrl(id, movie.title)}`}>
+                        <a
+                            alt={`${movie.title} movie more info page`}
+                            className="font-semibold rounded-full antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 p-3 text-2xl leading-normal text-white">
                             <BsFillPlayFill />
                         </a>
                     </Link>
@@ -89,8 +91,8 @@ function MovieInfoBox({ movie, movieGenre }) {
                 </div>
                 <div className="flex flex-col py-3">
                     <p className="text-gray-600 sm:font-semibold text-xs uppercase">{movie.runtime} MIN &nbsp;&nbsp;| &nbsp;&nbsp;{genre}</p>
-                    <Link href={"/movie/" + id}>
-                        <a className="text-gray-600 font-bold text-lg">
+                    <Link href={`/movie/${createMovieNameForUrl(id, movie.title)}`} >
+                        <a className="text-gray-600 font-bold text-lg" alt={`${movie.title} movie more info page`}>
                             . . .
                         </a>
                     </Link>

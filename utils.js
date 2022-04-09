@@ -1,6 +1,9 @@
 module.exports = {
     websiteUrl:"https://movieera.vercel.app/",
     apiUrl: "https://api-movieera.herokuapp.com/v1",
+    createMovieNameForUrl: function (movieId,movieName) {
+        return movieId + '-' + movieName.replace(/[^a-zA-Z0-9 ]/g, "").replace(/\s+/g, '-').toLowerCase()
+    },
     imageUrl: (imgPath) => {
 
         if (/image[.]tmdb[.]org/.test(imgPath)) {

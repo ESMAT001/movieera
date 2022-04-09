@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 import { FaDownload } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";
-import { imageUrl } from "../../utils";
+import { imageUrl, createMovieNameForUrl } from "../../utils";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 
@@ -137,7 +137,7 @@ function CustomHeader({ movies }) {
                                     // if (isActive) console.log('active', movie.title);
                                     return (
                                         <div className="text-white flex flex-col overflow-hidden w-full h-full max-w-max mx-auto">
-                                            <div className="w-6/12  2xl:w-6/12 grid grid-cols-3 gap-y-4 gap-x-4 sm:gap-y-0 justify-items-center relative mx-auto py-28">
+                                            <article className="w-6/12  2xl:w-6/12 grid grid-cols-3 gap-y-4 gap-x-4 sm:gap-y-0 justify-items-center relative mx-auto py-28">
                                                 <div className="col-span-3 sm:col-span-2 order-2 sm:order-1 sm:justify-self-start flex flex-col justify-evenly items-center sm:items-start space-y-2 sm:space-y-0">
                                                     <h2 className="text-2xl sm:text-3xl text-center sm:text-left font-movieNameFont capitalize">
                                                         {movie.original_title}
@@ -157,12 +157,12 @@ function CustomHeader({ movies }) {
                                                         ))}
                                                     </ul>
                                                     <div className="flex space-x-2">
-                                                        <Link href={"/movie/" + movieId + "#downloadLinks"}>
+                                                        <Link href={"/movie/" + createMovieNameForUrl(movieId,movie.title) + "#downloadLinks"}>
                                                             <a className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
                                                                 <FaDownload className="text-md mr-1" />Download
                                                             </a>
                                                         </Link>
-                                                        <Link href={"/movie/" + movieId + "?play=true"}>
+                                                        <Link href={"/movie/" + createMovieNameForUrl(movieId,movie.title) + "?play=true"}>
                                                             <a className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
                                                                 <IoIosPlay className="text-xl" /> Play
                                                             </a>
@@ -177,14 +177,14 @@ function CustomHeader({ movies }) {
                                                         loading='eager'
                                                         imagePath={movie.poster_path}
                                                         layout="fill" >
-                                                        <Link href={"/movie/" + movieId}>
+                                                        <Link href={"/movie/" + createMovieNameForUrl(movieId,movie.title)}>
                                                             <a className={"font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 py-2 px-4 text-xs leading-normal text-white"}>
                                                                 More info
                                                             </a>
                                                         </Link>
                                                     </MovieMoreInfo>
                                                 </div>
-                                            </div>
+                                            </article>
                                         </div>
                                     )
                                 }}
