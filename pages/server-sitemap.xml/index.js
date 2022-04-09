@@ -1,10 +1,10 @@
 import { getServerSideSitemap } from 'next-sitemap'
-import { websiteUrl, createWebsiteUrl } from '../../utils'
+import { websiteUrl, createMovieNameForUrl } from '../../utils'
 
 const createFields = (results) => {
     return results.map(movie => {
         return {
-            url: `${websiteUrl}movie/${createWebsiteUrl(movie.id, movie.title)}`,
+            url: `${websiteUrl}movie/${createMovieNameForUrl(movie.id, movie.title)}`,
             changefreq: 'daily',
             priority: 0.8,
             lastmod: movie.inserted_at || new Date().toISOString(),
