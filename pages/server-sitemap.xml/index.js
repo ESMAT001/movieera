@@ -7,7 +7,7 @@ const createFields = (results) => {
             loc: `${websiteUrl}movie/${createMovieNameForUrl(movie.id, movie.title)}`,
             changefreq: 'daily',
             priority: 0.8,
-            lastmod: new Date(movie.inserted_at).toISOString() || new Date().toISOString(),
+            lastmod: movie.inserted_at && new Date(movie.inserted_at).toISOString() || new Date().toISOString(),
         }
     })
 }
