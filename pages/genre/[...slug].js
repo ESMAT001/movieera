@@ -1,4 +1,4 @@
-import { apiUrl } from '../../utils'
+import { apiUrl, websiteUrl } from '../../utils'
 import Media from '../../components/Media'
 import Pagenation from '../../components/Pagenation'
 import CustomHead from '../../components/utils/CustomHead'
@@ -16,10 +16,13 @@ function Genre({ data, error }) {
     return (
         <div className="flex flex-col">
             <CustomHead
-                title={pathname}
+                title={`${pathname} Movies - Page ${page} | Movieera`}
                 description={`Download or Watch ${pathname} movies for free`}
                 keywords={`Download ${pathname} movies, Download ${pathname} movies for free`}
-            />
+                url={`${websiteUrl}genre/${pathname}/page/${page}`}
+            >
+                <link rel="canonical" href={`${websiteUrl}genre/${pathname}/page/${page}`} />
+            </CustomHead>
 
             <Media
                 movies={results}
@@ -41,7 +44,7 @@ function Genre({ data, error }) {
             {/* cool ads */}
             <div className="mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200" id="container-39affabc185ccad0c249c41062d20da9"></div>
             {/*cool ad */}
-            
+
             {
                 totalPages > 1 && <Pagenation currentPage={page} endPage={totalPages} pathname={"genre/" + pathname} />
             }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import CustomHead from '../utils/CustomHead'
-import { imageUrl, trailerImgUrl, websiteUrl } from '../../utils'
+import { imageUrl, trailerImgUrl, websiteUrl, createMovieNameForUrl } from '../../utils'
 import Bg from './Bg'
 import SubBox from './SubBox'
 import MoreTrailers from './MoreTrailers'
@@ -115,8 +115,10 @@ function Movie({ movie, recommendations, error }) {
                 description={`Download or watch ${title} for free from Movieera (your online movie theater) , overview: ${movie?.overview?.slice(0, 90)}... `}
                 keywords={`download ${title}, ${title} download,${title} free download,movieera ${title} ,${title} movieera,${title} movie download movieera,${title},watch ${title} online,دانلود ${title},${title} free download hd`}
                 imgPath={imageUrl(movie.poster_path)}
-                url={`${websiteUrl}movie/${movie.id}`}
-            />
+                url={`${websiteUrl}movie/${createMovieNameForUrl(movieId, title)}`}
+            >
+                <link rel="canonical" href={`${websiteUrl}movie/${createMovieNameForUrl(movieId, title)}`} />
+            </CustomHead>
 
             {
 
@@ -130,7 +132,7 @@ function Movie({ movie, recommendations, error }) {
                             }}
                             className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white"
                         >
-                           Watch form External Servers (HD)
+                            Watch form External Servers (HD)
                         </button>
                         <h2>Choose Language :</h2>
 
@@ -269,7 +271,7 @@ function Movie({ movie, recommendations, error }) {
                             {movie.title} Movieera
                         </li>
                         <li>
-                            Movieera {movie.title} 
+                            Movieera {movie.title}
                         </li>
                         <li>
                             {movie.title} watch online
@@ -278,7 +280,7 @@ function Movie({ movie, recommendations, error }) {
                             {movie.original_title} movie hd
                         </li>
                         <li>
-                            {movie.original_title} download hd 
+                            {movie.original_title} download hd
                         </li>
                         <li>
                             {movie.original_title} download hd for free

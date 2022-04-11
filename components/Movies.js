@@ -1,11 +1,18 @@
 import Pagenation from './Pagenation'
 import Media from './Media'
 import CustomHead from './utils/CustomHead'
+import { websiteUrl, createMovieNameForUrl } from '../utils'
 function Movies({ data, error }) {
     const { results, page, totalPages } = data
     return (
         <main className="flex flex-col">
-            <CustomHead title="Movies" description={"Download or Watch latest movies for free"} />
+            <CustomHead
+                title={`Movies - Page ${page} | Movieera`}
+                description={"Download or Watch latest movies for free"}
+                url={websiteUrl + "movies/page/" + page}
+            >
+                <link rel="canonical" href={websiteUrl + "movies/page/" + page} />
+            </CustomHead>
             <Media movies={results} movieType="Movies" topPadding={true} />
             {error && <h1 className="text-red-400">{error}</h1>}
             {/* cool ads */}

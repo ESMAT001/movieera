@@ -29,7 +29,9 @@ export default function Home({ movies, error }) {
 
   return (
     <>
-      <CustomHead />
+      <CustomHead >
+        <link rel="canonical" href="https://movieera.vercel.app/" />
+      </CustomHead>
       <CustomHeader movies={trending.slice(0, 6)} />
 
       {/* ad */}
