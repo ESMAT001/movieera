@@ -176,6 +176,7 @@ function CustomHeader({ movies }) {
                                                         alt={movie.title + " movie poster image"}
                                                         loading='eager'
                                                         imagePath={movie.poster_path}
+                                                        placeholder={movie.placeholder}
                                                         layout="fill" >
                                                         <Link href={"/movie/" + createMovieNameForUrl(movieId,movie.title)}>
                                                             <a className={"font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 py-2 px-4 text-xs leading-normal text-white"}>
@@ -219,6 +220,8 @@ function CustomHeader({ movies }) {
                                                 width={500}
                                                 height={750}
                                                 loading='eager'
+                                                // placeholder="blur"
+                                                // blurDataURL={movie?.placeholder}
                                             />
                                         </div>
                                     </div>

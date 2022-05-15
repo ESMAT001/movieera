@@ -1,5 +1,5 @@
 import React from 'react'
-import { imageUrl, placeholderImgUrl } from '../../utils'
+import { imageUrl} from '../../utils'
 import Rating from '../utils/Rating'
 import { FaDownload } from "react-icons/fa";
 import { IoIosPlay } from "react-icons/io";
@@ -18,9 +18,9 @@ function SubBox({ movie, callback }) {
                         src={imageUrl(posterImage)}
                         width={500}
                         height={750}
-                        placeholder="blur"
+                        // placeholder="blur"
                         layout="responsive"
-                        blurDataURL={placeholderImgUrl(posterImage)}
+                        // blurDataURL={movie.placeholder}
                     />
                 </div>
                 <div className="flex flex-col items-center space-y-3 text-gray-200  ">
@@ -37,12 +37,12 @@ function SubBox({ movie, callback }) {
                     <div className="flex space-x-4 pt-6">
                         <a
                             href="#downloadLinks"
-                            className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
+                            className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600  flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
                             <FaDownload className="text-md mr-1" />Download
                         </a>
                         <button
                             onClick={() => { callback() }}
-                            className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600  focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
+                            className="font-semibold rounded antialiased bg-green-400 hover:bg-green-500 focus:bg-green-600  flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
                             <IoIosPlay className="text-xl" /> Watch Now
                         </button>
                     </div>

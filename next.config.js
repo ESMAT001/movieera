@@ -18,10 +18,11 @@
 //     return config;
 //   }
 // });
-
-module.exports = {
+const nextConfig= {
   reactStrictMode: true,
   images: {
     domains: ['api-movieera.herokuapp.com'],
   },
 }
+
+module.exports = nextConfig

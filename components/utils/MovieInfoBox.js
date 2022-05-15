@@ -66,11 +66,16 @@ function MovieInfoBox({ movie, movieGenre }) {
     return (
         <div className="w-full flex flex-col">
             <div className="w-full ">
-                <MovieMoreInfo alt={movie.title + " movie poster image"} imagePath={movie.poster_path} badgeComponent={badgeComponent} >
+                <MovieMoreInfo
+                    alt={movie.title + " movie poster image"}
+                    imagePath={movie.poster_path}
+                    placeholder={movie.placeholder}
+                    badgeComponent={badgeComponent}
+                >
                     <Link href={`/movie/${createMovieNameForUrl(id, movie.title)}`}>
                         <a
                             alt={`${movie.title} movie more info page`}
-                            className="font-semibold rounded-full antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 p-3 text-2xl leading-normal text-white">
+                            className="font-semibold rounded-full antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 p-3 text-2xl leading-normal text-white">
                             <BsFillPlayFill />
                         </a>
                     </Link>

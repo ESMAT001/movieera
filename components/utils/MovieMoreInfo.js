@@ -2,7 +2,15 @@ import { useState, memo } from 'react'
 import { imageUrl, placeholderImgUrl } from "../../utils";
 import Image from 'next/image'
 
-function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layout = 'responsive', badgeComponent, children }) {
+function MovieMoreInfo({
+    imagePath,
+    placeholder = 'none',
+    loading = "lazy",
+    alt = "movie image",
+    layout = 'responsive',
+    badgeComponent,
+    children
+}) {
 
     const [isMouseOver, setIsMouseOver] = useState(false)
     const handleMouseEnter = () => setIsMouseOver(true)
@@ -33,7 +41,7 @@ function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layou
                     height={750}
                     layout={layout}
                     placeholder="blur"
-                    blurDataURL={placeholderImgUrl(imagePath)}
+                    blurDataURL={placeholder === "none" ? placeholderImgUrl(imagePath) : placeholder}
                 />
             }
 
@@ -45,7 +53,7 @@ function MovieMoreInfo({ imagePath, loading = "lazy", alt = "movie image", layou
                     height={750}
                     loading={loading}
                     placeholder="blur"
-                    blurDataURL={placeholderImgUrl(imagePath)}
+                    blurDataURL={placeholder === "none" ? placeholderImgUrl(imagePath) : placeholder}
                 />
             }
 
