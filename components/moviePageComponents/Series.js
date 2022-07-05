@@ -56,7 +56,7 @@ function Series({ movie }) {
 
     useEffect(() => {
         async function fetchMediaLink() {
-            const res = await fetch(`https://thingproxy.freeboard.io/fetch/https://seapi.link/?type=tmdb&id=${movieId}&season=${seriseSeasonNumber}&episode=${seriesEpisodeNumber}&max_results=1`)
+            const res = await fetch(`https://cors101.herokuapp.com/fetch/https://seapi.link/?type=tmdb&id=${movieId}&season=${seriseSeasonNumber}&episode=${seriesEpisodeNumber}&max_results=1`)
             const data = await res.json()
             if (data.results.length > 0) {
                 setMediaSrc(data.results[0].url)

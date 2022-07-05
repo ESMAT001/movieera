@@ -7,7 +7,7 @@ function MoreTrailers({ videos, title, fn }) {
         <div>
             <button
                 onClick={() => setShowTrailers(prev => !prev)}
-                className="my-12 mx-auto  antialiased focus:outline-none flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-gray-400">
+                className="my-12 mx-auto  antialiased flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-gray-400">
                 <BsArrowDown
                     className={"text-gray-200 text-xl transition-all duration-300 transform " + (showTrailers ? " rotate-180" : "")}
                 /> Show {showTrailers ? "Less" : "More"} Trailers

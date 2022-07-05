@@ -37,7 +37,7 @@ export async function getStaticPaths() {
     }
 
     let paths = [];
-    for (let index = 1; index <= data.total_pages; index++) {
+    for (let index = 1; index <= 20; index++) {
         paths.push({
             params: { pageNumber: index.toString() }
         })
