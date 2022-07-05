@@ -27,7 +27,11 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const dataFromLocalStorage = JSON.parse(localStorage.getItem('savedMovies'))
     if (dataFromLocalStorage) setSavedMovies(dataFromLocalStorage);
-    fetch("https://api-movieera.herokuapp.com/v1/insights")
+    // try {
+    //   fetch("https://api-movieera.herokuapp.com/v1/insights")
+    // } catch (error) {
+    //   console.error(error)
+    // }
 
     const ads = [
       // `https://www.effectiveperformanceformat.com/${window.atOptions.key}/invoke.js`,

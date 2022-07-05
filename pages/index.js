@@ -8,7 +8,7 @@ import { apiUrl } from '../utils'
 
 import { callApi } from '../functions/functions'
 
-export default function Home({ movies, error }) {
+export default function Home({ movies,series, error }) {
   const { trending, genres } = movies
   let index = 0
   function renderGenres(genre) {
@@ -26,10 +26,27 @@ export default function Home({ movies, error }) {
 
   }
 
+  const scriptText = `{
+              "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "https://movieera.vercel.app",
+            "potentialAction": [{
+              "@type": "SearchAction",
+            "target": "https://movieera.vercel.app/search/{search_term_string}",
+            "query-input": "required name=search_term_string"
+          },{
+              "@type": "SearchAction",
+            "target": "https://movieera.vercel.app/search/{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }]
+          }`;
 
   return (
     <>
       <CustomHead >
+        <script type="application/ld+json">
+          {scriptText}
+        </script>
         <link rel="canonical" href="https://movieera.vercel.app/" />
       </CustomHead>
       <CustomHeader movies={trending.slice(0, 6)} />
@@ -47,8 +64,14 @@ export default function Home({ movies, error }) {
         />
       </div>
       {/* ad */}
-
-      <Media movies={trending.slice(6)} error={error} topPadding={true} />
+      <Media
+        movies={series}
+        movieType={"Trending Series"}
+        key={index + "seriessGenreIndex"}
+        moviesGenre={"Series"}
+        topPadding={true}
+      />
+      <Media movies={trending.slice(6)} error={error}  />
       {/* cool ads */}
       <div className="hidden md:block mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
         <Ad
@@ -74,13 +97,21 @@ export default function Home({ movies, error }) {
 
 export async function getStaticProps() {
 
-  const revalidate = parseInt(86400 / 8)
+  const revalidate = parseInt(86400 / 4)
 
   const [movies, error] = await callApi(apiUrl + "/trending")
-
+  let [series, error2] = await callApi("https://api.themoviedb.org/3/tv/popular?api_key=3d97e93f74df6d3dd759d238a7b8564c&language=en-US&page=1");
+  if (series.results.length > 0) {
+    series = series.results.map(ser=>{
+      return {
+        ...ser,
+        title: ser.name,
+      }
+    }).slice(0, 4)
+  }
 
   return {
-    props: { movies, error },
+    props: { movies, error, series },
     revalidate
   }
 }

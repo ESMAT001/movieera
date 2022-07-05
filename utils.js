@@ -1,13 +1,15 @@
 module.exports = {
-    websiteUrl:"https://movieera.vercel.app/",
+    websiteUrl: "https://movieera.vercel.app/",
     apiUrl: "https://api-movieera.herokuapp.com/v1",
-    createMovieNameForUrl: function (movieId,movieName) {
+    // apiUrl: "https://sky0walker.herokuapp.com/v1",
+    createMovieNameForUrl: function (movieId, movieName) {
         return movieId + '-' + movieName.replace(/[^a-zA-Z0-9 ]/g, "").replace(/\s+/g, '-').toLowerCase()
     },
     imageUrl: (imgPath) => {
 
         if (/image[.]tmdb[.]org/.test(imgPath)) {
             return 'https://api-movieera.herokuapp.com/v1/image/original/' + imgPath.split('/').slice(-1)[0]
+            // return 'https://sky0walker.herokuapp.com/v1/image/original/' + imgPath.split('/').slice(-1)[0]
         }
 
         if (!imgPath) return "";
@@ -15,7 +17,8 @@ module.exports = {
         if (imgPath[0] !== "/") {
             imgPath = "/" + imgPath;
         }
-        return 'https://api-movieera.herokuapp.com/v1/image/original' + imgPath;
+        // return 'https://sky0walker.herokuapp.com/v1/image/original' + imgPath;
+        return 'https://api-movieera.herokuapp.com/v1/image/original' + imgPath
     },
     placeholderImgUrl: (imgPath) => {
         if (!imgPath) return "";
@@ -23,7 +26,7 @@ module.exports = {
         if (imgPath[0] !== "/") {
             imgPath = "/" + imgPath;
         }
-        return 'https://api-movieera.herokuapp.com/v1/image/placeholder' + imgPath;
+        return 'https://sky0walker.herokuapp.com/v1/image/placeholder' + imgPath;
     },
     trailerImgUrl: (id) => {
         return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;

@@ -7,6 +7,7 @@ module.exports = {
   robotsTxtOptions: {
     additionalSitemaps: [
       `${websiteUrl}server-sitemap.xml`,
+      `${websiteUrl}series-server-sitmap.xml`,
     ],
   },
 }

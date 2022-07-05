@@ -5,7 +5,8 @@ import Link from 'next/link'
 import MovieMoreInfo from './MovieMoreInfo';
 import { createMovieNameForUrl } from '../../utils';
 
-function MovieInfoBox({ movie, movieGenre }) {
+function MovieInfoBox({ movie, movieGenre, mediaType  }) {
+    console.log(movie)
     const { savedMovies, setSavedMovies } = useContext(SavedMoviesContext);
     const [isHeartBtnClicked, setHeartBtnClicked] = useState(false)
     const [controlller, setController] = useState(false)
@@ -63,6 +64,10 @@ function MovieInfoBox({ movie, movieGenre }) {
 
     })();
 
+    const createHref = (id, title) => {
+        return `/${mediaType}/${createMovieNameForUrl(id, title)}`
+    }
+
     return (
         <div className="w-full flex flex-col">
             <div className="w-full ">
@@ -72,7 +77,7 @@ function MovieInfoBox({ movie, movieGenre }) {
                     placeholder={movie.placeholder}
                     badgeComponent={badgeComponent}
                 >
-                    <Link href={`/movie/${createMovieNameForUrl(id, movie.title)}`}>
+                    <Link href={createHref(id, movie.title)}>
                         <a
                             alt={`${movie.title} movie more info page`}
                             className="font-semibold rounded-full antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 p-3 text-2xl leading-normal text-white">
@@ -96,7 +101,7 @@ function MovieInfoBox({ movie, movieGenre }) {
                 </div>
                 <div className="flex flex-col py-3">
                     <p className="text-gray-600 sm:font-semibold text-xs uppercase">{movie.runtime} MIN &nbsp;&nbsp;| &nbsp;&nbsp;{genre}</p>
-                    <Link href={`/movie/${createMovieNameForUrl(id, movie.title)}`} >
+                    <Link href={createHref(id, movie.title)} >
                         <a className="text-gray-600 font-bold text-lg" alt={`${movie.title} movie more info page`}>
                             . . .
                         </a>
