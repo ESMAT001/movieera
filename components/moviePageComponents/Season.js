@@ -34,7 +34,6 @@ function Season({ season, cb }) {
                 ))} */}
 
                 {season.episodes.map((episode, i) => {
-                    console.log(episode)
                     return <EpisodeBox
                         key={i + "seriesEPi"}
                         episodeNumber={episode.episode_number}

@@ -16,7 +16,6 @@ function Header({ movies }) {
         id: null,
         create() {
             this.id = setInterval(() => changeMovie(), 3000);
-            // console.log('new interval created', this.id)
         },
         destroy() {
             clearInterval(this.id);
@@ -31,9 +30,7 @@ function Header({ movies }) {
     }
 
     function destroyAndChange(i = -2) {
-        // console.log(window.interval)
         window.interval.destroy();
-        // console.log(window.interval)
         changeMovie(i);
     }
 

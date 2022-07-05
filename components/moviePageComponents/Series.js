@@ -25,7 +25,6 @@ const playerOptions = {
 
 
 function Series({ movie }) {
-    console.log(movie)
     const bgImage = movie.backdrop_path
     const title = movie.name
     const movieId = movie.id
@@ -59,7 +58,6 @@ function Series({ movie }) {
         async function fetchMediaLink() {
             const res = await fetch(`https://thingproxy.freeboard.io/fetch/https://seapi.link/?type=tmdb&id=${movieId}&season=${seriseSeasonNumber}&episode=${seriesEpisodeNumber}&max_results=1`)
             const data = await res.json()
-            console.log('data', data)
             if (data.results.length > 0) {
                 setMediaSrc(data.results[0].url)
             } else {

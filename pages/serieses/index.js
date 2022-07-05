@@ -4,7 +4,6 @@ import Serieses from '../../components/Serieses'
 
 
 function index({ data, error }) {
-    console.log(data)
     return <Serieses data={data} error={error} />
 }
 

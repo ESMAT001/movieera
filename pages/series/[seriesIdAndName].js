@@ -24,7 +24,6 @@ export async function getStaticProps(context) {
         for (let index = 0; index < movie.seasons.length; index++) {
             const season = movie.seasons[index]
             const episodes = []
-            console.log('episode_count', season.episode_count,'season_number', season.season_number)
             for (let index2 = 1; index2 <= season.episode_count; index2++) {
                 const episode = index2
                 const [episodeData] = await callApi(`https://api.themoviedb.org/3/tv/${movie.id}/season/${season.season_number}/episode/${episode}?api_key=3d97e93f74df6d3dd759d238a7b8564c&language=en-US`)

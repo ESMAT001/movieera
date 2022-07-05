@@ -1,12 +1,9 @@
 import { callApi } from '../../../functions/functions'
 import Serieses from '../../../components/Serieses'
-import { apiUrl } from '../../../utils'
 
 
 function index({ data, error }) {
-    console.log(data)
     return <Serieses data={data} error={error} />
-    // return <h1>hi</h1>
 }
 
 
@@ -34,9 +31,8 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
     const [data, error] = await callApi(`https://api.themoviedb.org/3/tv/popular?api_key=3d97e93f74df6d3dd759d238a7b8564c&language=en-US&page=1`)
-    console.log(data.total_pages)
+
     if (error) {
-        console.log(error)
         return []
     }
 

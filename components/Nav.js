@@ -29,9 +29,7 @@ function Nav() {
         window.addEventListener('scroll', changeNavBg)
         return () => window.removeEventListener('scroll', changeNavBg)
     }, [])
-    useEffect(() => {
-        console.log('nav rendered')
-    })
+   
 
     return (
         <nav className={"fixed w-full top-0 text-white z-20 transition-all duration-500 bg-opacity-50 " + navBg}>

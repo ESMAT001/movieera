@@ -6,7 +6,6 @@ import MovieMoreInfo from './MovieMoreInfo';
 import { createMovieNameForUrl } from '../../utils';
 
 function MovieInfoBox({ movie, movieGenre, mediaType  }) {
-    console.log(movie)
     const { savedMovies, setSavedMovies } = useContext(SavedMoviesContext);
     const [isHeartBtnClicked, setHeartBtnClicked] = useState(false)
     const [controlller, setController] = useState(false)

@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { BsFillMenuButtonWideFill, BsCheckLg } from 'react-icons/bs'
 
 function Servers({ mediaSources, mediaSrc, fn }) {
-    console.log(mediaSources)
     const [isVisible, setIsVisible] = useState(false)
     return (
         <div className='fixed z-10 left-10 top-8 '>
