@@ -72,7 +72,7 @@ export async function getStaticPaths() {
     for (let index = 0; index < movies.length; index++) {
         paths.push({
             params: {
-                seriesIdAndName: createMovieNameForUrl(movies[index].id, movies[index].original_name)
+                seriesIdAndName: createMovieNameForUrl(movies[index].id, movies[index].name)
             }
         })
     }

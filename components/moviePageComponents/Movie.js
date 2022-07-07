@@ -180,7 +180,8 @@ function Movie({ movie, recommendations, error }) {
             {
 
                 isMoviePlayerModalOpen && embeddedPlayerMovieId !== null && <Modal close={closeMoviePlayerModal} >
-                    <iframe id="iframe" src={"https://www.2embed.ru/embed/tmdb/movie?id=" + embeddedPlayerMovieId} width="100%" height="100%" frameBorder="0"></iframe>
+                    {/* <iframe id="iframe" src={"https://www.2embed.ru/embed/tmdb/movie?id=" + embeddedPlayerMovieId} width="100%" height="100%" frameBorder="0"></iframe> */}
+                    <iframe id="ve-iframe" src={"https://2embed.org/embed/movie?id=" + embeddedPlayerMovieId} width="100%" height="100%" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                 </Modal>
 
             }

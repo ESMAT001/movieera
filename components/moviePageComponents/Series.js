@@ -3,7 +3,7 @@ import CustomHead from '../utils/CustomHead'
 import { imageUrl, websiteUrl, createMovieNameForUrl } from '../../utils'
 import Bg from './Bg'
 import SubBoxSeries from './SubBoxSeries'
-import Servers from './Servers'
+// import Servers from './Servers'
 import Season from './Season'
 import Modal from '../utils/Modal'
 
@@ -25,6 +25,7 @@ const playerOptions = {
 
 
 function Series({ movie }) {
+    // console.log(movie)
     const bgImage = movie.backdrop_path
     const title = movie.name
     const movieId = movie.id
@@ -32,9 +33,9 @@ function Series({ movie }) {
     const [isMoviePlayerModalOpen, setMoviePlayerModalOpen] = useState(false)
     const [seriseSeasonNumber, setSeriseSeasonNumber] = useState(null)
     const [seriesEpisodeNumber, setSeriesEpisodeNumber] = useState(null)
-    const [mediaSrc, setMediaSrc] = useState(null)
-    const [mediaSources, setMediaSources] = useState([])
-    const [MediaErrorHtml, setMediaErrorHtml] = useState(null)
+    // const [mediaSrc, setMediaSrc] = useState(null)
+    // const [mediaSources, setMediaSources] = useState([])
+    // const [MediaErrorHtml, setMediaErrorHtml] = useState(null)
 
 
     const openMoviePlayerModal = () => {
@@ -45,9 +46,6 @@ function Series({ movie }) {
         setSeriesEpisodeNumber(null)
         setSeriseSeasonNumber(null)
         setMoviePlayerModalOpen(false)
-        setMediaSrc(null)
-        setMediaSources([])
-        setMediaErrorHtml(null)
     }
 
 
@@ -55,19 +53,19 @@ function Series({ movie }) {
 
 
     useEffect(() => {
-        async function fetchMediaLink() {
-            const res = await fetch(`https://cors101.herokuapp.com/fetch/https://seapi.link/?type=tmdb&id=${movieId}&season=${seriseSeasonNumber}&episode=${seriesEpisodeNumber}&max_results=1`)
-            const data = await res.json()
-            if (data.results.length > 0) {
-                setMediaSrc(data.results[0].url)
-            } else {
-                setMediaErrorHtml('<div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;"><h1 style="color:white;">Sorry this episode is not available</h1></div>')
-            }
-            setMediaSources(data.results)
-        }
-        if (seriesEpisodeNumber !== null && seriseSeasonNumber !== null && mediaSrc === null) {
+        // async function fetchMediaLink() {
+        //     const res = await fetch(`https://cors101.herokuapp.com/fetch/https://seapi.link/?type=tmdb&id=${movieId}&season=${seriseSeasonNumber}&episode=${seriesEpisodeNumber}&max_results=1`)
+        //     const data = await res.json()
+        //     if (data.results.length > 0) {
+        //         setMediaSrc(data.results[0].url)
+        //     } else {
+        //         setMediaErrorHtml('<div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;"><h1 style="color:white;">Sorry this episode is not available</h1></div>')
+        //     }
+        //     setMediaSources(data.results)
+        // }
+        if (seriesEpisodeNumber !== null && seriseSeasonNumber !== null ) {
             openMoviePlayerModal()
-            fetchMediaLink()
+            // fetchMediaLink()
         }
     }, [seriesEpisodeNumber, seriseSeasonNumber])
 
@@ -77,9 +75,9 @@ function Series({ movie }) {
         setSeriseSeasonNumber(season_number)
     }
 
-    function handleServerChange({ url }) {
-        setMediaSrc(url)
-    }
+    // function handleServerChange({ url }) {
+    //     setMediaSrc(url)
+    // }
 
 
     return (
@@ -99,9 +97,9 @@ function Series({ movie }) {
             {
 
                 isMoviePlayerModalOpen && <Modal close={closeMoviePlayerModal} >
-                    <Servers mediaSources={mediaSources} mediaSrc={mediaSrc} fn={handleServerChange} />
-                    <iframe id="iframe" srcDoc={MediaErrorHtml} src={mediaSrc} width="100%" height="100%" frameBorder="0"></iframe>
-
+                        {/* <Servers mediaSources={mediaSources} mediaSrc={mediaSrc} fn={handleServerChange} />
+                        <iframe id="iframe" srcDoc={MediaErrorHtml} src={mediaSrc} width="100%" height="100%" frameBorder="0"></iframe> */}
+                        <iframe id="ve-iframe" src={`https://2embed.org/embed/series?tmdb=${movieId}&sea=${seriseSeasonNumber}&epi=${seriesEpisodeNumber}`} width="100%" height="100%" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                 </Modal>
 
             }

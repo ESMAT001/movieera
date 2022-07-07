@@ -69,7 +69,7 @@ export default function Home({ movies,series, error }) {
         movieType={"Trending Series"}
         key={index + "seriessGenreIndex"}
         moviesGenre={"Series"}
-        mediaType={'serieses'}
+        mediaType={'series'}
         topPadding={true}
       />
       <Media movies={trending.slice(6)} error={error}  />

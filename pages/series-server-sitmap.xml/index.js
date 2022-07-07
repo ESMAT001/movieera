@@ -4,7 +4,7 @@ import { websiteUrl, createMovieNameForUrl } from '../../utils'
 const createFields = (results) => {
     return results.map(movie => {
         return {
-            loc: `${websiteUrl}movie/${createMovieNameForUrl(movie.id, movie.name)}`,
+            loc: `${websiteUrl}series/${createMovieNameForUrl(movie.id, movie.name)}`,
             changefreq: 'daily',
             priority: 0.8,
             lastmod: movie.inserted_at && new Date(movie.inserted_at).toISOString() || new Date().toISOString(),
