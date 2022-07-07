@@ -12,8 +12,8 @@ function Modal({ close, children }) {
             <div className="w-full flex flex-col justify-center h-full text-white">
                 <button
                     onClick={close}
-                    className="fixed z-10 right-10 top-8 shadow-lg hover:shadow-2xl hover:scale-125 hover:opacity-100 active:scale-90 active:opacity-100 transition duration-300 text-white p-1 rounded-full flex justify-center items-center bg-nice-red opacity-60">
-                    <BsX className="text-3xl font-bold" />
+                    className="fixed z-10 right-8 top-8 shadow-lg hover:shadow-2xl hover:scale-125 hover:opacity-100 active:scale-90 active:opacity-100 transition duration-300 text-white p-1 rounded-full flex justify-center items-center bg-nice-red opacity-40">
+                    <BsX className="text-xl font-bold" />
                 </button>
                 <div className="w-screen h-full flex flex-col justify-center -mt-20 sm:mt-0 z-9">
                     {children}

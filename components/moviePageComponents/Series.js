@@ -126,10 +126,14 @@ function Series({ movie }) {
             {
 
                 isMoviePlayerModalOpen && <Modal close={closeMoviePlayerModal} >
-                    {/* <Servers mediaSources={mediaSources} mediaSrc={mediaSrc} fn={handleServerChange} />
+                   <div className='flex justify-center items-center'>
+                     <div className='w-full sm:w-[95vw] md:w-[90vw] h-[70vh] sm:h-[80vh]'>
+                        {/* <Servers mediaSources={mediaSources} mediaSrc={mediaSrc} fn={handleServerChange} />
                         <iframe id="iframe" srcDoc={MediaErrorHtml} src={mediaSrc} width="100%" height="100%" frameBorder="0"></iframe> */}
-                    {serverType === 2 && <iframe id="ve-iframe" src={`https://2embed.org/embed/series?tmdb=${movieId}&sea=${seriseSeasonNumber}&epi=${seriesEpisodeNumber}`} width="100%" height="100%" allowFullScreen="allowfullscreen" frameBorder="0"></iframe>}
-                    {serverType === 1 && <iframe id="ve-iframe" src={`https://www.2embed.to/embed/tmdb/tv?id=${movieId}&s=${seriseSeasonNumber}&e=${seriesEpisodeNumber}`} width="100%" height="100%" allowFullScreen="allowfullscreen" frameBorder="0"></iframe>}
+                        {serverType === 2 && <iframe id="ve-iframe" src={`https://2embed.org/embed/series?tmdb=${movieId}&sea=${seriseSeasonNumber}&epi=${seriesEpisodeNumber}`} width="100%" height="100%" allowFullScreen="allowfullscreen" frameBorder="0"></iframe>}
+                        {serverType === 1 && <iframe id="ve-iframe" src={`https://www.2embed.to/embed/tmdb/tv?id=${movieId}&s=${seriseSeasonNumber}&e=${seriesEpisodeNumber}`} width="100%" height="100%" allowFullScreen="allowfullscreen" frameBorder="0"></iframe>}
+                    </div>
+                   </div>
                 </Modal>
 
             }

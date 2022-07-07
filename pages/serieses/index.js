@@ -19,6 +19,7 @@ export async function getStaticProps() {
                 title: series.name
             }
         })
+        data.total_pages = 100;
     }
     const revalidate = parseInt(86400 * 2)
     return {
