@@ -8,7 +8,15 @@ export const callApi = async function (url, options = {}) {
         return [null, err.message]
     }
 }
-
+export const filterAdultContent = (mediaArray) => {
+    return mediaArray.filter(media => {
+        if (media.adult || media.name.match(/sex/gi) || media.original_name.match(/sex/gi) || media.genre_ids.includes(10749)) {
+            console.log('removed ---', media.name)
+            return false
+        }
+        return true;
+    })
+}
 export const getMediaLangTypeName = function (mediaType) {
     switch (mediaType) {
         case 'original_lang':

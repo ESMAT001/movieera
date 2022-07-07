@@ -25,13 +25,13 @@ function SubBox({ movie }) {
                 <div className="flex flex-col items-center space-y-3 text-gray-200  ">
                     <h1 className="text-white text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-movieNameFont">{title}</h1>
                     {originalTitle !== title && <h2 className="text-white text-xs font-movieNameFont">{originalTitle}</h2>}
-                    {/* <ul className="flex flex-row flex-wrap justify-center sm:justify-start space-x-2 text-sm text-opacity-90 ">
-                        {movie.genres.map((genre) => (
+                    <ul className="flex flex-row flex-wrap justify-center sm:justify-start space-x-2 text-sm text-opacity-90 ">
+                        {movie.generes.map((genre) => (
                             <li key={genre.id} className="">
                                 {genre.name}
                             </li>
                         ))}
-                    </ul> */}
+                    </ul>
                     <Rating rating={movie.vote_average} />
                     <div className="flex space-x-4 pt-6">
                         <a

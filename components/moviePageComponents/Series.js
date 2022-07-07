@@ -33,6 +33,8 @@ function Series({ movie }) {
     const [isMoviePlayerModalOpen, setMoviePlayerModalOpen] = useState(false)
     const [seriseSeasonNumber, setSeriseSeasonNumber] = useState(null)
     const [seriesEpisodeNumber, setSeriesEpisodeNumber] = useState(null)
+    const [serverType, setServerType] = useState(null)
+    const [isServerTypeModalOpen, setIsServerTypeModalOpen] = useState(false)
     // const [mediaSrc, setMediaSrc] = useState(null)
     // const [mediaSources, setMediaSources] = useState([])
     // const [MediaErrorHtml, setMediaErrorHtml] = useState(null)
@@ -45,10 +47,17 @@ function Series({ movie }) {
     const closeMoviePlayerModal = () => {
         setSeriesEpisodeNumber(null)
         setSeriseSeasonNumber(null)
+        setServerType(null)
         setMoviePlayerModalOpen(false)
     }
 
+    const openServerTypeModal = () => {
+        setIsServerTypeModalOpen(true)
+    }
 
+    const closeServerTypeModal = () => {
+        setIsServerTypeModalOpen(false)
+    }
 
 
 
@@ -63,11 +72,14 @@ function Series({ movie }) {
         //     }
         //     setMediaSources(data.results)
         // }
-        if (seriesEpisodeNumber !== null && seriseSeasonNumber !== null ) {
+        if (seriesEpisodeNumber !== null && seriseSeasonNumber !== null && serverType !== null) {
             openMoviePlayerModal()
             // fetchMediaLink()
         }
-    }, [seriesEpisodeNumber, seriseSeasonNumber])
+        if (seriesEpisodeNumber !== null && seriseSeasonNumber !== null && serverType === null) {
+            openServerTypeModal()
+        }
+    }, [seriesEpisodeNumber, seriseSeasonNumber, serverType])
 
     function handleEpisodePlay({ episode_number, season_number }) {
 
@@ -92,15 +104,32 @@ function Series({ movie }) {
                 <link rel="canonical" href={`${websiteUrl}series/${createMovieNameForUrl(movieId, title)}`} />
             </CustomHead>
 
+            {
+                isServerTypeModalOpen && <Modal close={closeServerTypeModal}>
+                    <div className='flex flex-col justify-center items-center space-y-3'>
+                        <h3 className='text-lg'>Select Servers Cluster : </h3>
+                        <button
+                            onClick={() => { setServerType(1); closeServerTypeModal() }}
+                            className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 py-2 px-3 text-sm leading-normal text-white">
+                            Cluster 1
+                        </button>
+                        <button
+                            onClick={() => { setServerType(2); closeServerTypeModal() }}
+                            className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600 flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-lg transform focus:translate-y-0.5 transition-all duration-300 py-2 px-3 text-sm leading-normal text-white">
+                            Cluster 2
+                        </button>
+                    </div>
+                </Modal>
+            }
 
 
             {
 
                 isMoviePlayerModalOpen && <Modal close={closeMoviePlayerModal} >
-                        {/* <Servers mediaSources={mediaSources} mediaSrc={mediaSrc} fn={handleServerChange} />
+                    {/* <Servers mediaSources={mediaSources} mediaSrc={mediaSrc} fn={handleServerChange} />
                         <iframe id="iframe" srcDoc={MediaErrorHtml} src={mediaSrc} width="100%" height="100%" frameBorder="0"></iframe> */}
-                        {/* <iframe id="ve-iframe" src={`https://2embed.org/embed/series?tmdb=${movieId}&sea=${seriseSeasonNumber}&epi=${seriesEpisodeNumber}`} width="100%" height="100%" allowFullScreen="allowfullscreen" frameBorder="0"></iframe> */}
-                        <iframe id="ve-iframe" src={`https://www.2embed.to/embed/tmdb/tv?id=${movieId}&s=${seriseSeasonNumber}&e=${seriesEpisodeNumber}`} width="100%" height="100%" allowFullScreen="allowfullscreen" frameBorder="0"></iframe>
+                    {serverType === 2 && <iframe id="ve-iframe" src={`https://2embed.org/embed/series?tmdb=${movieId}&sea=${seriseSeasonNumber}&epi=${seriesEpisodeNumber}`} width="100%" height="100%" allowFullScreen="allowfullscreen" frameBorder="0"></iframe>}
+                    {serverType === 1 && <iframe id="ve-iframe" src={`https://www.2embed.to/embed/tmdb/tv?id=${movieId}&s=${seriseSeasonNumber}&e=${seriesEpisodeNumber}`} width="100%" height="100%" allowFullScreen="allowfullscreen" frameBorder="0"></iframe>}
                 </Modal>
 
             }
@@ -121,18 +150,28 @@ function Series({ movie }) {
                         data-ad-client="ca-pub-9968927152480430"
                         data-ad-slot="8822179716" />
 
-                 
+
                     {/* cool ads */}
+                    <div id="seasons" className='flex flex-col space-y-2 my-4'>
+                        <p>
+                            <span className='text-nice-red'>Overview</span> : {movie.overview}
+                        </p>
 
-
-                    <div id="seasons" className='space-y-6'>
+                        <p>
+                            <span className='text-nice-red'>Original language</span> : {movie?.original_language}
+                        </p>
+                        <p>
+                            <span className='text-nice-red'>Vote Average</span> : {movie.vote_average}
+                        </p>
+                    </div>
+                    <div className='space-y-6'>
                         {
                             movie.seasons.length > 0 && movie.seasons.map(
                                 (season, index) => {
                                     if (index === parseInt(movie.seasons.length / 2)) {
                                         return <>
                                             <Ad
-                                                key="moviePageAd-1"
+                                                key="moviePageAd-1W@"
                                                 className="adsbygoogle"
                                                 style={{ display: "block", textAlign: "center" }}
                                                 data-ad-layout="in-article"

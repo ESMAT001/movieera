@@ -1,4 +1,4 @@
-import { callApi } from '../../../functions/functions'
+import { callApi ,filterAdultContent} from '../../../functions/functions'
 import Serieses from '../../../components/Serieses'
 
 
@@ -15,13 +15,13 @@ export async function getStaticProps(context) {
     const [data, error] = await callApi(`https://api.themoviedb.org/3/tv/popular?api_key=3d97e93f74df6d3dd759d238a7b8564c&language=en-US&page=` + pageNumber)
     const revalidate = parseInt(86400 * 2)
     if (data?.results?.length > 0) {
-        data.results = data.results.map(series => {
+        data.results = filterAdultContent(data.results).map(series => {
             return {
                 ...series,
                 title: series.original_name
             }
         })
-        data.total_pages = data.total_pages > 500 ? 500 : data.total_pages;
+        data.total_pages = 100;
     }
     return {
         props: { data, error },
@@ -37,7 +37,7 @@ export async function getStaticPaths() {
     }
 
     let paths = [];
-    for (let index = 1; index <= 20; index++) {
+    for (let index = 1; index <= 100; index++) {
         paths.push({
             params: { pageNumber: index.toString() }
         })
