@@ -1,5 +1,5 @@
 module.exports = {
-    websiteUrl: "https://movieera.vercel.app/",
+    websiteUrl: "https://movieera.net/",
     apiUrl: "https://api-movieera.herokuapp.com/v1",
     // apiUrl: "https://sky0walker.herokuapp.com/v1",
     createMovieNameForUrl: function (movieId, movieName) {

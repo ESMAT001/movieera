@@ -87,9 +87,14 @@ function CustomHead({ title, description, keywords, imgPath, children, url }) {
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9968927152480430"
                 crossOrigin="anonymous"
-                // type="text/partytown"
             ></script>
-            <script
+            {/* <script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9968927152480430"
+                crossOrigin="anonymous"
+                // type="text/partytown"
+            ></script> */}
+            {/* <script
                 type="text/partytown"
                 dangerouslySetInnerHTML={{
                     __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -98,7 +103,7 @@ function CustomHead({ title, description, keywords, imgPath, children, url }) {
                     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
                     })(window,document,'script','dataLayer','GTM-57CXKQV');`,
                 }}
-            />
+            /> */}
 
             {/* old */}
             {/* <script data-ad-client="ca-pub-8407721631737964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossOrigin="anonymous"></script> */}
