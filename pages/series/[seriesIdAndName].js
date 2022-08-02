@@ -1,4 +1,4 @@
-import { callApi, filterBlackListedMedia } from '../../functions/functions'
+import { callApi, isBlackListed } from '../../functions/functions'
 import { useRouter } from 'next/router'
 import Series from '../../components/moviePageComponents/Series'
 import Loading from '../../components/utils/Loading'
@@ -71,7 +71,7 @@ export async function getStaticPaths() {
 
     for (let index = 0; index < movies.length; index++) {
 
-        if (filterBlackListedMedia(movies[index].id)) continue;
+        if (isBlackListed(movies[index].id)) continue;
 
         paths.push({
             params: {
