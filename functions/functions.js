@@ -1,4 +1,4 @@
-
+import { bannedMedia } from "../utils";
 export const callApi = async function (url, options = {}) {
     try {
         let data = await fetch(url, options)
@@ -17,6 +17,20 @@ export const filterAdultContent = (mediaArray) => {
         return true;
     })
 }
+
+export const filterBlackListedMedia = (mediaArray) => {
+    return mediaArray.filter(media => {
+        if (bannedMedia.includes(media.id)) {
+            console.log('removed ---', media.id, media.name)
+            return false
+        }
+        return true;
+    })
+}
+export const isBlackListed=(id)=>{
+    return bannedMedia.includes(id);
+}
+
 export const getMediaLangTypeName = function (mediaType) {
     switch (mediaType) {
         case 'original_lang':

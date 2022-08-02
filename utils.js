@@ -109,5 +109,6 @@ module.exports = {
                 id: 37,
                 name: "Western"
             }];
-    }
+    },
+    bannedMedia:[1399,90521]
 }
