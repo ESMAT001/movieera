@@ -1,4 +1,4 @@
-import { callApi } from '../../functions/functions'
+import { callApi, filterBlackListedMedia } from '../../functions/functions'
 import { useRouter } from 'next/router'
 import Series from '../../components/moviePageComponents/Series'
 import Loading from '../../components/utils/Loading'
@@ -41,7 +41,7 @@ export async function getStaticProps(context) {
         }
         movie.seasons = seasons
     }
-    
+
     movie = {
         adult: movie.adult,
         backdrop_path: movie.backdrop_path,
@@ -70,6 +70,9 @@ export async function getStaticPaths() {
     let paths = []
 
     for (let index = 0; index < movies.length; index++) {
+
+        if (filterBlackListedMedia(movies[index].id)) continue;
+
         paths.push({
             params: {
                 seriesIdAndName: createMovieNameForUrl(movies[index].id, movies[index].name)
