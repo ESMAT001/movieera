@@ -90,7 +90,6 @@ export default function Home({ movies,series, error }) {
       {
         genres.map(genre => renderGenres(genre))
       }
-
     </>
 
   )
