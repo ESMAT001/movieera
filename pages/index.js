@@ -29,14 +29,14 @@ export default function Home({ movies,series, error }) {
   const scriptText = `{
               "@context": "http://schema.org",
             "@type": "WebSite",
-            "url": "https://movieera.vercel.app",
+            "url": "https://www.movieera.net",
             "potentialAction": [{
               "@type": "SearchAction",
-            "target": "https://movieera.vercel.app/search/{search_term_string}",
+            "target": "https://www.movieera.net/search/{search_term_string}",
             "query-input": "required name=search_term_string"
           },{
               "@type": "SearchAction",
-            "target": "https://movieera.vercel.app/search/{search_term_string}",
+            "target": "https://www.movieera.net/search/{search_term_string}",
             "query-input": "required name=search_term_string"
           }]
           }`;
@@ -47,7 +47,7 @@ export default function Home({ movies,series, error }) {
         <script type="application/ld+json">
           {scriptText}
         </script>
-        <link rel="canonical" href="https://movieera.vercel.app/" />
+        <link rel="canonical" href="https://www.movieera.net/" />
       </CustomHead>
       <CustomHeader movies={trending.slice(0, 6)} />
 

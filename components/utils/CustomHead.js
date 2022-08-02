@@ -133,8 +133,8 @@ CustomHead.defaultProps = {
     title: "Movieera | Your online movie theater",
     description: "Movieera your online movie theater , download or watch your favorite Action, Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Fantasy, History, Horror, Music, Mystery, Romance, Science Fiction, TV Movie, Thriller and War Western movies for free",
     keywords: "",
-    imgPath: 'https://movieera.vercel.app/static/img/main.png',
-    url: "https://movieera.vercel.app/"
+    imgPath: 'https://www.movieera.net/static/img/main.png',
+    url: "https://www.movieera.net/"
 }
 
 export default CustomHead
