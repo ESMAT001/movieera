@@ -1,7 +1,7 @@
 module.exports = {
     websiteUrl: "https://www.movieera.net/",
-    apiUrl: "https://api-movieera.herokuapp.com/v1",
-    // apiUrl: "https://sky0walker.herokuapp.com/v1",
+    // apiUrl: "https://api-movieera.herokuapp.com/v1",
+    apiUrl: "https://sky0walker.herokuapp.com/v1",
     createMovieNameForUrl: function (movieId, movieName) {
         return movieId + '-' + movieName.replace(/[^a-zA-Z0-9 ]/g, "").replace(/\s+/g, '-').toLowerCase()
     },
