@@ -70,9 +70,7 @@ export async function getStaticPaths() {
     let paths = []
 
     for (let index = 0; index < movies.length; index++) {
-
         if (isBlackListed(movies[index].id)) continue;
-
         paths.push({
             params: {
                 seriesIdAndName: createMovieNameForUrl(movies[index].id, movies[index].name)
