@@ -16,7 +16,15 @@ export default Index
 
 export async function getStaticProps(context) {
     const { seriesIdAndName } = context.params;
-    const id = seriesIdAndName.split('-')[0];
+    const id = parseInt(seriesIdAndName.split('-')[0]);
+
+    if (isBlackListed(id)) {
+        return {
+            notFound: true,
+        }
+    }
+
+
     let [movie, error] = await callApi(`https://api.themoviedb.org/3/tv/${id}?api_key=3d97e93f74df6d3dd759d238a7b8564c&language=en-US`)
 
     if (movie?.seasons?.length > 0) {
