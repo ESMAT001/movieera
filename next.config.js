@@ -23,10 +23,15 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
 })
 
-const nextConfig= {
+const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['api-movieera.herokuapp.com',"sky0walker.herokuapp.com"],
+    domains: ['api-movieera.herokuapp.com', "sky0walker.herokuapp.com"],
+  },
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
   },
 }
 

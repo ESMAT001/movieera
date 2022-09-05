@@ -1,5 +1,5 @@
 import React from 'react'
-import { imageUrl} from '../../utils'
+import { imageUrl } from '../../utils'
 import Rating from '../utils/Rating'
 import { IoIosPlay } from "react-icons/io";
 import Image from 'next/image'
@@ -13,13 +13,14 @@ function SubBox({ movie }) {
             <div className="w-full flex flex-col justify-center sm:flex-row items-center sm:space-x-10 space-y-6 sm:space-y-0">
                 <div className="w-4/6 sm:w-2/6 object-cover">
                     <Image
+                        unoptimized={true}
                         alt={title + " movie poster image"}
                         src={imageUrl(posterImage)}
                         width={500}
                         height={750}
                         // placeholder="blur"
                         layout="responsive"
-                        // blurDataURL={movie.placeholder}
+                    // blurDataURL={movie.placeholder}
                     />
                 </div>
                 <div className="flex flex-col items-center space-y-3 text-gray-200  ">
@@ -39,7 +40,7 @@ function SubBox({ movie }) {
                             className="font-semibold rounded antialiased bg-nice-red hover:bg-red-500 focus:bg-red-600  flex items-center justify-center gap-1 outline-none uppercase tracking-wider focus:outline-none focus:shadow-none transition-all duration-300 py-2.5 px-6 text-xs leading-normal text-white ">
                             <IoIosPlay className="text-md mr-1" />Watch
                         </a>
-                       
+
                     </div>
                 </div>
             </div>

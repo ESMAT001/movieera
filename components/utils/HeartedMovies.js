@@ -28,6 +28,7 @@ function HeartedMovies() {
                                     <p className="w-8/12 text-xs sm:text-sm">{movie.title}</p>
                                     <div className="w-3/12">
                                         <Image
+                                            unoptimized={true}
                                             src={placeholderImgUrl(movie.poster_path)}
                                             alt={movie.title + " movie small poster image"}
                                             width={250}

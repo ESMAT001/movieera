@@ -14,6 +14,7 @@ function SubBox({ movie, callback }) {
             <div className="w-full flex flex-col justify-center sm:flex-row items-center sm:space-x-10 space-y-6 sm:space-y-0">
                 <div className="w-4/6 sm:w-2/6 object-cover">
                     <Image
+                        unoptimized={true}
                         alt={title + " movie poster image"}
                         src={imageUrl(posterImage)}
                         width={500}

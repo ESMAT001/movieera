@@ -215,6 +215,7 @@ function CustomHeader({ movies }) {
                                             ref={subMoviesRefs[i]}
                                             className={`transform transition-all duration-300 hover:scale-105 h-4/6 w-4/6 flex justify-center items-center cursor-pointer`}>
                                             <Image
+                                                unoptimized={true}
                                                 alt={movie.title + "image"}
                                                 src={imageUrl(movie.poster_path)}
                                                 width={500}

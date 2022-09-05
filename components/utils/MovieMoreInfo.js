@@ -34,6 +34,7 @@ function MovieMoreInfo({
             </span>
             {
                 layout === 'responsive' && <Image
+                    unoptimized={true}
                     loading={loading}
                     alt={alt}
                     src={imageUrl(imagePath)}
@@ -47,6 +48,7 @@ function MovieMoreInfo({
 
             {
                 layout === 'fill' && <Image
+                    unoptimized={true}
                     alt={alt}
                     src={imageUrl(imagePath)}
                     width={500}
