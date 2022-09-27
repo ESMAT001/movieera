@@ -1,7 +1,7 @@
 module.exports = {
     websiteUrl: "https://www.movieera.net/",
-    // apiUrl: "https://api-movieera.herokuapp.com/v1",
-    apiUrl: "https://sky0walker.herokuapp.com/v1",
+    apiUrl: "https://api-movieera.herokuapp.com/v1",
+    // apiUrl: "https://sky0walker.herokuapp.com/v1",
     createMovieNameForUrl: function (movieId, movieName) {
         return movieId + '-' + movieName.replace(/[^a-zA-Z0-9 ]/g, "").replace(/\s+/g, '-').toLowerCase()
     },
@@ -9,7 +9,8 @@ module.exports = {
 
         if (/image[.]tmdb[.]org/.test(imgPath)) {
             // return 'https://api-movieera.herokuapp.com/v1/image/original/' + imgPath.split('/').slice(-1)[0]
-            return 'https://sky0walker.herokuapp.com/v1/image/original/' + imgPath.split('/').slice(-1)[0]
+            // return 'https://sky0walker.herokuapp.com/v1/image/original/' + imgPath.split('/').slice(-1)[0]
+            return 'https://image.tmdb.org/t/p/w500/' + imgPath.split('/').slice(-1)[0]
         }
 
         if (!imgPath) return "";
@@ -17,7 +18,8 @@ module.exports = {
         if (imgPath[0] !== "/") {
             imgPath = "/" + imgPath;
         }
-        return 'https://sky0walker.herokuapp.com/v1/image/original' + imgPath;
+        return 'https://image.tmdb.org/t/p/w500' + imgPath;
+        // return 'https://sky0walker.herokuapp.com/v1/image/original' + imgPath;
         // return 'https://api-movieera.herokuapp.com/v1/image/original' + imgPath
     },
     placeholderImgUrl: (imgPath) => {
@@ -26,7 +28,8 @@ module.exports = {
         if (imgPath[0] !== "/") {
             imgPath = "/" + imgPath;
         }
-        return 'https://sky0walker.herokuapp.com/v1/image/placeholder' + imgPath;
+        return 'https://api-movieera.herokuapp.com/v1/image/placeholder' + imgPath;
+        // return 'https://sky0walker.herokuapp.com/v1/image/placeholder' + imgPath;
     },
     trailerImgUrl: (id) => {
         return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
@@ -110,5 +113,5 @@ module.exports = {
                 name: "Western"
             }];
     },
-    bannedMedia:[1399,90521,63174]
+    bannedMedia: [1399, 90521, 63174]
 }
