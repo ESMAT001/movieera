@@ -18,6 +18,16 @@ export const filterAdultContent = (mediaArray) => {
     })
 }
 
+export const filterRomanceMedia = (mediaArray) => {
+    return mediaArray.filter(media => {
+        if (!media.genre_ids.includes(10749)) {
+            // console.log(media.id, 'removed')
+            return true
+        }
+        return false
+    })
+}
+
 export const filterBlackListedMedia = (mediaArray) => {
     return mediaArray.filter(media => {
         if (bannedMedia.includes(media.id)) {
@@ -27,7 +37,7 @@ export const filterBlackListedMedia = (mediaArray) => {
         return true;
     })
 }
-export const isBlackListed=(id)=>{
+export const isBlackListed = (id) => {
     return bannedMedia.includes(id);
 }
 

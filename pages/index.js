@@ -3,28 +3,29 @@ import Media from '../components/Media'
 import CustomHead from '../components/utils/CustomHead'
 import CustomHeader from '../components/mainPageComponents/CustomHeader'
 import Ad from '../components/Ad'
-import { apiUrl } from '../utils'
+import { apiUrl, genresList, bannedMedia } from '../utils'
 
 
-import { callApi,filterBlackListedMedia } from '../functions/functions'
+import { callApi, filterBlackListedMedia,filterRomanceMedia } from '../functions/functions'
 
 export default function Home({ movies, series, error }) {
-  const { trending, genres } = movies
+  // console.log(movies)
+  const { trending } = movies
   let index = 0
-  function renderGenres(genre) {
-    const genreName = Object.keys(genre)[0]
-    index++
-    return (
-      <Media
-        movies={genre[genreName]}
-        movieType={genreName}
-        seeAllBtn={true}
-        key={index + "sGenreIndex"}
-        moviesGenre={genreName}
-      />
-    )
+  // function renderGenres(genre) {
+  //   const genreName = Object.keys(genre)[0]
+  //   index++
+  //   return (
+  //     <Media
+  //       movies={genre[genreName]}
+  //       movieType={genreName}
+  //       seeAllBtn={true}
+  //       key={index + "sGenreIndex"}
+  //       moviesGenre={genreName}
+  //     />
+  //   )
 
-  }
+  // }
 
   const scriptText = `{
               "@context": "http://schema.org",
@@ -41,6 +42,7 @@ export default function Home({ movies, series, error }) {
           }]
           }`;
 
+  // return <p>dj</p>
   return (
     <>
       <CustomHead >
@@ -72,7 +74,6 @@ export default function Home({ movies, series, error }) {
         mediaType={'series'}
         topPadding={true}
       />
-      <Media movies={trending.slice(6)} error={error} />
       {/* cool ads */}
       <div className="hidden md:block mb-12 px-10 sm:px-14 md:px-20 lg:px-32 xl:px-48  2xl:px-72 w-full mx-auto text-gray-200">
         <Ad
@@ -86,10 +87,11 @@ export default function Home({ movies, series, error }) {
         />
       </div>
       {/*cool ad */}
+      <Media movies={trending} error={error} />
 
-      {
+      {/* {
         genres.map(genre => renderGenres(genre))
-      }
+      } */}
     </>
 
   )
@@ -97,12 +99,24 @@ export default function Home({ movies, series, error }) {
 
 export async function getStaticProps() {
 
-  const revalidate = parseInt(86400/2)
+  const revalidate = parseInt(86400 / 2)
 
-  const [movies, error] = await callApi(apiUrl + "/trending")
+
+  const [data, error] = await callApi("https://api.themoviedb.org/3/trending/movie/day?api_key=3d97e93f74df6d3dd759d238a7b8564c")
+  const [data2, error3] = await callApi("https://api.themoviedb.org/3/trending/movie/day?api_key=3d97e93f74df6d3dd759d238a7b8564c&page=2")
+  const [data3, error4] = await callApi("https://api.themoviedb.org/3/trending/movie/day?api_key=3d97e93f74df6d3dd759d238a7b8564c&page=3")
   let [series, error2] = await callApi("https://api.themoviedb.org/3/tv/popular?api_key=3d97e93f74df6d3dd759d238a7b8564c&language=en-US&page=1");
+
+  const movies = { trending: filterRomanceMedia(filterBlackListedMedia(data.results.concat(data2.results).concat(data3.results))) }
+
+  movies.trending.map(movie => {
+    const genres = movie.genre_ids.map(gen => { return genresList().find(g => g.id === gen) })
+    movie.genres = genres;
+  })
+
+
   if (series.results.length > 0) {
-    series = filterBlackListedMedia(series.results).map(ser => {
+    series = filterRomanceMedia(filterBlackListedMedia(series.results)).map(ser => {
       return {
         ...ser,
         title: ser.name,

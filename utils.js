@@ -28,7 +28,7 @@ module.exports = {
         if (imgPath[0] !== "/") {
             imgPath = "/" + imgPath;
         }
-        return 'https://api-movieera.herokuapp.com/v1/image/placeholder' + imgPath;
+        return 'https://image.tmdb.org/t/p/w500' + imgPath;
         // return 'https://sky0walker.herokuapp.com/v1/image/placeholder' + imgPath;
     },
     trailerImgUrl: (id) => {
@@ -113,5 +113,5 @@ module.exports = {
                 name: "Western"
             }];
     },
-    bannedMedia: [1399, 90521, 63174]
+    bannedMedia: [1399, 90521, 63174,622082]
 }

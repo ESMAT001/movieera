@@ -1,4 +1,4 @@
-import { callApi,filterAdultContent ,filterBlackListedMedia} from '../../functions/functions'
+import { callApi,filterAdultContent ,filterBlackListedMedia,filterRomanceMedia} from '../../functions/functions'
 import Serieses from '../../components/Serieses'
 
 
@@ -13,7 +13,7 @@ export default index
 export async function getStaticProps() {
     const [data, error] = await callApi(`https://api.themoviedb.org/3/tv/popular?api_key=3d97e93f74df6d3dd759d238a7b8564c&language=en-US&page=1`)
     if (data?.results?.length > 0) {
-        data.results = filterAdultContent(filterBlackListedMedia(data.results)).map(series => {
+        data.results = filterRomanceMedia(filterAdultContent(filterBlackListedMedia(data.results))).map(series => {
             return {
                 ...series,
                 title: series.name

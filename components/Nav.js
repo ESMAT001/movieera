@@ -65,7 +65,7 @@ function Nav() {
                 <ul className="flex flex-col space-y-2 items-center text-lg">
                     <li key="1allmovies"><Link href="/movies" ><a onClick={handleClick}>All Movies</a></Link></li>
                     <li key="1Serieses"><Link href="/serieses" ><a onClick={handleClick}>Series</a></Link></li>
-                    <GenreList key="1genreList" handleClick={handleClick} />
+                    {/* <GenreList key="1genreList" handleClick={handleClick} /> */}
                 </ul>
             </div>
         </nav >
