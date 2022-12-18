@@ -62,12 +62,12 @@ function MyApp({ Component, pageProps }) {
       <NextNProgress color="#ff003c" height={4} />
       <NavContext>
         <div className="bg-black-dark min-w-full h-full font-subMovieFont">
-          <div className="bg-black-light rounded shadow-xl overflow-hidden flex flex-col">
+          <div className="rounded shadow-xl overflow-hidden flex flex-col">
             <SavedMoviesContext.Provider value={{ savedMovies, setSavedMovies }}>
-              <Nav />
+              {/* <Nav /> */}
               <Component {...pageProps} />
             </SavedMoviesContext.Provider>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
       </NavContext>
